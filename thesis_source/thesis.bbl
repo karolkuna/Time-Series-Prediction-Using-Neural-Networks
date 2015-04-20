@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{universal-approx-theorem}
+George Cybenko.
+\newblock Approximation by superpositions of a sigmoidal function.
+\newblock {\em Mathematics of Control, Signals, and Systems (MCSS)},
+  2(4):303--314, 12 1989.
+
+\bibitem{rumelhart-hinton-williams}
+D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams.
+\newblock Neurocomputing: Foundations of research.
+\newblock chapter Learning Internal Representations by Error Propagation, pages
+  673--695. MIT Press, Cambridge, MA, USA, 1988.
+
+\bibitem{williams-zipser}
+Ronald~J. Williams and David Zipser.
+\newblock A learning algorithm for continually running fully recurrent neural
+  networks.
+\newblock {\em Neural Comput.}, 1(2):270--280, June 1989.
+
+\end{thebibliography}

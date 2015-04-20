@@ -1,0 +1,34 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}\bfseries Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}\bfseries Prediction}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}\slshape Time Series}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}\slshape Prediction}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}\slshape Prediction Horizon}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}\slshape Prediction Chain}{4}{section.2.4}
+\contentsline {chapter}{\numberline {3}\bfseries Artificial Neural Networks}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}\slshape Artificial Neuron}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}\slshape Feedforward Neural Networks}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\rmfamily Backpropagation}{6}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}\slshape Recurrent Neural Networks}{8}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}\rmfamily Elman's Simple Recurrent Network}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}\rmfamily Backpropagation Through Time}{10}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}\rmfamily Truncated Backpropagation Through Time}{11}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}\rmfamily Real-Time Recurrent Learning}{12}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}\slshape Clockwork Recurrent Network}{13}{section.3.4}
+\contentsline {chapter}{\numberline {4}\bfseries Implementation}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}\slshape Neural Prediction Framework}{15}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}\rmfamily Memory Block}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}\rmfamily Neural Layer}{15}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\rmfamily Neural Network}{15}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}\slshape Network Monitor}{15}{section.4.2}
+\contentsline {section}{\numberline {4.3}\slshape Robotic Simulator}{15}{section.4.3}
+\contentsline {chapter}{\numberline {5}\bfseries Experiments}{16}{chapter.5}
+\contentsline {section}{\numberline {5.1}\slshape Sine Wave}{16}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\rmfamily Role of Learning and Momentum Rate}{16}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}\rmfamily Impact of Network Size on Performance}{16}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}\slshape Network Usage}{16}{section.5.2}
+\contentsline {section}{\numberline {5.3}\slshape Robotic Manipulator}{16}{section.5.3}
+\contentsline {chapter}{\numberline {6}\bfseries Results}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}\slshape Trade-offs}{17}{section.6.1}
+\contentsline {chapter}{\numberline {7}\bfseries Conclusion}{18}{chapter.7}
+\contentsline {chapter}{\numberline {A}\bfseries Appendix}{19}{appendix.A}

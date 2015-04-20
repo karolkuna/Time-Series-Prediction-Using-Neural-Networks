@@ -1,0 +1,13 @@
+\select@language {english}
+\addvspace {4\p@ }
+\addvspace {4\p@ }
+\addvspace {4\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces On the left, MLP consisting of input layer with two units, two hidden layers with four and three units respectively, and output layer with two untis. Schematic diagram of the MLP's layers on the right.\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces On the left, Elman's recurrent network with input, hidden, context, and output layer, each containing two units. On the right, schema of layers in Elman network. Dotted link signifies copying activity of source's units to target units.\relax }}{9}{figure.caption.9}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Elman's recurrent network unfolded in time. \relax }}{11}{figure.caption.10}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Clockwork-RNN. \relax }}{13}{figure.caption.11}
+\addvspace {4\p@ }
+\addvspace {4\p@ }
+\addvspace {4\p@ }
+\addvspace {4\p@ }
+\addvspace {4\p@ }
