@@ -59,8 +59,10 @@ public:
 	RTRL(float learningRate, float momentumRate);
 	~RTRL();
 	
-	MemoryBlock rtrlDerivatives;
 	MemoryBlock rtrlPastDerivatives;
+	MemoryBlock rtrlDerivatives;
+	MemoryBlock rtrlFutureDerivatives;
+	MemoryBlock previousOutput;
 	
 	void Init(CWRecurrentNetwork* network) {
 		SimpleRecurrentNetwork* srn = (SimpleRecurrentNetwork*) network; //¯\_(ツ)_/¯

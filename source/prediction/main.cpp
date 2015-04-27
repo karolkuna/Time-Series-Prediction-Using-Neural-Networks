@@ -14,6 +14,9 @@
 #include "TBPTT.h"
 #include "RTRL.h"
 
+using std::cout;
+using std::endl;
+
 void activationFunctionTests() {
 	ActivationFunction dummy;
 	ActivationFunction* logistic = new LogisticFunction();
@@ -118,18 +121,18 @@ int main(int argc, const char * argv[]) {
 	LogisticFunction logistic;
 	
 	TBPTT tbptt(0.005, 0.999, 5);
-	RTRL rtrl(0.1, 0.9);
+	RTRL rtrl(1, 0.0);
 	
 	
 	//FeedforwardNetwork network(5, layers, 1, &logistic, 0.01, 0.99);
 	//BPTTRecurrentNetwork network(1, 64, 1, &logistic, 0.005, 0.999, 5);
 	//RTRLRecurrentNetwork network(1, 10, 1, &logistic, 0.1, 0.9);
 	//BPTTCWRecurrentNetwork network(1, 10, 1, 2, &logistic, 0.001, 0.9, 3);
-	SimpleRecurrentNetwork network(1, 64, 1, &logistic, &rtrl);
+	SimpleRecurrentNetwork network(1, 20, 1, &logistic, &rtrl);
 	
 	
 	MemoryBlock input(1);
-	input.data[0] = 0.3;
+	input.data[0] = 0;
 	
 	MemoryBlock target(1);
 	target.data[0] = 0.7;
@@ -153,7 +156,15 @@ int main(int argc, const char * argv[]) {
 		
 		network.PropagateForward(input);
 		network.PropagateBackward(target);
-		
+
+		/*
+		rtrl.rtrlPastDerivatives.Print();
+		rtrl.rtrlDerivatives.Print();
+		rtrl.rtrlFutureDerivatives.Print();
+		network.hiddenLayer->weightsDelta.Print();
+		network.outputLayer->weightsDelta.Print();
+		*/
+		 
 		/*
 		for (int i = 0; i < 3; i++) {
 			ffn.layers[i]->weights.Print();
@@ -167,9 +178,13 @@ int main(int argc, const char * argv[]) {
 		std::cout << "OUT: "; network.output.Print();
 		*/
 		
+		
 		std::cout << "IN: "; input.Print();
 		std::cout << "TAR: "; target.Print();
 		std::cout << "OUT: "; network.output.Print();
+		
+		
+		//cout << target.data[0] << ", " << network.output.data[0];
 		
 		//target.CopyTo(error);
 		//error.Subtract(network.output);

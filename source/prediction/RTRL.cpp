@@ -8,6 +8,8 @@
 
 #include "RTRL.h"
 
+#define CURRENT_TIMESTEP 0
+
 RTRL::RTRL(float learningRate, float momentumRate) {
 	this->learningRate = learningRate;
 	this->momentumRate = momentumRate;
@@ -29,11 +31,21 @@ void RTRL::Init(SimpleRecurrentNetwork* network) {
 	
 	rtrlDerivatives = MemoryBlock(m_totalUnits * network->weights);
 	rtrlPastDerivatives = MemoryBlock(rtrlDerivatives.size);
+	rtrlFutureDerivatives = MemoryBlock(rtrlDerivatives.size);
+
+	previousOutput = MemoryBlock(network->output.size);
+	network->output.CopyTo(previousOutput);
+	
 	rtrlDerivatives.Fill(0);
 	rtrlPastDerivatives.Fill(0);
+	rtrlFutureDerivatives.Fill(0);
 }
 
 void RTRL::Train(MemoryBlock& target) {
+	//shift weight derivatives in time
+	rtrlDerivatives.CopyTo(rtrlPastDerivatives);
+	rtrlFutureDerivatives.CopyTo(rtrlDerivatives);
+	
 	//loop through all hidden layer weights
 	for (int to = m_firstHiddenUnit; to <= m_lastHiddenUnit; to++) {
 		for (int from = 0; from <= m_lastHiddenUnit; from++) {
@@ -51,27 +63,25 @@ void RTRL::Train(MemoryBlock& target) {
 	network->error.Subtract(network->output);
 	
 	UpdateWeights();
+	
+	network->output.CopyTo(previousOutput);
 }
 
 void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 	
 	//loop through all output units
 	for (int to = m_firstOutputUnit; to <= m_lastOutputUnit; to++) {
-		float derivative = Weight(0, to) * WeightDerivative(weightFrom, weightTo, 0, 0);
+		float derivative = Weight(0, to) * WeightDerivative(weightFrom, weightTo, 0, CURRENT_TIMESTEP);
 		//loop through all their input connections
 		for (int from = m_firstHiddenUnit; from <= m_lastHiddenUnit; from++) {
-			derivative += Weight(from, to) * WeightDerivative(weightFrom, weightTo, from,  IsRecurrentWeight(from, to) ? 1 : 0);
+			derivative += Weight(from, to) * WeightDerivative(weightFrom, weightTo, from, CURRENT_TIMESTEP);
 		}
 		
-		float newWeightDerivative;
-		if (weightTo == to) {
-			newWeightDerivative = network->outputLayer->activationDerivative.data[to - m_firstOutputUnit] * (derivative + Activation(weightFrom, IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0 ));
-		} else {
-			newWeightDerivative = network->outputLayer->activationDerivative.data[to - m_firstOutputUnit] * derivative;
-		}
+		float newWeightDerivative =
+			network->outputLayer->activationDerivative.data[to - m_firstOutputUnit]
+			* (derivative + (weightTo == to) * Activation(weightFrom, CURRENT_TIMESTEP - (IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0)));
 		
-		SetWeightDerivative(weightFrom, weightTo, to, 1, WeightDerivative(weightFrom,weightTo,to,0));
-		SetWeightDerivative(weightFrom, weightTo, to, 0, newWeightDerivative);
+		SetWeightDerivative(weightFrom, weightTo, to, CURRENT_TIMESTEP + 1, newWeightDerivative);
 	}
 	
 	//loop through all hidden units
@@ -79,17 +89,14 @@ void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 		float derivative = 0;
 		//loop through all their input connections
 		for (int from = 0; from <= m_lastHiddenUnit; from++) {
-			derivative += Weight(from, to) * WeightDerivative(weightFrom, weightTo, from, IsRecurrentWeight(from, to) ? 1 : 0);
+			derivative += Weight(from, to) * WeightDerivative(weightFrom, weightTo, from, CURRENT_TIMESTEP - (IsRecurrentWeight(from, to) ? 1 : 0));
 		}
 		
-		float newWeightDerivative;
-		if (weightTo == to) {
-			newWeightDerivative = network->hiddenLayer->activationDerivative.data[to - m_firstHiddenUnit] * (derivative + Activation(weightFrom, IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0));
-		} else {
-			newWeightDerivative = network->hiddenLayer->activationDerivative.data[to - m_firstHiddenUnit] * derivative;
-		}
-		SetWeightDerivative(weightFrom, weightTo, to, 1, WeightDerivative(weightFrom,weightTo,to,0));
-		SetWeightDerivative(weightFrom, weightTo, to, 0, newWeightDerivative);
+		float newWeightDerivative =
+			network->hiddenLayer->activationDerivative.data[to - m_firstHiddenUnit]
+			* (derivative + (weightTo == to) * Activation(weightFrom, CURRENT_TIMESTEP - (IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0)));
+			
+		SetWeightDerivative(weightFrom, weightTo, to, CURRENT_TIMESTEP + 1, newWeightDerivative);
 	}
 	
 }
@@ -97,7 +104,7 @@ void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 void RTRL::UpdateWeight(int from, int to) {
 	float wDelta = 0;
 	for (int o = 0; o < network->output.size; o++) {
-		wDelta += network->error.data[o] * WeightDerivative(from, to, m_firstOutputUnit + o, 0);
+		wDelta += network->error.data[o] * WeightDerivative(from, to, m_firstOutputUnit + o, CURRENT_TIMESTEP + 1);
 	}
 	
 	wDelta += momentumRate * WeightDelta(from, to);
@@ -158,10 +165,12 @@ LayerPointer RTRL::GetUnitPointer(int unitId, int time) {
 	} else if (unitId <= m_lastInputUnit) {
 		return LayerPointer(network->inputLayer, unitId - 1);
 	} else if (unitId <= m_lastHiddenUnit) {
-		if (time == 0) {
+		if (time == CURRENT_TIMESTEP) {
 			return LayerPointer(network->hiddenLayer, unitId - m_firstHiddenUnit);
-		} else {
+		} else if (time == CURRENT_TIMESTEP - 1) {
 			return LayerPointer(network->contextLayer, unitId - m_firstHiddenUnit);
+		} else {
+			throw std::logic_error("Invalid time step!");
 		}
 	} else {
 		return LayerPointer(network->outputLayer, unitId - m_firstOutputUnit);
@@ -179,10 +188,14 @@ float RTRL::WeightDerivative(int from, int to, int unit, int time) {
 		throw std::logic_error("Invalid layer!");
 	}
 	
-	if (time == 0) {
-		return rtrlDerivatives.data[weightId * m_totalUnits + unit];
-	} else {
+	if (time == CURRENT_TIMESTEP - 1) {
 		return rtrlPastDerivatives.data[weightId * m_totalUnits + unit];
+	} else if (time == CURRENT_TIMESTEP) {
+		return rtrlDerivatives.data[weightId * m_totalUnits + unit];
+	} else if (time == CURRENT_TIMESTEP + 1) {
+		return rtrlFutureDerivatives.data[weightId * m_totalUnits + unit];
+	} else {
+		throw std::logic_error("Invalid time step!");
 	}
 }
 
@@ -196,11 +209,14 @@ void RTRL::SetWeightDerivative(int from, int to, int unit, int time, float value
 	} else {
 		throw std::logic_error("Invalid layer!");
 	}
-	
-	if (time == 0) {
-		rtrlDerivatives.data[weightId * m_totalUnits + unit] = value;
-	} else {
+	if (time == CURRENT_TIMESTEP - 1) {
 		rtrlPastDerivatives.data[weightId * m_totalUnits + unit] = value;
+	} else if (time == CURRENT_TIMESTEP) {
+		rtrlDerivatives.data[weightId * m_totalUnits + unit] = value;
+	} else if (time == CURRENT_TIMESTEP + 1) {
+		rtrlFutureDerivatives.data[weightId * m_totalUnits + unit] = value;
+	} else {
+		throw std::logic_error("Invalid time step!");
 	}
 }
 
@@ -227,6 +243,11 @@ void RTRL::SetWeightDelta(int from, int to, float value) {
 
 float RTRL::Activation(int unitId, int time) {
 	LayerPointer lp = GetUnitPointer(unitId, time);
+	
+	if (lp.layer == network->outputLayer && time == (CURRENT_TIMESTEP - 1)) {
+		return previousOutput.data[lp.offset];
+	}
+	
 	return lp.layer->activation.data[lp.offset];
 }
 

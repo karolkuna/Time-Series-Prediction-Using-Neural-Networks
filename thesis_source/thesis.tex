@@ -53,17 +53,21 @@
   
   \MainMatter
     \chapter{Introduction} %what is prediction and anomaly detection, why   
-Each year more and more data is collected from high velocity data streams. Machine learning algorithms are used to analyse and create models of the data. Patterns found in the data structure are then exploited to make predictions about the future which can be used to guide decision making. Data points that do not conform to the learned model of normal behaviour are called anomalies. Detecting anomalies is found to be increasingly important in computer network security. An anomaly may signal unexpected events, such as computer being under denial of service attack or unforeseen load.
-\par %describe the value of online prediction
-Since value of stored data decreases over time, effort is put into gaining insight from data as they come. Many applications don't require storing data at all, or storing it would be impractical, therefore it is advatageous to create models and update them with every data point. Continuous online learning is well suited for such tasks and can adapt to changing environments without human intervention.
+Each year more and more data is collected from high velocity data streams. Machine learning algorithms are used to analyse and create models of the data. Patterns found in the data structure are then exploited to make predictions about the future which can be used to guide decision making. In this thesis, I compare various artifical neural network (ANN) architectures and learning algorithms for online prediction of time series.
+
+\par %neural networks, modelling data?
+One of the most popular machine learning algorithms are ANNs which are capable of approximating unknown functions and thus are good candidates for use in prediction. Inspired by biological neural networks, ANNs consist of artificial neurons wired together to form a network.
+\par %which networks are compared
+Common architectures, such as feedforward networks (FFN) and simple recurrent networks (SRN) trained by backpropagation through time (BPTT) and Real-Time Recurrent Learning (RTRL), as well as latest Clockwork-RNN are evaluated in this thesis. Algorithms are compared in terms of prediction accuracy as well as computational time and the trade-off between them.
 \par %what are time series
 Time series are sequences of data points in time, usually created by measuring output of some process in discrete time intervals. The goal of prediction is to successfully estimate output of the process in next time step or several steps. It is assumed that the process is at least partially observable and to some extent, future values can be determined by observing past values. Prediction then reduces to problem of process approximation.
-\par %neural networks
-One of the most popular machine learning algorithms are artificial neural networks (ANNs), which are capable of approximating unknown functions and thus are good candidates for use in prediction. Inspired by biological neural networks, ANNs consist of artificial neurons wired together to form a network.
-\par %what is the thesis comparing, TODO: add citations
-In this thesis, I compare various ANN architectures and learning algorithms for online prediction of time series. Common architectures, such as feedforward networks (FFN) and simple recurrent networks (SRN) trained by backpropagation through time (BPTT) and Real-Time Recurrent Learning (RTRL), as well as latest Clockwork-RNN are evaluated. Algorithms are compared in terms of prediction accuracy as well as computational time and the trade-off between them.
+\par %describe the value of online prediction
+Since value of stored data decreases over time, effort is put into gaining insight from data as they come. Many applications don't require storing data at all, or storing it would be impractical, therefore it is advantageous to create models and update them with every data point. Continuous online learning is well suited for such tasks and can adapt to changing environments without human intervention.
 \par %applications described in this thesis, TODO: add citations. scenarios or applications?
 Quality and speed of prediction is tested in two application scenarios. The first is robotic simulator implemented in 3D physics library BEPUphysics. Manipulator with five actuated joints is created, the goal is to predict future state of the robot's body. The prediction network should act as a virtual model of the body, which is useful in control systems, e.g. internal model control.
+
+%Data points that do not conform to the learned model of normal behaviour are called anomalies. Detecting anomalies is found to be increasingly important in computer network security. An anomaly may signal unexpected events, such as computer being under denial of service attack or unforeseen load.
+
 \par %anomaly detection in network
 The second scenario is monitoring utilisation of computer resources, namely processor, memory, disk, and network usage. Network should constantly predict future values of these variables and detect anomalies. Should an unexpected event occur, it needs to be logged for an administrator to examine.
 \par
@@ -221,7 +225,7 @@ Let's assume the recurrent network's total number of $U$ units is divided into $
 We wish to minimise error $E$ in time step $t$ %what about global error?
 $$E(t) = {1 \over 2}\left(a_i(t) - target_i(t)\right)^2$$
 where $i$ enumerates indices of output units and $target$ holds teacher given desired activations of output units. We do this by adjusting weights along the negative gradient of error
-$$-{{\partial E(t)} \over {w_{ij}}} = \sum\limits_{k=U_{in}+U_{hid}+1}^U \left( target_i(t) - a_i(t) \right) {{\partial a_i(t)} \over {\partial w_{ij}}}$$
+$$-{{\partial E(t)} \over {\partial w_{ij}}} = \sum\limits_{k=U_{in}+U_{hid}+1}^U \left( target_i(t) - a_i(t) \right) {{\partial a_i(t)} \over {\partial w_{ij}}}$$
 ${\partial a_i(t)} / {\partial w_{ij}}$ can be computed by differentiating the network dynamics equation, resulting in the derivative $v^k_{ij}$ of hidden or output unit $k$ w.r.t. weight $w_{ij}$
 $$ v^k_{ij}(t+1) = {{\partial a_k(t+1)} \over {\partial w_{ij}}} = act'(p_k(t)) \left[ \left(\sum\limits_{j=U_{in+1}}^{U}  w_{kj} {{\partial a_j(t)} \over {\partial w_{ij}}}\right) + \delta_{ki} act_j(t) \right] $$
 where $\delta_{ki}$ is Kronecker's delta
