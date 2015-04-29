@@ -13,9 +13,6 @@ void MemoryBlock::Validate() {
 		if (data[i] == NAN || data[i] == INFINITY || data[i] == -INFINITY) {
 			throw std::logic_error("Invalid value");
 		}
-		if (data[i] > 10000 || data[i] < -10000) {
-			throw std::logic_error("Invalid value");
-		}
 	}
 }
 

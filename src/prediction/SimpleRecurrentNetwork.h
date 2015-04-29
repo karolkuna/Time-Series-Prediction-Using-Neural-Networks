@@ -18,15 +18,8 @@
 
 class SimpleRecurrentNetwork : public CWRecurrentNetwork {
 public:
-	int units;
-	int hiddenWeights;
-	int outputWeights;
-	int weights;
-	
 	NeuralLayer* contextLayer;
 	NeuralLayer* hiddenLayer;
-	
-	MemoryBlock error;
 	
 	SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, int outputUnits, ActivationFunction* activationFunction);
 };

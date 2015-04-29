@@ -14,7 +14,6 @@ Backpropagation::Backpropagation(FeedforwardNetwork* network) {
 	}
 	
 	m_network = network;
-	error = 0;
 }
 
 void Backpropagation::Train(MemoryBlock& target) {

@@ -23,7 +23,7 @@ public:
 	
 	MemoryBlock& operator= (const MemoryBlock& source);
 	
-	~MemoryBlock();
+	virtual ~MemoryBlock();
 	
 	void Fill(float value);
 	void GenerateNormal(float mean, float stdev);

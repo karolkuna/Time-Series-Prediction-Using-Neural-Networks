@@ -13,11 +13,4 @@ SimpleRecurrentNetwork::SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, 
 
 	hiddenLayer = hiddenLayerModules[0];
 	contextLayer = contextLayerModules[0];
-	
-	units = 1 + inputUnits + 2 * hiddenUnits + outputUnits;
-	hiddenWeights = hiddenLayer->weights.size;
-	outputWeights = outputLayer->weights.size;
-	weights = hiddenWeights + outputWeights;
-	
-	error = MemoryBlock(outputUnits);
 }

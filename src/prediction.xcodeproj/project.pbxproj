@@ -15,6 +15,7 @@
 		80AE36A31AE518CB00DAB440 /* TBPTT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80AE36A11AE518CB00DAB440 /* TBPTT.cpp */; };
 		80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80AE36A41AE556BC00DAB440 /* RTRL.cpp */; };
 		80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */; };
+		80B5EE981AF165FC009E9F0A /* MemoryBlockView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */; };
 		80CAD99E1A9A938100F45A1F /* NeuralLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		80AE36A51AE556BC00DAB440 /* RTRL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRL.h; sourceTree = "<group>"; };
 		80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Backpropagation.cpp; sourceTree = "<group>"; };
 		80B5EE8B1AF123F2009E9F0A /* Backpropagation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backpropagation.h; sourceTree = "<group>"; };
+		80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBlockView.cpp; sourceTree = "<group>"; };
+		80B5EE971AF165FC009E9F0A /* MemoryBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBlockView.h; sourceTree = "<group>"; };
 		80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralLayer.cpp; sourceTree = "<group>"; };
 		80CAD99D1A9A938100F45A1F /* NeuralLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +145,7 @@
 			children = (
 				80B5EE921AF13457009E9F0A /* Headers */,
 				804BC6711A88A9A500E3988E /* MemoryBlock.cpp */,
+				80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */,
 				80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */,
 			);
 			name = Utils;
@@ -152,6 +156,7 @@
 			children = (
 				804BC67B1A88D2F600E3988E /* ActivationFunctions.h */,
 				804BC6721A88A9A500E3988E /* MemoryBlock.h */,
+				80B5EE971AF165FC009E9F0A /* MemoryBlockView.h */,
 				80CAD99D1A9A938100F45A1F /* NeuralLayer.h */,
 			);
 			name = Headers;
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */,
+				80B5EE981AF165FC009E9F0A /* MemoryBlockView.cpp in Sources */,
 				80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */,
 				804BC6681A88A79400E3988E /* main.cpp in Sources */,
 				804BC6731A88A9A500E3988E /* MemoryBlock.cpp in Sources */,

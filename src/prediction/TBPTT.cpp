@@ -17,6 +17,8 @@ TBPTT::TBPTT(CWRecurrentNetwork* network, float learningRate, float momentumRate
 	m_learningRate = learningRate;
 	m_momentumRate = momentumRate;
 	m_depth = depth;
+	
+	CreateUnfoldedNetwork();
 }
 
 TBPTT::~TBPTT() {
@@ -148,4 +150,6 @@ void TBPTT::Train(MemoryBlock& target) {
 	
 	//change weights in the unfolded network to the new ones
 	UpdateUnfoldedWeights();
+	
+	error = m_unfoldedOutputLayers.back()->delta.SquareSum();
 }

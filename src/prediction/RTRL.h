@@ -30,6 +30,10 @@ private:
 	SimpleRecurrentNetwork* m_network;
 	float m_learningRate, m_momentumRate;
 	
+	int m_hiddenWeights;
+	int m_outputWeights;
+	int m_weights;
+	
 	int m_firstHiddenUnit, m_firstOutputUnit;
 	int m_lastInputUnit, m_lastHiddenUnit, m_lastOutputUnit;
 	int m_totalUnits;
@@ -60,6 +64,7 @@ public:
 	RTRL(SimpleRecurrentNetwork* network, float learningRate, float momentumRate);
 	~RTRL();
 	
+	MemoryBlock delta;
 	MemoryBlock rtrlPastDerivatives;
 	MemoryBlock rtrlDerivatives;
 	MemoryBlock rtrlFutureDerivatives;

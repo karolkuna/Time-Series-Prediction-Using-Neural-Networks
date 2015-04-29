@@ -13,6 +13,7 @@
 #include "SimpleRecurrentNetwork.h"
 #include "TBPTT.h"
 #include "RTRL.h"
+#include "MemoryBlockView.h"
 
 using std::cout;
 using std::endl;
@@ -39,6 +40,7 @@ void memoryBlockTests() {
 void runAllTests() {
 	activationFunctionTests();
 	memoryBlockTests();
+	std::cout << "All tests passed\n";
 }
 
 /*
@@ -107,27 +109,17 @@ class FeedforwardPrediction {
 };
 */
  
-int main(int argc, const char * argv[]) {
-	runAllTests();
-	
-	
-	std::cout << "All tests passed\n";
-	
-	
+int main(int argc, const char * argv[]) {	
 	std::vector<int> layers;
 	layers.push_back(128);
-
 	
 	LogisticFunction logistic;
 	
 	//FeedforwardNetwork network(5, layers, 1, &logistic, 0.01, 0.99);
-	//BPTTRecurrentNetwork network(1, 64, 1, &logistic, 0.005, 0.999, 5);
-	//RTRLRecurrentNetwork network(1, 10, 1, &logistic, 0.1, 0.9);
-	//BPTTCWRecurrentNetwork network(1, 10, 1, 2, &logistic, 0.001, 0.9, 3);
 	SimpleRecurrentNetwork network(1, 20, 1, &logistic);
 	
-	TBPTT tbptt(&network, 0.005, 0.999, 5);
-	//RTRL rtrl(1, 0.0);
+	LearningAlgorithm* learning = new TBPTT(&network, 0.005, 0.999, 5);
+	//LearningAlgorithm* learning = new RTRL(&network, 1, 0.0);
 	
 	
 	MemoryBlock input(1);
@@ -136,65 +128,18 @@ int main(int argc, const char * argv[]) {
 	MemoryBlock target(1);
 	target.data[0] = 0.7;
 	
-	MemoryBlock error(1);
-	
 	for (int step = 0; step < 10000; step++) {
-		
-		//for (int i = 0; i < 5; i++) {
-		//	input.data[i] = 0.5 + 0.3*sinf((step+i) * 0.3);
-		//}
 		input.data[0] = 0.5 + 0.3*sinf(step * 0.3);
 		target.data[0] = 0.5 + 0.3*sinf((step+5) * 0.3);
 		
-		//target.data[0] = 1 - input.data[0];
-		
-		//input.data[0] = 0.3 + 0.2 * (step % 3);
-		//target.data[0] = 0.7 - 0.2 * (step % 3);
-		
-		//target.data[0] = input.data[0];
-		
 		network.Propagate(input);
-
-		/*
-		rtrl.rtrlPastDerivatives.Print();
-		rtrl.rtrlDerivatives.Print();
-		rtrl.rtrlFutureDerivatives.Print();
-		network.hiddenLayer->weightsDelta.Print();
-		network.outputLayer->weightsDelta.Print();
-		*/
-		 
-		/*
-		for (int i = 0; i < 3; i++) {
-			ffn.layers[i]->weights.Print();
-		}
-		 */
-		
-		/*
-		std::cout << "IN: "; input.Print();
-		std::cout << "TAR: "; target.Print();
-		std::cout << "HID: "; network.hiddenLayer->activation.Print();
-		std::cout << "OUT: "; network.output.Print();
-		*/
-		
+		learning->Train(target);		
 		
 		std::cout << "IN: "; input.Print();
 		std::cout << "TAR: "; target.Print();
 		std::cout << "OUT: "; network.output.Print();
-		
-		
-		//cout << target.data[0] << ", " << network.output.data[0];
-		
-		//target.CopyTo(error);
-		//error.Subtract(network.output);
-		//std::cout << sqrtf(error.SquareSum()) << std::endl;
-		
-		//network.rtrlDerivatives.Print();
-		//network.layers.back()->weights.Print();
-		//network.outputLayer->weights.Print();
-		//network.hiddenLayerModules[0]->weightsDelta.Print();
 		std::cout << std::endl;
 	}
 	
-	 
     return 0;
 }
