@@ -27,6 +27,9 @@ struct LayerPointer {
 
 class RTRL : public LearningAlgorithm {
 private:
+	SimpleRecurrentNetwork* m_network;
+	float m_learningRate, m_momentumRate;
+	
 	int m_firstHiddenUnit, m_firstOutputUnit;
 	int m_lastInputUnit, m_lastHiddenUnit, m_lastOutputUnit;
 	int m_totalUnits;
@@ -53,10 +56,8 @@ private:
 	bool IsRecurrentWeight(int from, int to);
 	
 public:
-	SimpleRecurrentNetwork* network;
-	float learningRate, momentumRate;
 	
-	RTRL(float learningRate, float momentumRate);
+	RTRL(SimpleRecurrentNetwork* network, float learningRate, float momentumRate);
 	~RTRL();
 	
 	MemoryBlock rtrlPastDerivatives;
@@ -64,11 +65,6 @@ public:
 	MemoryBlock rtrlFutureDerivatives;
 	MemoryBlock previousOutput;
 	
-	void Init(CWRecurrentNetwork* network) {
-		SimpleRecurrentNetwork* srn = (SimpleRecurrentNetwork*) network; //¯\_(ツ)_/¯
-		Init(srn);
-	}
-	void Init(SimpleRecurrentNetwork* network);
 	void Train(MemoryBlock& target);
 };
 

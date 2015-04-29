@@ -10,13 +10,9 @@
 #define prediction_LearningAlgorithm_h
 
 #include "MemoryBlock.h"
-#include "CWRecurrentNetwork.h"
-
-class CWRecurrentNetwork;
 
 class LearningAlgorithm {
 public:
-	virtual void Init(CWRecurrentNetwork* network) = 0;
 	virtual void Train(MemoryBlock& target) = 0;
 };
 

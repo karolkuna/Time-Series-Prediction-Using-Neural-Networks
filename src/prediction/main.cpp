@@ -18,12 +18,10 @@ using std::cout;
 using std::endl;
 
 void activationFunctionTests() {
-	ActivationFunction dummy;
 	ActivationFunction* logistic = new LogisticFunction();
 	LogisticFunction logistic2;
 	ActivationFunction& logistic3 = *logistic;
 	
-	assert(dummy(1) == 0);
 	assert((*logistic)(0.5) != 0);
 	assert((*logistic)(0.5) == logistic2(0.5));
 	assert((*logistic)(0.5) == logistic3(0.5));
@@ -43,6 +41,7 @@ void runAllTests() {
 	memoryBlockTests();
 }
 
+/*
 class FeedforwardPrediction {
 	FeedforwardNetwork* network;
 
@@ -97,16 +96,17 @@ class FeedforwardPrediction {
 		output.CopyTo(slidingWindow, 0, inputSize, outputSize);
 		
 		slidingWindow.CopyTo(inputToNetwork, 0, 0, inputToNetwork.size);
-		network->PropagateForward(inputToNetwork);
+		network->Propagate(inputToNetwork);
 		network->output.CopyTo(prediction);
 		
 		slidingWindow.CopyTo(inputToNetwork, horizon * (inputSize + outputSize), 0, inputToNetwork.size);
-		network->PropagateForward(inputToNetwork);
+		network->Propagate(inputToNetwork);
 		network->PropagateBackward(output);
 	}
 	
 };
-
+*/
+ 
 int main(int argc, const char * argv[]) {
 	runAllTests();
 	
@@ -120,15 +120,14 @@ int main(int argc, const char * argv[]) {
 	
 	LogisticFunction logistic;
 	
-	TBPTT tbptt(0.005, 0.999, 5);
-	RTRL rtrl(1, 0.0);
-	
-	
 	//FeedforwardNetwork network(5, layers, 1, &logistic, 0.01, 0.99);
 	//BPTTRecurrentNetwork network(1, 64, 1, &logistic, 0.005, 0.999, 5);
 	//RTRLRecurrentNetwork network(1, 10, 1, &logistic, 0.1, 0.9);
 	//BPTTCWRecurrentNetwork network(1, 10, 1, 2, &logistic, 0.001, 0.9, 3);
-	SimpleRecurrentNetwork network(1, 20, 1, &logistic, &rtrl);
+	SimpleRecurrentNetwork network(1, 20, 1, &logistic);
+	
+	TBPTT tbptt(&network, 0.005, 0.999, 5);
+	//RTRL rtrl(1, 0.0);
 	
 	
 	MemoryBlock input(1);
@@ -154,8 +153,7 @@ int main(int argc, const char * argv[]) {
 		
 		//target.data[0] = input.data[0];
 		
-		network.PropagateForward(input);
-		network.PropagateBackward(target);
+		network.Propagate(input);
 
 		/*
 		rtrl.rtrlPastDerivatives.Print();

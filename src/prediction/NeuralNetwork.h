@@ -15,7 +15,7 @@
 class NeuralNetwork {
 public:
 	MemoryBlock output;
-	float totalError;	
+	virtual void Propagate(MemoryBlock& input) = 0;
 };
 
 #endif /* defined(__prediction__NeuralNetwork__) */

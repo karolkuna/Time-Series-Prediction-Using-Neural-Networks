@@ -8,7 +8,7 @@
 
 #include "CWRecurrentNetwork.h"
 
-CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm) {
+CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction) {
 	this->step = -1;
 	
 	this->inputUnits = inputUnits;
@@ -17,7 +17,6 @@ CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, in
 	this->modules = (int) modulesClockRate.size();
 	
 	this->activationFunction = activationFunction;
-	this->learningAlgorithm = learningAlgorithm;
 	
 	inputLayer = new NeuralLayer(inputUnits, activationFunction, 0, 0);
 	outputLayer = new NeuralLayer(outputUnits, activationFunction, 0, 0);
@@ -42,10 +41,6 @@ CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, in
 	}
 	
 	output = MemoryBlock(outputUnits);
-	
-	if (learningAlgorithm != NULL) {
-		this->learningAlgorithm->Init(this);
-	}
 }
 
 CWRecurrentNetwork::~CWRecurrentNetwork() {
@@ -59,7 +54,7 @@ CWRecurrentNetwork::~CWRecurrentNetwork() {
 	}
 }
 
-void CWRecurrentNetwork::PropagateForward(MemoryBlock& input) {
+void CWRecurrentNetwork::Propagate(MemoryBlock& input) {
 	//step counter determining which modules to execute
 	step += 1;
 	
@@ -79,10 +74,4 @@ void CWRecurrentNetwork::PropagateForward(MemoryBlock& input) {
 	outputLayer->PropagateForward();
 	
 	outputLayer->GetActivation(output);
-}
-
-void CWRecurrentNetwork::PropagateBackward(MemoryBlock& target) {
-	if (learningAlgorithm != NULL) {
-		learningAlgorithm->Train(target);
-	}
 }

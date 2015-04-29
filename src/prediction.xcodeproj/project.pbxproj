@@ -14,6 +14,7 @@
 		804BC6761A88B82500E3988E /* FeedforwardNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 804BC6741A88B82500E3988E /* FeedforwardNetwork.cpp */; };
 		80AE36A31AE518CB00DAB440 /* TBPTT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80AE36A11AE518CB00DAB440 /* TBPTT.cpp */; };
 		80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80AE36A41AE556BC00DAB440 /* RTRL.cpp */; };
+		80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */; };
 		80CAD99E1A9A938100F45A1F /* NeuralLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,12 +42,14 @@
 		804BC6721A88A9A500E3988E /* MemoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBlock.h; sourceTree = "<group>"; };
 		804BC6741A88B82500E3988E /* FeedforwardNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeedforwardNetwork.cpp; sourceTree = "<group>"; };
 		804BC6751A88B82500E3988E /* FeedforwardNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedforwardNetwork.h; sourceTree = "<group>"; };
-		804BC67B1A88D2F600E3988E /* ActivationFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationFunction.h; sourceTree = "<group>"; };
+		804BC67B1A88D2F600E3988E /* ActivationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationFunctions.h; sourceTree = "<group>"; };
 		80AE36A01AE516EC00DAB440 /* LearningAlgorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearningAlgorithm.h; sourceTree = "<group>"; };
 		80AE36A11AE518CB00DAB440 /* TBPTT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBPTT.cpp; sourceTree = "<group>"; };
 		80AE36A21AE518CB00DAB440 /* TBPTT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPTT.h; sourceTree = "<group>"; };
 		80AE36A41AE556BC00DAB440 /* RTRL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTRL.cpp; sourceTree = "<group>"; };
 		80AE36A51AE556BC00DAB440 /* RTRL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRL.h; sourceTree = "<group>"; };
+		80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Backpropagation.cpp; sourceTree = "<group>"; };
+		80B5EE8B1AF123F2009E9F0A /* Backpropagation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backpropagation.h; sourceTree = "<group>"; };
 		80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralLayer.cpp; sourceTree = "<group>"; };
 		80CAD99D1A9A938100F45A1F /* NeuralLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +68,7 @@
 		804BC65B1A88A79400E3988E = {
 			isa = PBXGroup;
 			children = (
-				804BC6661A88A79400E3988E /* prediction */,
+				804BC6661A88A79400E3988E /* Prediction */,
 				804BC6651A88A79400E3988E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,29 +81,80 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		804BC6661A88A79400E3988E /* prediction */ = {
+		804BC6661A88A79400E3988E /* Prediction */ = {
 			isa = PBXGroup;
 			children = (
+				80B5EE8F1AF133C4009E9F0A /* Learning */,
+				80B5EE8D1AF132C0009E9F0A /* Networks */,
+				80B5EE911AF13435009E9F0A /* Utils */,
 				804BC6671A88A79400E3988E /* main.cpp */,
-				804BC67B1A88D2F600E3988E /* ActivationFunction.h */,
-				804BC6721A88A9A500E3988E /* MemoryBlock.h */,
-				80CAD99D1A9A938100F45A1F /* NeuralLayer.h */,
+			);
+			name = Prediction;
+			path = prediction;
+			sourceTree = "<group>";
+		};
+		80B5EE8D1AF132C0009E9F0A /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				80B5EE8E1AF1337A009E9F0A /* Headers */,
+				804BC6741A88B82500E3988E /* FeedforwardNetwork.cpp */,
+				800B79E41AC721C000405BB2 /* SimpleRecurrentNetwork.cpp */,
+				800B79E71AC9356A00405BB2 /* CWRecurrentNetwork.cpp */,
+			);
+			name = Networks;
+			sourceTree = "<group>";
+		};
+		80B5EE8E1AF1337A009E9F0A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
 				804BC66F1A88A82D00E3988E /* NeuralNetwork.h */,
 				804BC6751A88B82500E3988E /* FeedforwardNetwork.h */,
 				800B79E51AC721C000405BB2 /* SimpleRecurrentNetwork.h */,
 				800B79E81AC9356A00405BB2 /* CWRecurrentNetwork.h */,
-				804BC6711A88A9A500E3988E /* MemoryBlock.cpp */,
-				80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */,
-				804BC6741A88B82500E3988E /* FeedforwardNetwork.cpp */,
-				800B79E41AC721C000405BB2 /* SimpleRecurrentNetwork.cpp */,
-				800B79E71AC9356A00405BB2 /* CWRecurrentNetwork.cpp */,
-				80AE36A01AE516EC00DAB440 /* LearningAlgorithm.h */,
-				80AE36A21AE518CB00DAB440 /* TBPTT.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		80B5EE8F1AF133C4009E9F0A /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				80B5EE901AF133E4009E9F0A /* Headers */,
+				80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */,
 				80AE36A11AE518CB00DAB440 /* TBPTT.cpp */,
-				80AE36A51AE556BC00DAB440 /* RTRL.h */,
 				80AE36A41AE556BC00DAB440 /* RTRL.cpp */,
 			);
-			path = prediction;
+			name = Learning;
+			sourceTree = "<group>";
+		};
+		80B5EE901AF133E4009E9F0A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				80AE36A01AE516EC00DAB440 /* LearningAlgorithm.h */,
+				80B5EE8B1AF123F2009E9F0A /* Backpropagation.h */,
+				80AE36A21AE518CB00DAB440 /* TBPTT.h */,
+				80AE36A51AE556BC00DAB440 /* RTRL.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		80B5EE911AF13435009E9F0A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				80B5EE921AF13457009E9F0A /* Headers */,
+				804BC6711A88A9A500E3988E /* MemoryBlock.cpp */,
+				80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		80B5EE921AF13457009E9F0A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				804BC67B1A88D2F600E3988E /* ActivationFunctions.h */,
+				804BC6721A88A9A500E3988E /* MemoryBlock.h */,
+				80CAD99D1A9A938100F45A1F /* NeuralLayer.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */,
+				80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */,
 				804BC6681A88A79400E3988E /* main.cpp in Sources */,
 				804BC6731A88A9A500E3988E /* MemoryBlock.cpp in Sources */,
 				804BC6761A88B82500E3988E /* FeedforwardNetwork.cpp in Sources */,

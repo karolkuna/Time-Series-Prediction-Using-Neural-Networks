@@ -10,15 +10,12 @@
 #define __prediction__CWRecurrentNetwork__
 
 #include <vector>
-#include "ActivationFunction.h"
+#include "ActivationFunctions.h"
 #include "MemoryBlock.h"
 #include "NeuralLayer.h"
 #include "NeuralNetwork.h"
-#include "LearningAlgorithm.h"
 
 using std::vector;
-
-class LearningAlgorithm;
 
 class CWRecurrentNetwork : public NeuralNetwork {
 public:
@@ -29,7 +26,6 @@ public:
 	int hiddenUnits;
 	int modules;
 	ActivationFunction* activationFunction;
-	LearningAlgorithm* learningAlgorithm;
 	
 	NeuralLayer* inputLayer;
 	NeuralLayer* outputLayer;
@@ -39,11 +35,10 @@ public:
 	vector<NeuralLayer*> contextLayerModules;
 	vector<int> modulesClockRate;
 	
-	CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm);
+	CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction);
 	~CWRecurrentNetwork();
 	
-	void PropagateForward(MemoryBlock& input);
-	void PropagateBackward(MemoryBlock& target);
+	void Propagate(MemoryBlock& input);
 };
 
 #endif /* defined(__prediction__CWRecurrentNetwork__) */

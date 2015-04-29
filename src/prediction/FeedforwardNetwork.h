@@ -10,7 +10,7 @@
 #define __prediction__FeedforwardNetwork__
 
 #include "MemoryBlock.h"
-#include "ActivationFunction.h"
+#include "ActivationFunctions.h"
 #include "NeuralLayer.h"
 #include "NeuralNetwork.h"
 
@@ -24,8 +24,7 @@ public:
 	FeedforwardNetwork( int inputUnits, std::vector<int> hiddenLayerUnits, int outputUnits, ActivationFunction* activationFunction, float learningRate, float momentumRate);
 	~FeedforwardNetwork();
 	
-	void PropagateForward(MemoryBlock& input);
-	void PropagateBackward(MemoryBlock& target);
+	void Propagate(MemoryBlock& input);
 };
 
 #endif /* defined(__prediction__FeedforwardNetwork__) */

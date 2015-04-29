@@ -10,7 +10,7 @@
 #define __prediction__NeuralLayer__
 
 #include <vector>
-#include "ActivationFunction.h"
+#include "ActivationFunctions.h"
 #include "MemoryBlock.h"
 
 using std::vector;

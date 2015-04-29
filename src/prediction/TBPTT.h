@@ -13,8 +13,6 @@
 #include "LearningAlgorithm.h"
 #include "CWRecurrentNetwork.h"
 
-class CWRecurrentNetwork;
-
 class TBPTT : public LearningAlgorithm {
 private:
 	NeuralLayer* m_unfoldedThresholdLayer;
@@ -22,17 +20,19 @@ private:
 	vector< std::vector<NeuralLayer*> > m_unfoldedHiddenLayerModules;
 	vector<NeuralLayer*> m_unfoldedOutputLayers;
 	vector<MemoryBlock> m_unfoldedTargets;
-	
+
+	CWRecurrentNetwork* m_network;
+	float m_learningRate, m_momentumRate;
+	int m_depth;
+
+	void CreateUnfoldedNetwork();
 	void UpdateUnfoldedWeights();
-public:
-	CWRecurrentNetwork* network;
-	float learningRate, momentumRate;
-	int depth;
 	
-	TBPTT(float learningRate, float momentumRate, int depth);
+public:
+	
+	TBPTT(CWRecurrentNetwork* network, float learningRate, float momentumRate, int depth);
 	~TBPTT();
 	
-	void Init(CWRecurrentNetwork* network);
 	void Train(MemoryBlock& target);
 };
 

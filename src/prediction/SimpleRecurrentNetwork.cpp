@@ -9,7 +9,7 @@
 #include "SimpleRecurrentNetwork.h"
 vector<int> oneModule = {1};
 
-SimpleRecurrentNetwork::SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, int outputUnits, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm) : CWRecurrentNetwork(inputUnits, hiddenUnits, outputUnits, oneModule, activationFunction, NULL) {
+SimpleRecurrentNetwork::SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, int outputUnits, ActivationFunction* activationFunction) : CWRecurrentNetwork(inputUnits, hiddenUnits, outputUnits, oneModule, activationFunction) {
 
 	hiddenLayer = hiddenLayerModules[0];
 	contextLayer = contextLayerModules[0];
@@ -20,7 +20,4 @@ SimpleRecurrentNetwork::SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, 
 	weights = hiddenWeights + outputWeights;
 	
 	error = MemoryBlock(outputUnits);
-	
-	this->learningAlgorithm = learningAlgorithm;
-	learningAlgorithm->Init(this);
 }

@@ -48,7 +48,7 @@ FeedforwardNetwork::~FeedforwardNetwork() {
 	delete threshold;
 }
 
-void FeedforwardNetwork::PropagateForward(MemoryBlock& input) {
+void FeedforwardNetwork::Propagate(MemoryBlock& input) {
 	//copy input to input layer activation
 	layers.front()->SetActivation(input);
 	
@@ -59,21 +59,4 @@ void FeedforwardNetwork::PropagateForward(MemoryBlock& input) {
 	
 	//copy activation of last layer to output
 	layers.back()->GetActivation(output);
-}
-
-void FeedforwardNetwork::PropagateBackward(MemoryBlock& target) {
-	layers.back()->SetTarget(target);
-	//std::cout << "LB" << " "; layers.back()->delta.Print();
-	//std::cout << "AD" << " "; layers.back()->activationDerivative.Print();
-	
-	for (int i = (int)layers.size() - 2; i >= 1; i--) {
-		layers[i]->PropagateBackward();
-		//std::cout << "L" << i << " "; layers[i]->delta.Print();
-	}
-	
-	for (int i = 1; i < layers.size(); i++) {
-		layers[i]->UpdateWeights();
-	}
-	
-	totalError = layers.back()->delta.SquareSum();
 }

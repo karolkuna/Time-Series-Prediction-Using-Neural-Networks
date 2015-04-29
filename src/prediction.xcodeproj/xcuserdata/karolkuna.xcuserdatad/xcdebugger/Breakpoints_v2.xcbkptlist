@@ -567,7 +567,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector&lt;int&gt;&amp; modulesClockRate, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm)"
+            landmarkName = "CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector&lt;int&gt;&amp; modulesClockRate, ActivationFunction* activationFunction)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -583,23 +583,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector&lt;int&gt;&amp; modulesClockRate, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "prediction/TBPTT.cpp"
-            timestampString = "451235684.262235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "TBPTT::Init(CWRecurrentNetwork* network)"
+            landmarkName = "CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector&lt;int&gt;&amp; modulesClockRate, ActivationFunction* activationFunction)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -664,70 +648,6 @@
             startingLineNumber = "120"
             endingLineNumber = "120"
             landmarkName = "TBPTT::Train(MemoryBlock&amp; target)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "prediction/RTRL.h"
-            timestampString = "451823983.556706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "Init(CWRecurrentNetwork* network)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "prediction/RTRL.cpp"
-            timestampString = "451757145.650594"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "RTRL::Init(SimpleRecurrentNetwork* network)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "prediction/RTRL.h"
-            timestampString = "451823983.556706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "Init(CWRecurrentNetwork* network)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "prediction/RTRL.h"
-            timestampString = "451823983.556706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "Init(CWRecurrentNetwork* network)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,17 +10,14 @@
 
 #define CURRENT_TIMESTEP 0
 
-RTRL::RTRL(float learningRate, float momentumRate) {
-	this->learningRate = learningRate;
-	this->momentumRate = momentumRate;
-}
-
-RTRL::~RTRL() {
-
-}
-
-void RTRL::Init(SimpleRecurrentNetwork* network) {
-	this->network = network;
+RTRL::RTRL(SimpleRecurrentNetwork* network, float learningRate, float momentumRate) {
+	if (network == NULL) {
+		throw std::logic_error("No network provided!");
+	}
+	
+	m_network = network;
+	m_learningRate = learningRate;
+	m_momentumRate = momentumRate;
 	
 	m_firstHiddenUnit = 1 + network->inputUnits;
 	m_firstOutputUnit = 1 + network->inputUnits + network->hiddenUnits;
@@ -32,13 +29,17 @@ void RTRL::Init(SimpleRecurrentNetwork* network) {
 	rtrlDerivatives = MemoryBlock(m_totalUnits * network->weights);
 	rtrlPastDerivatives = MemoryBlock(rtrlDerivatives.size);
 	rtrlFutureDerivatives = MemoryBlock(rtrlDerivatives.size);
-
+	
 	previousOutput = MemoryBlock(network->output.size);
 	network->output.CopyTo(previousOutput);
 	
 	rtrlDerivatives.Fill(0);
 	rtrlPastDerivatives.Fill(0);
 	rtrlFutureDerivatives.Fill(0);
+}
+
+RTRL::~RTRL() {
+
 }
 
 void RTRL::Train(MemoryBlock& target) {
@@ -59,12 +60,12 @@ void RTRL::Train(MemoryBlock& target) {
 			CalculateDerivativesForWeight(from, to); //from hidden unit
 		}
 	}
-	target.CopyTo(network->error);
-	network->error.Subtract(network->output);
+	target.CopyTo(m_network->error);
+	m_network->error.Subtract(m_network->output);
 	
 	UpdateWeights();
 	
-	network->output.CopyTo(previousOutput);
+	m_network->output.CopyTo(previousOutput);
 }
 
 void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
@@ -78,7 +79,7 @@ void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 		}
 		
 		float newWeightDerivative =
-			network->outputLayer->activationDerivative.data[to - m_firstOutputUnit]
+			m_network->outputLayer->activationDerivative.data[to - m_firstOutputUnit]
 			* (derivative + (weightTo == to) * Activation(weightFrom, CURRENT_TIMESTEP - (IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0)));
 		
 		SetWeightDerivative(weightFrom, weightTo, to, CURRENT_TIMESTEP + 1, newWeightDerivative);
@@ -93,7 +94,7 @@ void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 		}
 		
 		float newWeightDerivative =
-			network->hiddenLayer->activationDerivative.data[to - m_firstHiddenUnit]
+			m_network->hiddenLayer->activationDerivative.data[to - m_firstHiddenUnit]
 			* (derivative + (weightTo == to) * Activation(weightFrom, CURRENT_TIMESTEP - (IsRecurrentWeight(weightFrom, weightTo) ? 1 : 0)));
 			
 		SetWeightDerivative(weightFrom, weightTo, to, CURRENT_TIMESTEP + 1, newWeightDerivative);
@@ -103,13 +104,13 @@ void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {
 
 void RTRL::UpdateWeight(int from, int to) {
 	float wDelta = 0;
-	for (int o = 0; o < network->output.size; o++) {
-		wDelta += network->error.data[o] * WeightDerivative(from, to, m_firstOutputUnit + o, CURRENT_TIMESTEP + 1);
+	for (int o = 0; o < m_network->output.size; o++) {
+		wDelta += m_network->error.data[o] * WeightDerivative(from, to, m_firstOutputUnit + o, CURRENT_TIMESTEP + 1);
 	}
 	
-	wDelta += momentumRate * WeightDelta(from, to);
+	wDelta += m_momentumRate * WeightDelta(from, to);
 	SetWeightDelta(from, to, wDelta);
-	SetWeight(from, to, Weight(from, to) + learningRate * wDelta);
+	SetWeight(from, to, Weight(from, to) + m_learningRate * wDelta);
 }
 
 void RTRL::UpdateWeights() {
@@ -139,20 +140,20 @@ LayerPointer RTRL::GetWeightPointer(int from, int to) {
 		if (from >= m_firstOutputUnit) {
 			throw std::logic_error("No weights from output to hidden layer");
 		}
-		int weightId = (to - m_firstHiddenUnit) * network->hiddenLayer->inputUnits + from;
-		return LayerPointer(network->hiddenLayer, weightId);
+		int weightId = (to - m_firstHiddenUnit) * m_network->hiddenLayer->inputUnits + from;
+		return LayerPointer(m_network->hiddenLayer, weightId);
 		
 	} else if (to <= m_lastOutputUnit) { //to output unit
-		int weightId = (to - m_firstOutputUnit) * network->outputLayer->inputUnits;
+		int weightId = (to - m_firstOutputUnit) * m_network->outputLayer->inputUnits;
 		if (from < 1) { //threshold unit
 			//weightId += 0;
 		} else if (from >= m_firstHiddenUnit && from <= m_lastHiddenUnit) {
-			weightId += from - network->inputLayer->units;
+			weightId += from - m_network->inputLayer->units;
 		} else {
 			throw std::logic_error("Invalid from unit!");
 		}
 		
-		return LayerPointer(network->outputLayer, weightId);
+		return LayerPointer(m_network->outputLayer, weightId);
 		
 	} else {
 		throw std::logic_error("Invalid to unit!");
@@ -161,29 +162,29 @@ LayerPointer RTRL::GetWeightPointer(int from, int to) {
 
 LayerPointer RTRL::GetUnitPointer(int unitId, int time) {
 	if (unitId < 1) {
-		return LayerPointer(network->thresholdLayer, unitId);
+		return LayerPointer(m_network->thresholdLayer, unitId);
 	} else if (unitId <= m_lastInputUnit) {
-		return LayerPointer(network->inputLayer, unitId - 1);
+		return LayerPointer(m_network->inputLayer, unitId - 1);
 	} else if (unitId <= m_lastHiddenUnit) {
 		if (time == CURRENT_TIMESTEP) {
-			return LayerPointer(network->hiddenLayer, unitId - m_firstHiddenUnit);
+			return LayerPointer(m_network->hiddenLayer, unitId - m_firstHiddenUnit);
 		} else if (time == CURRENT_TIMESTEP - 1) {
-			return LayerPointer(network->contextLayer, unitId - m_firstHiddenUnit);
+			return LayerPointer(m_network->contextLayer, unitId - m_firstHiddenUnit);
 		} else {
 			throw std::logic_error("Invalid time step!");
 		}
 	} else {
-		return LayerPointer(network->outputLayer, unitId - m_firstOutputUnit);
+		return LayerPointer(m_network->outputLayer, unitId - m_firstOutputUnit);
 	}
 }
 
 float RTRL::WeightDerivative(int from, int to, int unit, int time) {
 	int weightId;
 	LayerPointer lp = GetWeightPointer(from, to);
-	if (lp.layer == network->hiddenLayer) {
+	if (lp.layer == m_network->hiddenLayer) {
 		weightId = lp.offset;
-	} else if (lp.layer == network->outputLayer) {
-		weightId = network->hiddenWeights + lp.offset;
+	} else if (lp.layer == m_network->outputLayer) {
+		weightId = m_network->hiddenWeights + lp.offset;
 	} else {
 		throw std::logic_error("Invalid layer!");
 	}
@@ -202,10 +203,10 @@ float RTRL::WeightDerivative(int from, int to, int unit, int time) {
 void RTRL::SetWeightDerivative(int from, int to, int unit, int time, float value) {
 	int weightId;
 	LayerPointer lp = GetWeightPointer(from, to);
-	if (lp.layer == network->hiddenLayer) {
+	if (lp.layer == m_network->hiddenLayer) {
 		weightId = lp.offset;
-	} else if (lp.layer == network->outputLayer) {
-		weightId = network->hiddenWeights + lp.offset;
+	} else if (lp.layer == m_network->outputLayer) {
+		weightId = m_network->hiddenWeights + lp.offset;
 	} else {
 		throw std::logic_error("Invalid layer!");
 	}
@@ -244,7 +245,7 @@ void RTRL::SetWeightDelta(int from, int to, float value) {
 float RTRL::Activation(int unitId, int time) {
 	LayerPointer lp = GetUnitPointer(unitId, time);
 	
-	if (lp.layer == network->outputLayer && time == (CURRENT_TIMESTEP - 1)) {
+	if (lp.layer == m_network->outputLayer && time == (CURRENT_TIMESTEP - 1)) {
 		return previousOutput.data[lp.offset];
 	}
 	

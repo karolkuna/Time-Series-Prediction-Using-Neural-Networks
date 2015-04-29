@@ -11,7 +11,7 @@
 
 #include "NeuralNetwork.h"
 #include "MemoryBlock.h"
-#include "ActivationFunction.h"
+#include "ActivationFunctions.h"
 #include "NeuralLayer.h"
 #include "CWRecurrentNetwork.h"
 
@@ -28,7 +28,7 @@ public:
 	
 	MemoryBlock error;
 	
-	SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, int outputUnits, ActivationFunction* activationFunction, LearningAlgorithm* learningAlgorithm);
+	SimpleRecurrentNetwork(int inputUnits, int hiddenUnits, int outputUnits, ActivationFunction* activationFunction);
 };
 
 #endif /* defined(__prediction__SimpleRecurrentNetwork__) */

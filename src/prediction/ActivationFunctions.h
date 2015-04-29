@@ -14,8 +14,8 @@
 
 class ActivationFunction {
 public:
-	virtual float operator()(float value) {return 0;};
-	virtual float Derivative(float value) {return 0;};
+	virtual float operator()(float value) = 0;
+	virtual float Derivative(float value) = 0;
 };
 
 class LogisticFunction : public ActivationFunction {
