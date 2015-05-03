@@ -22,17 +22,11 @@ class LogisticFunction : public ActivationFunction {
 public:
 	float operator()(float value) {
 		float act = 1.0 / (1.0 + exp(-value));
-		//NaN, Inf, -Inf fix
-/*		if (value > 18)
-			act = 1;
-		if (value < -18)
-			act = 0;
-*/
 		return act;
 	}
 	
 	float Derivative(float value) {
-		float act = (*this)(value);
+		float act = 1.0 / (1.0 + exp(-value));
 		return act * (1 - act);
 	}
 };

@@ -8,11 +8,20 @@
 
 #include "MemoryBlockView.h"
 
-MemoryBlockView::MemoryBlockView(MemoryBlock& block, int from, int size) {
+MemoryBlockView::MemoryBlockView(const MemoryBlock& block, int from, int size) {
 	if (from + size > block.size) {
 		throw std::logic_error("Invalid size specified!");
 	}
 	
 	this->data = block.data + from;
 	this->size = size;
+}
+
+MemoryBlockView::MemoryBlockView(const MemoryBlock& block) {
+	this->data = block.data;
+	this->size = block.size;
+}
+
+MemoryBlockView::~MemoryBlockView() {
+	data = NULL;
 }

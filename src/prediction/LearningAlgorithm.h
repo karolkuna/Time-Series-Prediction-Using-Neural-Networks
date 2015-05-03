@@ -14,7 +14,7 @@
 class LearningAlgorithm {
 public:
 	float error = 0;
-	virtual void Train(MemoryBlock& target) = 0;
+	virtual void Train(const MemoryBlock& target) = 0;
 };
 
 #endif

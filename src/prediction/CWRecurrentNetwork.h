@@ -35,10 +35,10 @@ public:
 	vector<NeuralLayer*> contextLayerModules;
 	vector<int> modulesClockRate;
 	
-	CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction);
+	CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, const vector<int>& modulesClockRate, ActivationFunction* activationFunction);
 	~CWRecurrentNetwork();
 	
-	void Propagate(MemoryBlock& input);
+	void Propagate(const MemoryBlock& input);
 };
 
 #endif /* defined(__prediction__CWRecurrentNetwork__) */

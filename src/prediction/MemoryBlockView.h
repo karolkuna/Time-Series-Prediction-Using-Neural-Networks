@@ -17,8 +17,9 @@ private:
 	int m_from;
 	int m_size;
 public:
-	MemoryBlockView(MemoryBlock& block, int from, int size);
-	~MemoryBlockView() { data = NULL; };
+	MemoryBlockView(const MemoryBlock& block, int from, int size);
+	MemoryBlockView(const MemoryBlock& block);
+	~MemoryBlockView();
 };
 
 #endif /* defined(__prediction__MemoryBlockView__) */

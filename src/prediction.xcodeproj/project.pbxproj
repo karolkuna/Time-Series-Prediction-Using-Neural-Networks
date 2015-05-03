@@ -16,6 +16,9 @@
 		80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80AE36A41AE556BC00DAB440 /* RTRL.cpp */; };
 		80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE8A1AF123F2009E9F0A /* Backpropagation.cpp */; };
 		80B5EE981AF165FC009E9F0A /* MemoryBlockView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */; };
+		80B5EE9A1AF29CA9009E9F0A /* FindLearningRate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE991AF29CA9009E9F0A /* FindLearningRate.cpp */; };
+		80B5EE9D1AF4FEF2009E9F0A /* DataSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE9B1AF4FEF2009E9F0A /* DataSet.cpp */; };
+		80B5EE9F1AF56BCE009E9F0A /* dstatParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80B5EE9E1AF56BCE009E9F0A /* dstatParser.cpp */; };
 		80CAD99E1A9A938100F45A1F /* NeuralLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,10 @@
 		80B5EE8B1AF123F2009E9F0A /* Backpropagation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backpropagation.h; sourceTree = "<group>"; };
 		80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBlockView.cpp; sourceTree = "<group>"; };
 		80B5EE971AF165FC009E9F0A /* MemoryBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBlockView.h; sourceTree = "<group>"; };
+		80B5EE991AF29CA9009E9F0A /* FindLearningRate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FindLearningRate.cpp; sourceTree = "<group>"; };
+		80B5EE9B1AF4FEF2009E9F0A /* DataSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataSet.cpp; sourceTree = "<group>"; };
+		80B5EE9C1AF4FEF2009E9F0A /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSet.h; sourceTree = "<group>"; };
+		80B5EE9E1AF56BCE009E9F0A /* dstatParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dstatParser.cpp; sourceTree = "<group>"; };
 		80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralLayer.cpp; sourceTree = "<group>"; };
 		80CAD99D1A9A938100F45A1F /* NeuralLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +98,7 @@
 				80B5EE8D1AF132C0009E9F0A /* Networks */,
 				80B5EE911AF13435009E9F0A /* Utils */,
 				804BC6671A88A79400E3988E /* main.cpp */,
+				80B5EE991AF29CA9009E9F0A /* FindLearningRate.cpp */,
 			);
 			name = Prediction;
 			path = prediction;
@@ -147,6 +155,8 @@
 				804BC6711A88A9A500E3988E /* MemoryBlock.cpp */,
 				80B5EE961AF165FC009E9F0A /* MemoryBlockView.cpp */,
 				80CAD99C1A9A938100F45A1F /* NeuralLayer.cpp */,
+				80B5EE9B1AF4FEF2009E9F0A /* DataSet.cpp */,
+				80B5EE9E1AF56BCE009E9F0A /* dstatParser.cpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -158,6 +168,7 @@
 				804BC6721A88A9A500E3988E /* MemoryBlock.h */,
 				80B5EE971AF165FC009E9F0A /* MemoryBlockView.h */,
 				80CAD99D1A9A938100F45A1F /* NeuralLayer.h */,
+				80B5EE9C1AF4FEF2009E9F0A /* DataSet.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -219,12 +230,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AE36A61AE556BC00DAB440 /* RTRL.cpp in Sources */,
+				80B5EE9A1AF29CA9009E9F0A /* FindLearningRate.cpp in Sources */,
+				80B5EE9D1AF4FEF2009E9F0A /* DataSet.cpp in Sources */,
 				80B5EE981AF165FC009E9F0A /* MemoryBlockView.cpp in Sources */,
 				80B5EE8C1AF123F2009E9F0A /* Backpropagation.cpp in Sources */,
 				804BC6681A88A79400E3988E /* main.cpp in Sources */,
 				804BC6731A88A9A500E3988E /* MemoryBlock.cpp in Sources */,
 				804BC6761A88B82500E3988E /* FeedforwardNetwork.cpp in Sources */,
 				80AE36A31AE518CB00DAB440 /* TBPTT.cpp in Sources */,
+				80B5EE9F1AF56BCE009E9F0A /* dstatParser.cpp in Sources */,
 				800B79E61AC721C000405BB2 /* SimpleRecurrentNetwork.cpp in Sources */,
 				80CAD99E1A9A938100F45A1F /* NeuralLayer.cpp in Sources */,
 				800B79E91AC9356A00405BB2 /* CWRecurrentNetwork.cpp in Sources */,

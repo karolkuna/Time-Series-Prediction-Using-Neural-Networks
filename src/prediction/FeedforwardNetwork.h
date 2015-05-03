@@ -14,6 +14,7 @@
 #include "NeuralLayer.h"
 #include "NeuralNetwork.h"
 
+using std::vector;
 
 class FeedforwardNetwork : public NeuralNetwork {
 public:
@@ -21,10 +22,10 @@ public:
 	std::vector<NeuralLayer*> layers;
 	NeuralLayer* threshold;
 	
-	FeedforwardNetwork( int inputUnits, std::vector<int> hiddenLayerUnits, int outputUnits, ActivationFunction* activationFunction, float learningRate, float momentumRate);
+	FeedforwardNetwork( int inputUnits, const vector<int>& hiddenLayerUnits, int outputUnits, ActivationFunction* activationFunction, float learningRate, float momentumRate);
 	~FeedforwardNetwork();
 	
-	void Propagate(MemoryBlock& input);
+	void Propagate(const MemoryBlock& input);
 };
 
 #endif /* defined(__prediction__FeedforwardNetwork__) */

@@ -8,7 +8,7 @@
 
 #include "CWRecurrentNetwork.h"
 
-CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, vector<int>& modulesClockRate, ActivationFunction* activationFunction) {
+CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, int outputUnits, const vector<int>& modulesClockRate, ActivationFunction* activationFunction) {
 	this->step = -1;
 	
 	this->inputUnits = inputUnits;
@@ -29,15 +29,15 @@ CWRecurrentNetwork::CWRecurrentNetwork(int inputUnits, int hiddenModuleUnits, in
 	}
 	
 	thresholdLayer->activation.data[0] = 1;
-	thresholdLayer->ConnectTo(outputLayer);
+	thresholdLayer->ProjectTo(outputLayer);
 	
 	for (int i = 0; i < modules; i++) {
-		thresholdLayer->ConnectTo(hiddenLayerModules[i]);
-		inputLayer->ConnectTo(hiddenLayerModules[i]);
+		thresholdLayer->ProjectTo(hiddenLayerModules[i]);
+		inputLayer->ProjectTo(hiddenLayerModules[i]);
 		for (int j = i; j < modules; j++) { //recurrent connection + connections to slower modules
-			contextLayerModules[j]->ConnectTo(hiddenLayerModules[i]);
+			contextLayerModules[j]->ProjectTo(hiddenLayerModules[i]);
 		}
-		hiddenLayerModules[i]->ConnectTo(outputLayer);
+		hiddenLayerModules[i]->ProjectTo(outputLayer);
 	}
 	
 	output = MemoryBlock(outputUnits);
@@ -54,7 +54,7 @@ CWRecurrentNetwork::~CWRecurrentNetwork() {
 	}
 }
 
-void CWRecurrentNetwork::Propagate(MemoryBlock& input) {
+void CWRecurrentNetwork::Propagate(const MemoryBlock& input) {
 	//step counter determining which modules to execute
 	step += 1;
 	

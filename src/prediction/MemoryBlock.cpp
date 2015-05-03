@@ -8,14 +8,6 @@
 
 #include "MemoryBlock.h"
 
-void MemoryBlock::Validate() {
-	for (int i = 0; i < size; i++) {
-		if (data[i] == NAN || data[i] == INFINITY || data[i] == -INFINITY) {
-			throw std::logic_error("Invalid value");
-		}
-	}
-}
-
 MemoryBlock::MemoryBlock() {
 	data = NULL;
 	size = 0;
@@ -85,7 +77,7 @@ void MemoryBlock::GenerateUniform(float min, float max) {
 	}
 }
 
-float MemoryBlock::Sum() {
+float MemoryBlock::Sum() const {
 	float sum = 0.0f;
 	for (int i = 0; i < size; i++) {
 		sum += data[i];
@@ -93,7 +85,7 @@ float MemoryBlock::Sum() {
 	return sum;
 }
 
-float MemoryBlock::SquareSum() {
+float MemoryBlock::SquareSum() const {
 	float sum = 0.0f;
 	for (int i = 0; i < size; i++) {
 		sum += data[i] * data[i];
@@ -165,7 +157,7 @@ void MemoryBlock::RightShift(unsigned int shift) {
 	}
 }
 
-const void MemoryBlock::CopyTo(MemoryBlock& target) {
+void MemoryBlock::CopyTo(MemoryBlock& target) const{
 	if (this->size != target.size) {
 		throw std::logic_error("Source and target must be the same size!");
 	}
@@ -173,7 +165,7 @@ const void MemoryBlock::CopyTo(MemoryBlock& target) {
 	CopyTo(target, 0, 0, size);
 }
 
-const void MemoryBlock::CopyTo(MemoryBlock& target, int sourceOffset, int targetOffset, int count) {
+void MemoryBlock::CopyTo(MemoryBlock& target, int sourceOffset, int targetOffset, int count) const {
 	if (sourceOffset < 0 || targetOffset < 0 || count < 0) {
 		throw std::logic_error("Invalid arguments provided");
 	}
@@ -184,9 +176,17 @@ const void MemoryBlock::CopyTo(MemoryBlock& target, int sourceOffset, int target
 	memcpy(target.data + targetOffset, data + sourceOffset, count * sizeof(float));
 }
 
-void MemoryBlock::Print() {
+void MemoryBlock::Print() const {
 	for (int i = 0; i < size; i++) {
 		std::cout << data[i] << ' ';
 	}
 	std::cout << std::endl;
+}
+
+void MemoryBlock::Validate() const {
+	for (int i = 0; i < size; i++) {
+		if (data[i] == NAN || data[i] == INFINITY || data[i] == -INFINITY) {
+			throw std::logic_error("Invalid value");
+		}
+	}
 }

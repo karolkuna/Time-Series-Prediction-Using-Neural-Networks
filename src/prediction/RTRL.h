@@ -40,24 +40,24 @@ private:
 	
 	void UpdateWeights();
 	
-	LayerPointer GetWeightPointer(int from, int to);
-	LayerPointer GetUnitPointer(int unit, int time);
+	LayerPointer GetWeightPointer(int from, int to) const;
+	LayerPointer GetUnitPointer(int unit, int time) const;
 	
-	float Weight(int from, int to);
-	float WeightDelta(int from, int to);
+	float Weight(int from, int to) const;
+	float WeightDelta(int from, int to) const;
 	void SetWeight(int from, int to, float value);
 	void SetWeightDelta(int from, int to, float value);
 	
-	float WeightDerivative(int from, int to, int time, int unit);
+	float WeightDerivative(int from, int to, int time, int unit) const;
 	void SetWeightDerivative(int from, int to, int unit, int time, float value);
 	
-	float Activation(int unit, int time);
+	float Activation(int unit, int time) const;
 	void SetActivation(int unit, int time, float value);
 	
 	void CalculateDerivativesForWeight(int weightFrom, int weightTo);
 	void UpdateWeight(int from, int to);
 	
-	bool IsRecurrentWeight(int from, int to);
+	bool IsRecurrentWeight(int from, int to) const;
 	
 public:
 	
@@ -70,7 +70,7 @@ public:
 	MemoryBlock rtrlFutureDerivatives;
 	MemoryBlock previousOutput;
 	
-	void Train(MemoryBlock& target);
+	void Train(const MemoryBlock& target);
 };
 
 #endif /* defined(__prediction__RTRL__) */

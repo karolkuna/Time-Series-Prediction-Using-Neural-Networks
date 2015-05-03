@@ -37,12 +37,13 @@ public:
 	vector<NeuralLayer*> connectionsOut;
 	
 	NeuralLayer(int units, ActivationFunction* activationFunction, float learningRate, float momentumRate);
+	~NeuralLayer() {};
 	
-	void ConnectTo(NeuralLayer* nextLayer);
+	void ProjectTo(NeuralLayer* nextLayer);
 	
-	void SetActivation(MemoryBlock& input);
+	void SetActivation(const MemoryBlock& input);
 	void GetActivation(MemoryBlock& output);
-	void SetTarget(MemoryBlock& target);
+	void SetTarget(const MemoryBlock& target);
 	
 	void PropagateForward();
 	void PropagateBackward();

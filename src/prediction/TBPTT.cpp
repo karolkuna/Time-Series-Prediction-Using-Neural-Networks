@@ -55,15 +55,15 @@ void TBPTT::CreateUnfoldedNetwork() {
 	
 	//connect the unfolded network
 	for (int i = 0; i < m_depth; i++) {
-		m_unfoldedThresholdLayer->ConnectTo(m_unfoldedOutputLayers[i]);
+		m_unfoldedThresholdLayer->ProjectTo(m_unfoldedOutputLayers[i]);
 		
 		for (int j = 0; j < m_network->modules; j++) {
-			m_unfoldedThresholdLayer->ConnectTo(m_unfoldedHiddenLayerModules[i][j]);
-			m_unfoldedInputLayers[i]->ConnectTo(m_unfoldedHiddenLayerModules[i][j]);
+			m_unfoldedThresholdLayer->ProjectTo(m_unfoldedHiddenLayerModules[i][j]);
+			m_unfoldedInputLayers[i]->ProjectTo(m_unfoldedHiddenLayerModules[i][j]);
 			for (int k = j; k < m_network->modules; k++) {
-				m_unfoldedHiddenLayerModules[i + 1][k]->ConnectTo(m_unfoldedHiddenLayerModules[i][j]);
+				m_unfoldedHiddenLayerModules[i + 1][k]->ProjectTo(m_unfoldedHiddenLayerModules[i][j]);
 			}
-			m_unfoldedHiddenLayerModules[i][j]->ConnectTo(m_unfoldedOutputLayers[i]);
+			m_unfoldedHiddenLayerModules[i][j]->ProjectTo(m_unfoldedOutputLayers[i]);
 		}
 	}
 	
@@ -83,7 +83,7 @@ void TBPTT::UpdateUnfoldedWeights() {
 	}
 }
 
-void TBPTT::Train(MemoryBlock& target) {
+void TBPTT::Train(const MemoryBlock& target) {
 	//shift state of the network one step deeper (to the past)
 	for (int i = m_depth - 2; i >= 0; i--) {
 		m_unfoldedInputLayers[i]->activation.CopyTo(m_unfoldedInputLayers[i + 1]->activation);

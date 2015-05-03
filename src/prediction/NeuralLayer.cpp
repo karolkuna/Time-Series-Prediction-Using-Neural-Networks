@@ -27,7 +27,7 @@ NeuralLayer::NeuralLayer(int units, ActivationFunction* activationFunction, floa
 	this->inputUnits = 0;
 }
 
-void NeuralLayer::ConnectTo(NeuralLayer* destinationLayer) {
+void NeuralLayer::ProjectTo(NeuralLayer* destinationLayer) {
 	if (destinationLayer == NULL) {
 		throw std::logic_error("Invalid destination layer!");
 	}
@@ -53,7 +53,7 @@ void NeuralLayer::ConnectTo(NeuralLayer* destinationLayer) {
 	destinationLayer->weightsDelta.Fill(0);
 }
 
-void NeuralLayer::SetActivation(MemoryBlock& input) {
+void NeuralLayer::SetActivation(const MemoryBlock& input) {
 	if (input.size != activation.size) {
 		throw std::logic_error("Invalid input size!");
 	}
@@ -93,7 +93,7 @@ void NeuralLayer::PropagateForward() {
 	}
 }
 
-void NeuralLayer::SetTarget(MemoryBlock& target) {
+void NeuralLayer::SetTarget(const MemoryBlock& target) {
 	if (target.size != delta.size) {
 		throw std::logic_error("Target doesn't match layer size!");
 	}

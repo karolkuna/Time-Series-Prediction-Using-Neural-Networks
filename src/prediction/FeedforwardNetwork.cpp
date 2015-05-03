@@ -8,7 +8,7 @@
 
 #include "FeedforwardNetwork.h"
 
-FeedforwardNetwork::FeedforwardNetwork(int inputUnits, std::vector<int> hiddenLayerUnits, int outputUnits, ActivationFunction* activationFunction, float learningRate, float momentumRate) {
+FeedforwardNetwork::FeedforwardNetwork(int inputUnits, const vector<int>& hiddenLayerUnits, int outputUnits, ActivationFunction* activationFunction, float learningRate, float momentumRate) {
 	if (hiddenLayerUnits.size() == 0) {
 		throw std::logic_error("At least one hidden layer is required");
 	}
@@ -33,11 +33,11 @@ FeedforwardNetwork::FeedforwardNetwork(int inputUnits, std::vector<int> hiddenLa
 	threshold->activation.data[0] = 1;
 	
 	for (int i = 1; i < layers.size(); i++) {
-		threshold->ConnectTo(layers[i]);
+		threshold->ProjectTo(layers[i]);
 	}
 	
 	for (int i = 0; i < layers.size() - 1; i++) {
-		layers[i]->ConnectTo(layers[i+1]);
+		layers[i]->ProjectTo(layers[i+1]);
 	}
 }
 
@@ -48,7 +48,7 @@ FeedforwardNetwork::~FeedforwardNetwork() {
 	delete threshold;
 }
 
-void FeedforwardNetwork::Propagate(MemoryBlock& input) {
+void FeedforwardNetwork::Propagate(const MemoryBlock& input) {
 	//copy input to input layer activation
 	layers.front()->SetActivation(input);
 	

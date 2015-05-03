@@ -14,6 +14,8 @@
 #include "TBPTT.h"
 #include "RTRL.h"
 #include "MemoryBlockView.h"
+#include "DataSet.h"
+#include "dstatParser.cpp"
 
 using std::cout;
 using std::endl;
@@ -110,6 +112,8 @@ class FeedforwardPrediction {
 */
  
 int main(int argc, const char * argv[]) {	
+	runAllTests();
+	
 	std::vector<int> layers;
 	layers.push_back(128);
 	
@@ -128,9 +132,16 @@ int main(int argc, const char * argv[]) {
 	MemoryBlock target(1);
 	target.data[0] = 0.7;
 	
-	for (int step = 0; step < 10000; step++) {
+	dstatParser parser;
+	
+	while (parser.Parse(input, target))
+	{}
+	
+	for (int step = 0; step < 100; step++) {
 		input.data[0] = 0.5 + 0.3*sinf(step * 0.3);
 		target.data[0] = 0.5 + 0.3*sinf((step+5) * 0.3);
+		
+		MemoryBlockView a(input);
 		
 		network.Propagate(input);
 		learning->Train(target);		

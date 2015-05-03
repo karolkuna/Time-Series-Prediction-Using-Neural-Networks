@@ -33,7 +33,7 @@ public:
 	TBPTT(CWRecurrentNetwork* network, float learningRate, float momentumRate, int depth);
 	~TBPTT();
 	
-	void Train(MemoryBlock& target);
+	void Train(const MemoryBlock& target);
 };
 
 #endif /* defined(__prediction__TBPTT__) */

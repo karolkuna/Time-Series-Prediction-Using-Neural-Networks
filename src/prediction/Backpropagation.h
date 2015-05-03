@@ -20,7 +20,7 @@ private:
 	
 public:
 	Backpropagation(FeedforwardNetwork* network);
-	void Train(MemoryBlock& target);
+	void Train(const MemoryBlock& target);
 
 	float error;
 };

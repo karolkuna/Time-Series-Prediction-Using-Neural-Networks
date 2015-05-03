@@ -16,7 +16,7 @@ Backpropagation::Backpropagation(FeedforwardNetwork* network) {
 	m_network = network;
 }
 
-void Backpropagation::Train(MemoryBlock& target) {
+void Backpropagation::Train(const MemoryBlock& target) {
 	m_network->layers.back()->SetTarget(target);
 	//std::cout << "LB" << " "; layers.back()->delta.Print();
 	//std::cout << "AD" << " "; layers.back()->activationDerivative.Print();

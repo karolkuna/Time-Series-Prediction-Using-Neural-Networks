@@ -90,13 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "prediction/main.cpp"
-            timestampString = "452029634.172564"
+            timestampString = "452292727.126192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
+            startingLineNumber = "158"
+            endingLineNumber = "158">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "prediction/main.cpp"
-            timestampString = "452029137.33979"
+            timestampString = "452292486.359902"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "memoryBlockTests()"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,13 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "prediction/main.cpp"
-            timestampString = "452029634.172564"
+            timestampString = "452292727.126192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
+            startingLineNumber = "169"
+            endingLineNumber = "169">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -452,13 +448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "prediction/main.cpp"
-            timestampString = "452029634.172564"
+            timestampString = "452292727.126192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
+            startingLineNumber = "163"
+            endingLineNumber = "163">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -468,13 +462,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "prediction/main.cpp"
-            timestampString = "452029634.172564"
+            timestampString = "452292727.126192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
+            startingLineNumber = "166"
+            endingLineNumber = "166">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -551,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
             endingLineNumber = "88"
-            landmarkName = "TBPTT::Train(MemoryBlock&amp; target)"
+            landmarkName = "TBPTT::Train(const MemoryBlock&amp; target)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -567,7 +559,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "TBPTT::Train(MemoryBlock&amp; target)"
+            landmarkName = "TBPTT::Train(const MemoryBlock&amp; target)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -583,7 +575,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "TBPTT::Train(MemoryBlock&amp; target)"
+            landmarkName = "TBPTT::Train(const MemoryBlock&amp; target)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -599,7 +591,149 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
             endingLineNumber = "124"
-            landmarkName = "TBPTT::Train(MemoryBlock&amp; target)"
+            landmarkName = "TBPTT::Train(const MemoryBlock&amp; target)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/MemoryBlock.cpp"
+            timestampString = "452262852.890603"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "MemoryBlock::~MemoryBlock()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/FindLearningRate.cpp"
+            timestampString = "452262852.890603"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/dstatParser.cpp"
+            timestampString = "452293567.526072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "Parse(const MemoryBlock&amp; input, const MemoryBlock&amp; output)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/dstatParser.cpp"
+            timestampString = "452293567.526072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "Parse(const MemoryBlock&amp; input, const MemoryBlock&amp; output)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dstatParser::Parse(MemoryBlock const&amp;, MemoryBlock const&amp;)"
+                  moduleName = "prediction"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karolkuna/Documents/Xcode/prediction/prediction/dstatParser.cpp"
+                  timestampString = "452292538.069781"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "2490">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dstatParser::Parse(MemoryBlock const&amp;, MemoryBlock const&amp;)"
+                  moduleName = "prediction"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karolkuna/Documents/Xcode/prediction/prediction/dstatParser.cpp"
+                  timestampString = "452292538.07015"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "2514">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/dstatParser.cpp"
+            timestampString = "452293567.526072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "Parse(const MemoryBlock&amp; input, const MemoryBlock&amp; output)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/main.cpp"
+            timestampString = "452292727.126192"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "main(int argc, const char * argv[])"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "prediction/dstatParser.cpp"
+            timestampString = "452293567.526072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "Parse(const MemoryBlock&amp; input, const MemoryBlock&amp; output)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

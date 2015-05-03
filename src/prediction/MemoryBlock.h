@@ -22,15 +22,14 @@ public:
 	MemoryBlock(const MemoryBlock& source);
 	
 	MemoryBlock& operator= (const MemoryBlock& source);
-	
-	virtual ~MemoryBlock();
+	~MemoryBlock();
 	
 	void Fill(float value);
 	void GenerateNormal(float mean, float stdev);
 	void GenerateUniform(float min, float max);
 	
-	float Sum();
-	float SquareSum();
+	float Sum() const;
+	float SquareSum() const;
 	
 	void Add(const MemoryBlock& operand);
 	void Subtract(const MemoryBlock& operand);
@@ -40,12 +39,11 @@ public:
 	void LeftShift(unsigned int shift);
 	void RightShift(unsigned int shift);
 	
-	const void CopyTo(MemoryBlock& target);
-	const void CopyTo(MemoryBlock& target, int sourceOffset, int targetOffset, int count);
+	void CopyTo(MemoryBlock& target) const;
+	void CopyTo(MemoryBlock& target, int sourceOffset, int targetOffset, int count) const;
 	
-	void Print();
-	
-	void Validate();
+	void Print() const;
+	void Validate() const;
 };
 
 #endif /* defined(__prediction__MemoryBlock__) */

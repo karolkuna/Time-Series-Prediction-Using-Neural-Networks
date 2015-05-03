@@ -48,7 +48,7 @@ RTRL::~RTRL() {
 
 }
 
-void RTRL::Train(MemoryBlock& target) {
+void RTRL::Train(const MemoryBlock& target) {
 	//shift weight derivatives in time
 	rtrlDerivatives.CopyTo(rtrlPastDerivatives);
 	rtrlFutureDerivatives.CopyTo(rtrlDerivatives);
@@ -137,7 +137,7 @@ void RTRL::UpdateWeights() {
 	}
 }
 
-LayerPointer RTRL::GetWeightPointer(int from, int to) {
+LayerPointer RTRL::GetWeightPointer(int from, int to) const {
 	if (to < 1) { //to threshold unit
 		throw std::logic_error("No weights to threshold layer!");
 		
@@ -168,7 +168,7 @@ LayerPointer RTRL::GetWeightPointer(int from, int to) {
 	}
 }
 
-LayerPointer RTRL::GetUnitPointer(int unitId, int time) {
+LayerPointer RTRL::GetUnitPointer(int unitId, int time) const {
 	if (unitId < 1) {
 		return LayerPointer(m_network->thresholdLayer, unitId);
 	} else if (unitId <= m_lastInputUnit) {
@@ -186,7 +186,7 @@ LayerPointer RTRL::GetUnitPointer(int unitId, int time) {
 	}
 }
 
-float RTRL::WeightDerivative(int from, int to, int unit, int time) {
+float RTRL::WeightDerivative(int from, int to, int unit, int time) const {
 	int weightId;
 	LayerPointer lp = GetWeightPointer(from, to);
 	if (lp.layer == m_network->hiddenLayer) {
@@ -229,12 +229,12 @@ void RTRL::SetWeightDerivative(int from, int to, int unit, int time, float value
 	}
 }
 
-float RTRL::Weight(int from, int to) {
+float RTRL::Weight(int from, int to) const {
 	LayerPointer lp = GetWeightPointer(from, to);
 	return lp.layer->weights.data[lp.offset];
 }
 
-float RTRL::WeightDelta(int from, int to) {
+float RTRL::WeightDelta(int from, int to) const {
 	LayerPointer lp = GetWeightPointer(from, to);
 	return lp.layer->weightsDelta.data[lp.offset];
 }
@@ -250,7 +250,7 @@ void RTRL::SetWeightDelta(int from, int to, float value) {
 	lp.layer->weightsDelta.data[lp.offset] = value;
 }
 
-float RTRL::Activation(int unitId, int time) {
+float RTRL::Activation(int unitId, int time) const {
 	LayerPointer lp = GetUnitPointer(unitId, time);
 	
 	if (lp.layer == m_network->outputLayer && time == (CURRENT_TIMESTEP - 1)) {
@@ -265,7 +265,7 @@ void RTRL::SetActivation(int unitId, int time, float value) {
 	lp.layer->activation.data[lp.offset] = value;
 }
 
-bool RTRL::IsRecurrentWeight(int from, int to) {
+bool RTRL::IsRecurrentWeight(int from, int to) const {
 	if (from >= m_firstHiddenUnit && from <= m_lastHiddenUnit
 		&& to >= m_firstHiddenUnit && to <= m_lastHiddenUnit) {
 		return true;
