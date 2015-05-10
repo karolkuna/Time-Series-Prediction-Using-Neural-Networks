@@ -362,12 +362,12 @@ Networks are tested with learning and momentum rate equal 0.05 and 0.9 respectiv
 	  legend pos=north east,
 	  height=180,
 	  width=360]
+ 	\addplot table [x=WS, y=ERROR64]{tdnn_gon_error.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{tdnn_gon_error.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=ERROR256]{tdnn_gon_error.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=ERROR512]{tdnn_gon_error.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -389,15 +389,15 @@ Networks with 128, 256 and 512 units in single hidden layer are tested with lear
 	  axis lines = left,
 %	  xtick={1,2,...,20},
 %	  ytick={0,10,...,70},
-	  legend pos=south west,
+	  legend pos=south east,
 	  height=180,
 	  width=360]
+	 \addplot table [x=WS, y=ERROR64]{tdnn_net_error.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{tdnn_net_error.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=ERROR256]{tdnn_net_error.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=ERROR512]{tdnn_net_error.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -418,15 +418,15 @@ Networks with 128, 256 and 512 units in single hidden layer are tested with lear
 	  axis lines = left,
 %	  xtick={1,2,...,20},
 	  ytick={0,10,...,120},
-	  legend pos=north west,
+	  legend pos=south east,
 	  height=180,
 	  width=360]
+  	\addplot table [x=WS, y=ERROR64]{tdnn_man_error.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{tdnn_man_error.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=ERROR256]{tdnn_man_error.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=ERROR512]{tdnn_man_error.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -448,12 +448,12 @@ As expected, increasing window size is linearly increasing the computation time.
 	  legend pos=north west,
 	  height=180,
 	  width=360]
+  	\addplot table [x=WS, y=TIME64]{tdnn_gon_time.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{tdnn_gon_time.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=TIME256]{tdnn_gon_time.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=TIME512]{tdnn_gon_time.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -473,12 +473,12 @@ As expected, increasing window size is linearly increasing the computation time.
 	  legend pos=north west,
 	  height=180,
 	  width=360]
+  	\addplot table [x=WS, y=TIME64]{tdnn_net_time.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{tdnn_net_time.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=TIME256]{tdnn_net_time.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=TIME512]{tdnn_net_time.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -499,12 +499,12 @@ As expected, increasing window size is linearly increasing the computation time.
 	  legend pos=north west,
 	  height=180,
 	  width=360]
+  	\addplot table [x=WS, y=TIME64]{tdnn_man_time.dat};
+	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{tdnn_man_time.dat};
 	\addlegendentry{128 hidden units}
 	\addplot table [x=WS, y=TIME256]{tdnn_man_time.dat};
 	\addlegendentry{256 hidden units}
-	\addplot table [x=WS, y=TIME512]{tdnn_man_time.dat};
-	\addlegendentry{512 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -558,12 +558,12 @@ Total errors of the networks find their minimum with unfolding depth between two
 	  legend pos=south west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=ERROR32]{tbptt_net_error.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=ERROR64]{tbptt_net_error.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{tbptt_net_error.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tbptt_net_error.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -586,12 +586,12 @@ The number of hidden units is clearly decreasing total error with any unfolding 
 	  legend pos=north east,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=ERROR32]{tbptt_man_error.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=ERROR64]{tbptt_man_error.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{tbptt_man_error.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tbptt_man_error.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -637,12 +637,12 @@ Increasing unfolding linearly increases the computation time. On the other had, 
 	  legend pos=north west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=TIME32]{tbptt_net_time.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=TIME64]{tbptt_net_time.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{tbptt_net_time.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tbptt_net_time.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -661,12 +661,12 @@ Increasing unfolding linearly increases the computation time. On the other had, 
 	  legend pos=north west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=TIME32]{tbptt_man_time.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=TIME64]{tbptt_man_time.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{tbptt_man_time.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tbptt_man_time.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -780,12 +780,12 @@ Total errors of the networks find their minimum with small unfolding depth value
 	  legend pos=south west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=ERROR32]{cw_net_error.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=ERROR64]{cw_net_error.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{cw_net_error.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{cw_net_error.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -804,16 +804,16 @@ The number of hidden units is clearly decreasing total error with any unfolding 
 	  ymin = 0,
 	  axis lines = left,
 	  xtick={1,2,...,20},
- 	  %ytick={0,25,...,220},
+	  ytick={0,25,...,225},
 	  legend pos=north east,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=ERROR32]{cw_man_error.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=ERROR64]{cw_man_error.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=ERROR128]{cw_man_error.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{cw_man_error.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -859,12 +859,12 @@ Increasing unfolding linearly increases the computation time. On the other had, 
 	  legend pos=north west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=TIME32]{cw_net_time.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=TIME64]{cw_net_time.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{cw_net_time.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{cw_net_time.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -880,15 +880,16 @@ Increasing unfolding linearly increases the computation time. On the other had, 
 	  ymin = 0,
 	  axis lines = left,
 	  xtick={0,2,...,20},
+	  ytick={0,25,...,125},
 	  legend pos=north west,
 	  height=180,
 	  width=360]
-	\addplot table [x=WS, y=TIME32]{cw_man_time.dat};
-	\addlegendentry{32 hidden units}
 	\addplot table [x=WS, y=TIME64]{cw_man_time.dat};
 	\addlegendentry{64 hidden units}
 	\addplot table [x=WS, y=TIME128]{cw_man_time.dat};
 	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{cw_man_time.dat};
+	\addlegendentry{256 hidden units}
 	\end{axis}
 \end{tikzpicture}
 \end{figure}
