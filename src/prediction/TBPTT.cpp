@@ -151,5 +151,8 @@ void TBPTT::Train(const MemoryBlock& target) {
 	//change weights in the unfolded network to the new ones
 	UpdateUnfoldedWeights();
 	
-	error = m_unfoldedOutputLayers.back()->delta.SquareSum();
+	error = 0;
+	for (int i = 0; i < target.size; i++) {
+		error += (target.data[i] - m_network->output.data[i]) * (target.data[i] - m_network->output.data[i]);
+	}
 }

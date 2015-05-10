@@ -103,6 +103,12 @@ void MemoryBlock::Add(const MemoryBlock& operand) {
 	}
 }
 
+void MemoryBlock::Add(float operand) {
+	for (int i = 0; i < size; i++) {
+		data[i] = data[i] + operand;
+	}
+}
+
 void MemoryBlock::Subtract(const MemoryBlock& operand) {
 	if (this->size != operand.size) {
 		throw std::logic_error("Operands must be of the same size!");
@@ -110,6 +116,12 @@ void MemoryBlock::Subtract(const MemoryBlock& operand) {
 	
 	for (int i = 0; i < size; i++) {
 		data[i] = data[i] - operand.data[i];
+	}
+}
+
+void MemoryBlock::Subtract(float operand) {
+	for (int i = 0; i < size; i++) {
+		data[i] = data[i] + operand;
 	}
 }
 

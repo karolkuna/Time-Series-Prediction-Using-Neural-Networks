@@ -20,12 +20,14 @@ using std::string;
 using std::ifstream;
 
 class DataSet {
-	MemoryBlock* m_input;
-	MemoryBlock* m_output;
 	ifstream m_file;
+	bool m_isInput;
+	
 public:
-	DataSet(const string& fileName, MemoryBlock* output);
-	DataSet(const string& fileName, MemoryBlock* input, MemoryBlock* output);
+	MemoryBlock input;
+	MemoryBlock output;
+	
+	DataSet(const string& fileName, bool isInput);
 	~DataSet();
 	
 	bool Read();

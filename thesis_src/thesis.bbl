@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{bepuphysics}
+Bepuphysics, May 2015.
+
+\bibitem{dstat}
+Dstat: Versatile resource statistics tool, May 2015.
+
 \bibitem{universal-approx-theorem}
 George Cybenko.
 \newblock Approximation by superpositions of a sigmoidal function.
@@ -11,6 +17,13 @@ D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams.
 \newblock Neurocomputing: Foundations of research.
 \newblock chapter Learning Internal Representations by Error Propagation, pages
   673--695. MIT Press, Cambridge, MA, USA, 1988.
+
+\bibitem{phoneme-recognition-tdnn}
+Alexander Waibel, Toshiyuki Hanazawa, Geofrey Hinton, Kiyohiro Shikano, and
+  Kevin~J. Lang.
+\newblock Readings in speech recognition.
+\newblock chapter Phoneme Recognition Using Time-delay Neural Networks, pages
+  393--404. Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1990.
 
 \bibitem{williams-zipser}
 Ronald~J. Williams and David Zipser.

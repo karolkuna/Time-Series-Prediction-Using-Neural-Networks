@@ -73,7 +73,10 @@ void RTRL::Train(const MemoryBlock& target) {
 	
 	m_network->output.CopyTo(previousOutput);
 	
-	error = delta.SquareSum();
+	error = 0;
+	for (int i = 0; i < target.size; i++) {
+		error += (target.data[i] - m_network->output.data[i]) * (target.data[i] - m_network->output.data[i]);
+	}
 }
 
 void RTRL::CalculateDerivativesForWeight(int weightFrom, int weightTo) {

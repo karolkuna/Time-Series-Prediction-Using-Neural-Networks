@@ -9,26 +9,49 @@
 \contentsline {section}{\numberline {3.1}\slshape Artificial Neuron}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}\slshape Feedforward Neural Networks}{6}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}\rmfamily Backpropagation}{6}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}\slshape Recurrent Neural Networks}{8}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.2}\rmfamily Time-Delay Neural Networks}{8}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}\slshape Recurrent Neural Networks}{9}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}\rmfamily Elman's Simple Recurrent Network}{9}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}\rmfamily Backpropagation Through Time}{10}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}\rmfamily Truncated Backpropagation Through Time}{11}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.3}\rmfamily Truncated Backpropagation Through Time}{12}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}\rmfamily Real-Time Recurrent Learning}{12}{subsection.3.3.4}
 \contentsline {section}{\numberline {3.4}\slshape Clockwork Recurrent Network}{13}{section.3.4}
 \contentsline {chapter}{\numberline {4}\bfseries Implementation}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}\slshape Neural Prediction Framework}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}\rmfamily Memory Block}{15}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}\rmfamily Neural Layer}{15}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}\rmfamily Neural Network}{15}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}\slshape Network Monitor}{15}{section.4.2}
-\contentsline {section}{\numberline {4.3}\slshape Robotic Simulator}{15}{section.4.3}
-\contentsline {chapter}{\numberline {5}\bfseries Experiments}{16}{chapter.5}
-\contentsline {section}{\numberline {5.1}\slshape Sine Wave}{16}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}\rmfamily Role of Learning and Momentum Rate}{16}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}\rmfamily Impact of Network Size on Performance}{16}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}\slshape Network Usage}{16}{section.5.2}
-\contentsline {section}{\numberline {5.3}\slshape Robotic Manipulator}{16}{section.5.3}
-\contentsline {chapter}{\numberline {6}\bfseries Results}{17}{chapter.6}
-\contentsline {section}{\numberline {6.1}\slshape Trade-offs}{17}{section.6.1}
-\contentsline {chapter}{\numberline {7}\bfseries Conclusion}{18}{chapter.7}
-\contentsline {chapter}{\numberline {A}\bfseries Appendix}{19}{appendix.A}
+\contentsline {subsection}{\numberline {4.1.1}\rmfamily MemoryBlock}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}\rmfamily NeuralLayer}{15}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\rmfamily NeuralNetwork}{15}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}\rmfamily FeedforwardNetwork}{15}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}\rmfamily CWRecurrentNetwork}{15}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}\rmfamily SimpleRecurrentNetwork}{16}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}\rmfamily LearningAlgorithm}{16}{subsection.4.1.7}
+\contentsline {subsection}{\numberline {4.1.8}\rmfamily Backpropagation, TBPTT, RTRL}{16}{subsection.4.1.8}
+\contentsline {section}{\numberline {4.2}\slshape Network Monitor}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}\slshape Robotic Arm Simulator}{16}{section.4.3}
+\contentsline {chapter}{\numberline {5}\bfseries Experiments}{18}{chapter.5}
+\contentsline {section}{\numberline {5.1}\slshape Testing Scenarios}{18}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\rmfamily Goniometric function}{19}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}\rmfamily Network Usage}{19}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}\rmfamily Robotic Arm}{20}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}\slshape Time-Delay Neural Network Experiments}{20}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}\rmfamily Precision of Predicting Goniometric Function}{20}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}\rmfamily Precision of Predicting Network Usage}{21}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}\rmfamily Precision of Predicting Position of Manipulator's Claw}{22}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}\rmfamily Computation Time}{23}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}\slshape Truncated Backpropagation Through Time Experiments}{24}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}\rmfamily Precision of Predicting Goniometric Function}{25}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}\rmfamily Precision of Predicting Network Traffic}{25}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}\rmfamily Precision of Predicting Position of Manipulator's Claw}{26}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}\rmfamily Computation Time}{27}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}\slshape Real-Time Recurrent Learning Experiments}{28}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}\rmfamily Precision of Prediction}{28}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}\rmfamily Computation Time}{29}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}\slshape Clockwork Recurrent Network Experiments}{30}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}\rmfamily Precision of Predicting Goniometric Function}{30}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}\rmfamily Precision of Predicting Network Traffic}{30}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}\rmfamily Precision of Predicting Position of Manipulator's Claw}{31}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}\rmfamily Computation Time}{32}{subsection.5.5.4}
+\contentsline {chapter}{\numberline {6}\bfseries Results}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}\slshape Trade-offs}{34}{section.6.1}
+\contentsline {chapter}{\numberline {7}\bfseries Conclusion}{35}{chapter.7}
+\contentsline {chapter}{\numberline {A}\bfseries Appendix}{36}{appendix.A}

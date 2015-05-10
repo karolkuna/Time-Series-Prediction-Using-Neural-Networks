@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.24)  20 APR 2015 23:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.24)  10 MAY 2015 02:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -773,47 +773,456 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(./thesis.aux)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks24
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box28
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+))
+Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks27
+))
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count141
+\c@pgf@countb=\count142
+\c@pgf@countc=\count143
+\c@pgf@countd=\count144
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count145
+\pgfsyssoftpath@bigbuffer@items=\count146
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen139
+\pgfmath@count=\count147
+\pgfmath@box=\box29
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count148
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+\pgfpic=\box30
+\pgf@hbox=\box31
+\pgf@layerbox@main=\box32
+\pgf@picture@serial@count=\count149
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen158
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen162
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count150
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box33
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
+\pgfnodeparttextbox=\box34
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen164
+\pgf@nodesepend=\dimen165
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen166
+\pgffor@skip=\dimen167
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
+\pgf@plot@mark@count=\count151
+\pgfplotmarksize=\dimen168
+)
+\tikz@lastx=\dimen169
+\tikz@lasty=\dimen170
+\tikz@lastxsaved=\dimen171
+\tikz@lastysaved=\dimen172
+\tikzleveldistance=\dimen173
+\tikzsiblingdistance=\dimen174
+\tikz@figbox=\box35
+\tikz@figbox@bg=\box36
+\tikz@tempbox=\box37
+\tikz@tempbox@bg=\box38
+\tikztreelevel=\count152
+\tikznumberofchildren=\count153
+\tikznumberofcurrentchild=\count154
+\tikz@fig@count=\count155
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count156
+\pgfmatrixcurrentcolumn=\count157
+\pgf@matrix@numberofcolumns=\count158
+)
+\tikz@expandcount=\count159
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2014/02/28 v1.10 Data Visualization (1.10-2-gb39fe75)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks36
+\t@pgfplots@tokb=\toks37
+\t@pgfplots@tokc=\toks38
+\pgfplots@tmpa=\dimen175
+\c@pgfplots@coordindex=\count160
+\c@pgfplots@scanlineindex=\count161
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
+.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
+ode.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_loader.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
+e.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
+.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructure.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructureext.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+array.code.tex
+\c@pgfplotsarray@tmp=\count162
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+matrix.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+shared.code.tex
+\c@pgfplotstable@counta=\count163
+\t@pgfplotstable@a=\toks39
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+deque.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
+de.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.da
+ta.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb
+.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
+s.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count164
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
+.surfshading.pgfsys-pdftex.def)))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
+code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.cod
+e.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
+ode.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.c
+ode.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandle
+r.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.
+tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
+g.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.cod
+e.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.
+tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.te
+x)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen176
+\pgfdecoratedremainingdistance=\dimen177
+\pgfdecoratedinputsegmentcompleteddistance=\dimen178
+\pgfdecoratedinputsegmentremainingdistance=\dimen179
+\pgf@decorate@distancetomove=\dimen180
+\pgf@decorate@repeatstate=\count165
+\pgfdecorationsegmentamplitude=\dimen181
+\pgfdecorationsegmentlength=\dimen182
+)
+\tikz@lib@dec@box=\box39
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count166
+\pgfplots@xmin@reg=\dimen183
+\pgfplots@xmax@reg=\dimen184
+\pgfplots@ymin@reg=\dimen185
+\pgfplots@ymax@reg=\dimen186
+\pgfplots@zmin@reg=\dimen187
+\pgfplots@zmax@reg=\dimen188
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
+ks.code.tex
+File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplotstable 2014/02/28 v1.10 Table typesetting and Pretty-printing (
+1.10-2-gb39fe75)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+.coltype.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen189
+\extrarowheight=\dimen190
+\NC@list=\toks40
+\extratabsurround=\skip54
+\backup@length=\skip55
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count167
+\float@exts=\toks41
+\float@box=\box40
+\@float@everytoks=\toks42
+\@floatcapt=\box41
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 33.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 37.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 33.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 37.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count141
-\scratchdimen=\dimen129
-\scratchbox=\box28
-\nofMPsegments=\count142
-\nofMParguments=\count143
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count144
-\MPscratchDim=\dimen130
-\MPnumerator=\count145
-\makeMPintoPDFobject=\count146
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count168
+\scratchdimen=\dimen191
+\scratchbox=\box42
+\nofMPsegments=\count169
+\nofMParguments=\count170
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count171
+\MPscratchDim=\dimen192
+\MPnumerator=\count172
+\makeMPintoPDFobject=\count173
+\everyMPtoPDFconversion=\toks44
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -833,8 +1242,8 @@ e
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 33.
+\AtBeginShipoutBox=\box43
+Package hyperref Info: Link coloring OFF on input line 37.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -842,34 +1251,43 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count147
+\c@section@level=\count174
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
+LaTeX Info: Redefining \nameref on input line 37.
 
 (./thesis.out) (./thesis.out)
-\@outlinefile=\write3
-\openout3 = `thesis.out'.
+\@outlinefile=\write4
+\openout4 = `thesis.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
- [1
+ ABD: EveryShipout initializing macros
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.10} into 
+your preamble.
+ on input line 37.
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2
 
 ] [3
 
 ]
-Overfull \hbox (0.98575pt too wide) in paragraph at lines 44--45
+Overfull \hbox (0.98575pt too wide) in paragraph at lines 48--49
 \T1/ppl/m/n/12 ad-di-tion to the stan-dard El-man's RNN ar-chi-tec-ture, []
  []
 
 [4
 
 ]
-Overfull \hbox (1.14174pt too wide) in paragraph at lines 47--48
+Overfull \hbox (1.14174pt too wide) in paragraph at lines 51--52
 \T1/ppl/m/n/12 time se-ries, pre-dic-tion, neu-ral net-work, re-cur-rent net-wo
 rk, back-prop-
  []
@@ -901,27 +1319,37 @@ LaTeX Font Info:    Try loading font information for OT1+zplm on input line 2.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-))
-\tf@toc=\write4
-\openout4 = `thesis.toc'.
+) [6
 
- [6
+])
+\tf@toc=\write5
+\openout5 = `thesis.toc'.
 
-]
+ [7]
 (./thesis.lot)
-\tf@lot=\write5
-\openout5 = `thesis.lot'.
-
- [7
-
-] (./thesis.lof)
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
 
  [8
 
-]
+] (./thesis.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+
+])
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
+
+
+[10]
 Chapter 1.
+
+Overfull \hbox (5.08919pt too wide) in paragraph at lines 65--66
+\T1/ppl/m/n/12 sim-ple re-cur-rent net-works (SRN) trained by back-prop-a-ga-ti
+on through
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -929,28 +1357,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (12.85382pt too wide) in paragraph at lines 68--69
+Overfull \hbox (12.85382pt too wide) in paragraph at lines 76--77
 []\T1/ppl/m/n/12 The sec-ond sce-nario is mon-i-tor-ing util-i-sa-tion of com-p
 uter re-sources,
  []
 
 
-Overfull \hbox (4.44276pt too wide) in paragraph at lines 68--69
+Overfull \hbox (4.44276pt too wide) in paragraph at lines 76--77
 \T1/ppl/m/n/12 namely pro-ces-sor, mem-ory, disk, and net-work us-age. Net-work
  should
  []
 
 [2]
 Chapter 2.
-[3
+<process.png, id=449, 174.79256pt x 26.41096pt>
+File: process.png Graphic file (type png)
+ <use process.png>
+Package pdftex.def Info: process.png used on input line 85.
+(pdftex.def)             Requested size: 182.68317pt x 27.60457pt.
+ [3
 
-]
-Overfull \hbox (38.64919pt too wide) detected at line 85
+ <./process.png>]
+Overfull \hbox (38.64919pt too wide) detected at line 95
 \OML/zplm/m/it/12 History[] \OT1/zplm/m/n/12 = []
  []
 
 
-Overfull \hbox (102.18294pt too wide) detected at line 97
+Overfull \hbox (102.18294pt too wide) detected at line 107
 \OML/zplm/m/it/12 Output[] \OMS/zplm/m/n/12 ^^Y \OML/zplm/m/it/12 Prediction\OT
 1/zplm/m/n/12 (\OML/zplm/m/it/12 Prediction\OT1/zplm/m/n/12 ([] \OML/zplm/m/it/
 12 Prediction\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 State[]\OT1/ppl/m/n/12 , \OML/
@@ -966,143 +1399,402 @@ Chapter 3.
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 119.
+(amsmath)                 on input line 129.
 
-<mlp.png, id=260, 255.354pt x 243.5499pt>
+<mlp.png, id=469, 255.354pt x 243.5499pt>
 File: mlp.png Graphic file (type png)
  <use mlp.png>
-Package pdftex.def Info: mlp.png used on input line 126.
+Package pdftex.def Info: mlp.png used on input line 136.
 (pdftex.def)             Requested size: 265.99472pt x 253.70586pt.
 
-Overfull \hbox (3.23073pt too wide) in paragraph at lines 133--134
+Overfull \hbox (3.23073pt too wide) in paragraph at lines 143--144
 \T1/ppl/m/n/12 Backpropagation, or back-ward prop-a-ga-tion of er-rors, is the 
 most used
  []
 
 [6]
-Overfull \hbox (12.66228pt too wide) in paragraph at lines 136--137
+Overfull \hbox (12.66228pt too wide) in paragraph at lines 146--147
 \T1/ppl/m/n/12 gra-di-ent de-scent method can be ap-plied. Lo-cal min-i-mum is 
 ap-proached
  []
 
-[7 <./mlp.png>]
-Overfull \hbox (1.84958pt too wide) in paragraph at lines 164--165
-\T1/ppl/m/n/12 con-nect to hid-den layer, which con-nects to out-put layer. Con
--text layer
- []
-
-[8] <elman-rnn.png, id=282, 328.5876pt x 179.9523pt>
+[7 <./mlp.png>] [8] <elman-rnn.png, id=493, 328.5876pt x 179.9523pt>
 File: elman-rnn.png Graphic file (type png)
- <use elman-rnn.png>
-Package pdftex.def Info: elman-rnn.png used on input line 168.
+
+<use elman-rnn.png>
+Package pdftex.def Info: elman-rnn.png used on input line 184.
 (pdftex.def)             Requested size: 342.28pt x 187.46448pt.
-
-[9 <./elman-rnn.png>] <bptt2.png, id=290, 353.6412pt x 230.5413pt>
+ [9] [10 <./elman-rnn.png>]
+<bptt2.png, id=508, 353.6412pt x 230.5413pt>
 File: bptt2.png Graphic file (type png)
-
-<use bptt2.png>
-Package pdftex.def Info: bptt2.png used on input line 185.
+ <use bptt2.png>
+Package pdftex.def Info: bptt2.png used on input line 201.
 (pdftex.def)             Requested size: 368.3776pt x 240.15833pt.
 
-Overfull \hbox (7.0276pt too wide) in paragraph at lines 185--186
+Overfull \hbox (7.0276pt too wide) in paragraph at lines 201--202
  [][] 
  []
 
 
-Overfull \hbox (9.41063pt too wide) in paragraph at lines 192--193
+Overfull \hbox (9.41063pt too wide) in paragraph at lines 208--209
 []\T1/ppl/m/n/12 Forward prop-a-ga-tion. Sig-nal is prop-a-gated through the un
 -folded
  []
 
-[10]
-Overfull \hbox (6.76944pt too wide) in paragraph at lines 212--212
+[11 <./bptt2.png>]
+Overfull \hbox (6.76944pt too wide) in paragraph at lines 228--228
 \T1/ppl/m/n/12 Trun-cated Back-prop-a-ga-tion Through Time (TBTT) can be used. 
 TBPTT
  []
 
-[11 <./bptt2.png>]
-Overfull \hbox (9.94014pt too wide) detected at line 226
+[12]
+Overfull \hbox (9.94014pt too wide) detected at line 242
 \OML/zplm/m/it/12 v[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t \OT1/zplm/m/n/12 + \
 OT1/ppl/m/n/12 1\OT1/zplm/m/n/12 ) = [] = \OML/zplm/m/it/12 act[]\OT1/zplm/m/n/
 12 (\OML/zplm/m/it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t\OT1/zplm/m/n/12 
 )) []
  []
 
-[12]
 
 LaTeX Warning: Citation `vanishing-gradient' on page 13 undefined on input line
- 238.
+ 254.
 
 
-LaTeX Warning: Citation `cw-rnn' on page 13 undefined on input line 238.
+LaTeX Warning: Citation `cw-rnn' on page 13 undefined on input line 254.
 
-<cw-rnn.png, id=312, 379.6584pt x 143.3355pt>
+[13] <cw-rnn.png, id=527, 379.6584pt x 143.3355pt>
 File: cw-rnn.png Graphic file (type png)
  <use cw-rnn.png>
-Package pdftex.def Info: cw-rnn.png used on input line 244.
+Package pdftex.def Info: cw-rnn.png used on input line 260.
 (pdftex.def)             Requested size: 395.47894pt x 149.30815pt.
 
-Overfull \hbox (34.12895pt too wide) in paragraph at lines 244--245
+Overfull \hbox (34.12895pt too wide) in paragraph at lines 260--261
  [][] 
  []
 
-[13 <./cw-rnn.png>] [14]
+[14 <./cw-rnn.png>]
 Chapter 4.
+
+Overfull \hbox (11.12627pt too wide) in paragraph at lines 277--278
+\T1/ppl/m/n/12 NeuralNetwork is an ab-stract class pro-vid-ing com-mon in-ter-f
+ace shared
+ []
+
+
+Overfull \hbox (0.21786pt too wide) in paragraph at lines 283--284
+\T1/ppl/m/n/12 SimpleRecurrentNetwork de-rives from CWRe-cur-rent-Net-work to i
+m-
+ []
+
 [15
 
 ]
+Overfull \hbox (10.05772pt too wide) in paragraph at lines 287--288
+\T1/ppl/m/n/12 Backpropagation, TBPTT, RTRL classes are de-scen-dants of Learni
+ngAl-
+ []
+
+<roboticarm.png, id=541, 956.82469pt x 521.69907pt>
+File: roboticarm.png Graphic file (type png)
+ <use roboticarm.png>
+Package pdftex.def Info: roboticarm.png used on input line 295.
+(pdftex.def)             Requested size: 361.35132pt x 197.02179pt.
+
+[16] [17 <./roboticarm.png>]
 Chapter 5.
-[16
+
+Overfull \hbox (4.13075pt too wide) in paragraph at lines 302--302
+[]\T1/ppl/m/n/12 Networks are tested on the same pre-pared datasets to en-sure 
+equal
+ []
+
+
+Overfull \hbox (0.14543pt too wide) in paragraph at lines 302--302
+\T1/ppl/m/n/12 set-ting of net-work in-flu-ences its over-all per-for-mance, al
+l ex-per-i-ments
+ []
+
+
+Underfull \vbox (badness 1122) has occurred while \output is active []
+
+ [18
 
 ]
+Overfull \hbox (9.5297pt too wide) in paragraph at lines 333--334
+[][] 
+ []
+
+
+Overfull \hbox (4.29811pt too wide) in paragraph at lines 335--336
+\T1/ppl/m/n/12 ac-ti-va-tion func-tion's range [0,1], there-fore no pre-pro-ces
+s-ing is needed.
+ []
+
+
+Overfull \hbox (4.45483pt too wide) in paragraph at lines 339--340
+[]\T1/ppl/m/n/12 Dstat mea-sures 26 vari-ables of the mon-i-tored sys-tem, two 
+of which
+ []
+
+[19]
+Overfull \hbox (1.08153pt too wide) in paragraph at lines 342--343
+[]\T1/ppl/m/n/12 This task is heav-ily time con-strained. The 3D sim-u-la-tor i
+s re-quired
+ []
+
+
+Overfull \hbox (4.55017pt too wide) in paragraph at lines 345--346
+\T1/ppl/m/n/12 Following ex-per-i-ments ex-am-ine role of slid-ing win-dow size
+ and num-
+ []
+
+PGFPlots: reading {tdnn_gon_error.dat}
+PGFPlots: reading {tdnn_gon_error.dat}
+PGFPlots: reading {tdnn_gon_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 372--373
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+PGFPlots: reading {tdnn_net_error.dat}
+PGFPlots: reading {tdnn_net_error.dat}
+PGFPlots: reading {tdnn_net_error.dat}
+
+Overfull \hbox (7.11542pt too wide) in paragraph at lines 402--403
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+PGFPlots: reading {tdnn_man_error.dat}
+PGFPlots: reading {tdnn_man_error.dat}
+PGFPlots: reading {tdnn_man_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 431--432
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+PGFPlots: reading {tdnn_gon_time.dat}
+PGFPlots: reading {tdnn_gon_time.dat}
+PGFPlots: reading {tdnn_gon_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 458--459
+ [][] 
+ []
+
+PGFPlots: reading {tdnn_net_time.dat}
+PGFPlots: reading {tdnn_net_time.dat}
+PGFPlots: reading {tdnn_net_time.dat}
+
+Overfull \hbox (8.24342pt too wide) in paragraph at lines 483--484
+ [][] 
+ []
+
+[23]
+PGFPlots: reading {tdnn_man_time.dat}
+PGFPlots: reading {tdnn_man_time.dat}
+PGFPlots: reading {tdnn_man_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 509--510
+ [][] 
+ []
+
+[24]
+PGFPlots: reading {tbptt_gon_error.dat}
+PGFPlots: reading {tbptt_gon_error.dat}
+PGFPlots: reading {tbptt_gon_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 540--541
+ [][] 
+ []
+
+
+Overfull \hbox (3.7099pt too wide) in paragraph at lines 544--545
+\T1/ppl/m/n/12 Total er-rors of the net-works find their min-i-mum with un-fold
+-ing depth
+ []
+
+PGFPlots: reading {tbptt_net_error.dat}
+PGFPlots: reading {tbptt_net_error.dat}
+PGFPlots: reading {tbptt_net_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 568--569
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+PGFPlots: reading {tbptt_man_error.dat}
+PGFPlots: reading {tbptt_man_error.dat}
+PGFPlots: reading {tbptt_man_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 596--597
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+ [26]
+PGFPlots: reading {tbptt_gon_time.dat}
+PGFPlots: reading {tbptt_gon_time.dat}
+PGFPlots: reading {tbptt_gon_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 623--624
+ [][] 
+ []
+
+PGFPlots: reading {tbptt_net_time.dat}
+PGFPlots: reading {tbptt_net_time.dat}
+PGFPlots: reading {tbptt_net_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 647--648
+ [][] 
+ []
+
+PGFPlots: reading {tbptt_man_time.dat}
+PGFPlots: reading {tbptt_man_time.dat}
+PGFPlots: reading {tbptt_man_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 671--672
+ [][] 
+ []
+
+[27]
+PGFPlots: reading {rtrl_error.dat}
+PGFPlots: reading {rtrl_error.dat}
+PGFPlots: reading {rtrl_error.dat}
+
+Overfull \hbox (7.11908pt too wide) in paragraph at lines 701--702
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+PGFPlots: reading {rtrl_time.dat}
+PGFPlots: reading {rtrl_time.dat}
+PGFPlots: reading {rtrl_time.dat}
+
+Overfull \hbox (7.11908pt too wide) in paragraph at lines 728--729
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1253) has occurred while \output is active []
+
+ [29]
+PGFPlots: reading {cw_gon_error.dat}
+PGFPlots: reading {cw_gon_error.dat}
+PGFPlots: reading {cw_gon_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 762--763
+ [][] 
+ []
+
+PGFPlots: reading {cw_net_error.dat}
+PGFPlots: reading {cw_net_error.dat}
+PGFPlots: reading {cw_net_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 790--791
+ [][] 
+ []
+
+
+Underfull \vbox (badness 2293) has occurred while \output is active []
+
+ [30]
+PGFPlots: reading {cw_man_error.dat}
+PGFPlots: reading {cw_man_error.dat}
+PGFPlots: reading {cw_man_error.dat}
+
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 818--819
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+ [31]
+PGFPlots: reading {cw_gon_time.dat}
+PGFPlots: reading {cw_gon_time.dat}
+PGFPlots: reading {cw_gon_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 845--846
+ [][] 
+ []
+
+PGFPlots: reading {cw_net_time.dat}
+PGFPlots: reading {cw_net_time.dat}
+PGFPlots: reading {cw_net_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 869--870
+ [][] 
+ []
+
+PGFPlots: reading {cw_man_time.dat}
+PGFPlots: reading {cw_man_time.dat}
+PGFPlots: reading {cw_man_time.dat}
+
+Overfull \hbox (8.24648pt too wide) in paragraph at lines 893--894
+ [][] 
+ []
+
+[32] [33]
 Chapter 6.
-[17
+[34
 
 ]
 Chapter 7.
-[18
+[35
 
 ]
 Appendix A.
 
-Overfull \hbox (13.38127pt too wide) in paragraph at lines 292--293
+Overfull \hbox (13.38127pt too wide) in paragraph at lines 909--910
 \T1/ppl/m/n/12 https://github.com/karolkuna/Time-Series-Prediction-Using-Neural
 -
  []
 
-(./thesis.bbl [19
+(./thesis.bbl [36
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
- [20
+]) [37
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 916.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 916.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 916.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 916.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 48D049510E180B365AD998CAA289AB1D;4151.
 
-
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: 951F6ABE5278392B766FF581FCC22A33;2158
-(rerunfilecheck)             After:  BF8765D4A5EAD4AD15C139E821A7D0A3;2159.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 916.
  ) 
 Here is how much of TeX's memory you used:
- 9754 strings out of 493117
- 142909 string characters out of 6135432
- 249630 words of memory out of 5000000
- 12850 multiletter control sequences out of 15000+600000
+ 29196 strings out of 493117
+ 674776 string characters out of 6135432
+ 912211 words of memory out of 5000000
+ 31837 multiletter control sequences out of 15000+600000
  48917 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,9n,98p,687b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,19n,103p,728b,2278s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc} <./fi-logo60
 0.514pk></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
 10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
@@ -1114,10 +1806,10 @@ local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
 exlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (28 pages, 498572 bytes).
+Output written on thesis.pdf (47 pages, 678159 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
- 351 compressed objects within 4 object streams
- 84 named destinations out of 1000 (max. 500000)
- 305 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 764 PDF objects out of 1000 (max. 8388607)
+ 630 compressed objects within 7 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 511 words of extra memory for PDF output out of 10000 (max. 10000000)
 

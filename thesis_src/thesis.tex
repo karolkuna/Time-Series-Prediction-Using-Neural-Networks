@@ -18,6 +18,10 @@
 \usepackage{svg}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{float}
 
 \thesislang{en}                   % The language of the thesis
 \thesistitle{Time Series Prediction Using Neural Networks}       % The title of the thesis
@@ -64,7 +68,7 @@ Time series are sequences of data points in time, usually created by measuring o
 \par %describe the value of online prediction
 Since value of stored data decreases over time, effort is put into gaining insight from data as they come. Many applications don't require storing data at all, or storing it would be impractical, therefore it is advantageous to create models and update them with every data point. Continuous online learning is well suited for such tasks and can adapt to changing environments without human intervention.
 \par %applications described in this thesis, TODO: add citations. scenarios or applications?
-Quality and speed of prediction is tested in two application scenarios. The first is robotic simulator implemented in 3D physics library BEPUphysics. Manipulator with five actuated joints is created, the goal is to predict future state of the robot's body. The prediction network should act as a virtual model of the body, which is useful in control systems, e.g. internal model control.
+Quality and speed of prediction is tested in two application scenarios. The first is robotic simulator implemented in 3D physics library BEPUPhysics. Manipulator with three actuated joints is created, the goal is to predict future position of robot's arm. The prediction network should act as a virtual model of the body, which can be useful in control systems, e.g. internal model control.
 
 %Data points that do not conform to the learned model of normal behaviour are called anomalies. Detecting anomalies is found to be increasingly important in computer network security. An anomaly may signal unexpected events, such as computer being under denial of service attack or unforeseen load.
 
@@ -76,9 +80,11 @@ The second scenario is monitoring utilisation of computer resources, namely proc
 \section{Time Series}
 Time series are sequences of data points measured over time. In this thesis, data points are real-valued vectors implemented as arrays of floating point numbers. Data sequence is created by measuring output of a process at discrete, regular time intervals. %discrete?
 Process may also receive input in every time step, which affects its future behaviour, or it may be purely generative receiving no input at all. For generalisation's sake, let's assume every process receives input which is a real-valued vector just like output. Generative processes then simply receive input vector of zero length.
-\begin{center}
-	TODO: $Input_t$ -> [Process] -> $Output_{t+1}$
-\end{center}
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=182px]{process.png}
+		\caption{Schema of a process.}
+	\end{figure}
 In every time step, process receives input, updates its internal state and produces output. Internal state of the process is usually hidden and can be observed only partially from output of the process. %any assumptions?
 
 \section{Prediction}
@@ -159,13 +165,19 @@ The central part of the algorithm is finding the error gradient. Let's assume th
 
 %conclusion about backprop
 
+\subsection{Time-Delay Neural Networks}
+Time-Delay Neural Network (TDNN) is a modification of feedforward network designed to capture dynamics of modelled process \cite{phoneme-recognition-tdnn}. As FFNs have no internal memory to store information about past, they are insufficient for processing temporal sequences. To overcome this, memory of past is introduced by means of extending network's input with sliding window of previous inputs, also known as tapped delay line. The information about the past is thus stored in the network input itself. Because there are no modifications to the network, standard backpropagation algorithm can be used.\par
+Size of the sliding window determines how many past inputs are stored and consequently how much past data can be correlated to future output. Too small window may not capture necessary dynamics of the system, because network is blind to anything that happened before, and thus create inferior results. Whereas too large window can drastically prolong learning time.\par
+To generalise TDNN to processes that also receive input, prediction of future process output can be defined as approximation of function $Predict$ with window size $w$
+$$Output_{t+1} = Predict(Output_t, \dots, Output_{t-w}, Input_t, \dots Input_{t-w})$$
+
 \section{Recurrent Neural Networks}
 Recurrent network is a class of ANNs which allows units to form a directed graph with cycles. This allows the network to store an internal state and consequently process sequences of inputs and thus perform temporal tasks.
 
 
 
 \subsection{Elman's Simple Recurrent Network}
-One of the simplest and most popular RNN architectures is Elman's  simple recurrent network (SRN). SRN resembles a three-layer feedforward network due to its structure composed of input, hidden and output layer, with addition of a context layer. Input and context layer connect to hidden layer, which connects to output layer. Context layer is a copy of hidden layer's activation in previous time step. Therefore, context layer acts as network's memory of previous activity.
+One of the simplest and most popular RNN architectures is Elman's  simple recurrent network (SRN). SRN resembles a three-layer feedforward network due to its structure composed of input, hidden and output layer, with addition of a context layer. Input and context layer project to hidden layer, which projects to output layer. Context layer is a copy of hidden layer's activation in previous time step. Therefore, context layer acts as network's memory of previous activity.
 
 	\begin{figure}[ht]
 		\centering
@@ -257,29 +269,630 @@ To adapt network weights, BPTT learning algorithm can be used. The algorithm wor
 \section{Neural Prediction Framework}
 Neural Prediction Framework (NPF) is a tool built for experimenting with various neural network models in online time series prediction tasks.
 
-\subsection{Memory Block}
-MemoryBlock is an object encapsulating an array of floating point numbers and providing convenience methods. MemoryBlock is used all around NPF to store data points, network weights or activations.
-\subsection{Neural Layer}
-NeuralLayer is an object storing activation of units in a layer and weights of connections coming from units of other layers.
-\subsection{Neural Network}
-TODO
+\subsection{MemoryBlock}
+MemoryBlock is an object encapsulating an array of floating point numbers and providing convenience methods. MemoryBlock is used all around NPF to store data points, network weights or activations. MemoryBlockView inherits from MemoryBlock and provides access to its elements inside specified range.
+\subsection{NeuralLayer}
+NeuralLayer is an object storing activation of units in a single layer and weights of connections coming from units of other layers. NeuralLayer is also capable of propagating input signals forward and propagating errors backward using standard backpropagation algorithm.
+\subsection{NeuralNetwork}
+NeuralNetwork is an abstract class providing common interface shared between all derived networks.
+\subsection{FeedforwardNetwork}
+FeedForwardNetwork implements a MLP with variable number of hidden layers with variable number of units in them.
+\subsection{CWRecurrentNetwork}
+CWRecurrentNetwork implements a CW-RNN with variable number of hidden layer modules with specified clock rates.
+\subsection{SimpleRecurrentNetwork}
+SimpleRecurrentNetwork derives from CWRecurrentNetwork to implement a SRN, since Elman's SRN is just a special case of CW-RNN network with single hidden layer module with clock rate equal one.
+\subsection{LearningAlgorithm}
+LearningAlgorithm is an abstract class providing common interface for all learning algorithms.
+\subsection{Backpropagation, TBPTT, RTRL}
+Backpropagation, TBPTT, RTRL classes are descendants of LearningAlgorithm implementing respectively named algorithms. Backpropagation class is used for training a FeedforwardNetwork. RTRL is capable of training a SimpleRecurrentNetwork. TBPTT supports both SimpleRecurrentNetwork and CWRecurrentNetwork.
+
 \section{Network Monitor}
-TODO
-\section{Robotic Simulator}
-TODO
+Network monitor works with assistance of unix system resources monitoring tool Dstat \cite{dstat}. Output of Dstat is redirected to a neural network of choice for prediction. As a proof of concept, the network is constantly training and predicting incoming and outgoing network traffic. Should the difference between prediction and actual value exceed predefined threshold, this incident is logged to a file as an anomaly.
+\section{Robotic Arm Simulator}
+Robotic arm simulator is implemented in BEPUPhysics 3D physics library \cite{bepuphysics}. Manipulator with three degrees of freedom from BEPU demo is constructed in 3D world. Three controlled joints are situated in base, "shoulder" and "elbow" of the arm. Simulator renders the scene, calculates physics and supplies information about current rotation of joints as well as position of claw to NPF, which provides prediction of claw position in next time step. As a proof of concept, line showing direction from current position of claw to the predicted position is drawn. Further use could be found in control of the arm.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=360px]{roboticarm.png}
+		\caption{Robotic arm in BEPUPhysics 3D physics simulator.}
+	\end{figure}
 
 \chapter{Experiments}
-\section{Sine Wave}
-TODO
-\subsection{Role of Learning and Momentum Rate}
-TODO
-\subsection{Impact of Network Size on Performance}
-TODO
+In the following experiments, I attempt to find the best performing network and its hyperparameters for prediction in three different scenarios with restricted computation time.\par
 
-\section{Network Usage}
-TODO
-\section{Robotic Manipulator}
-TODO
+Networks are tested on the same prepared datasets to ensure equal testing conditions. Units of all networks use logistic activation function. Weights of connections in all networks are initialised randomly with uniform distribution on interval [-0.25, 0.25]. Since the initial setting of network influences its overall performance, all experiments described below are run ten times and only the average of them is presented as the result.\par
+
+Experiments measuring computation time are run on 1.7GHz Intel Core i5 2557M. While the absolute computation times should vary depending on system configuration, I expect them to retain their ratio relative to each other.\par
+
+As a measure of prediction accuracy, total error $E_{total}$ collected over $T$ time steps is used. Network that predicts entire sequence flawlessly would have zero total error. %mention higher worse?
+$$E_{total} = \sum\limits_{\tau = 1}^T {1 \over 2} \sum\limits_{i=1}^{n}\left(Target_i - Output_i\right)^2$$
+Networks are trained online in every time step. In order to capture both their accuracy and ability to adapt quickly, there is no traditional division into training and testing period. Instead, networks are evaluated online as they learn in all time steps.
+
+\section{Testing Scenarios}
+Networks are tested on three different datasets with varying complexity collected from three scenarios. Each scenario is designed to test a specific aspect of prediction, such as modelling generative processes, noisy network traffic or substantially time constrained robotic manipulator.
+\subsection{Goniometric function}
+The first simple testing scenario is predicting next step of a generative process with no inputs whose output in time $t$ is defined as
+$$Output_t ={{1 + sin(t)cos(2t)} \over 2}$$
+
+\begin{tikzpicture}[domain=0:20,samples=200]
+\begin{axis}[
+  axis x line=middle,
+  axis y line=middle,
+  xmin=0, xmax=20,
+  ymin=0, ymax=1,
+  height=140,
+  width=360,
+  xtick={0,1,...,20},
+  ytick={0,0.2,...,1},
+  xlabel={$t$},
+  ylabel={$Output_t$},
+  xlabel style={right},
+  ylabel style={above},
+]
+\addplot[]{0.5 + 0.5*sin(deg(x))*cos(deg(2*x))};
+\end{axis}
+\end{tikzpicture}
+
+The goniometric function's range is [0,1] which matches logistic activation function's range [0,1], therefore no preprocessing is needed. This function is periodical with period of $2\pi$.
+
+\subsection{Network Usage}
+Second testing scenario is predicting computer network usage measured by monitoring tool Dstat. Each second, Dstat measures usage of system resources such as CPU load, memory usage, disk throughput, number of open sockets as well as network incoming and outgoing traffic. Prediction has to be computed in less time than it takes Dstat to collect network usage, which poses a loose time constraint of computation time being less than one second. Dataset consists of 3,600 data points created by monitoring real application server for one hour.\par
+Dstat measures 26 variables of the monitored system, two of which are incoming and outgoing network traffic. Values of these two variables in next time step shall be predicted. Since the values observed by Dstat have huge dynamic range, preprocessing is necessary. Values are linearly squashed into interval [0, 1] by dividing the observed value by the expected maximum.
+\subsection{Robotic Arm}
+Third testing scenario is predicting position of robotic arm's claw in BEPUPhysics 3D physics library. Manipulator with three controlled joints is constructed. At each simulation step, network receives rotations of all joints and their respective control signals. The goal is to predict next position of the claw in 3D coordinate system.\par
+This task is heavily time constrained. The 3D simulator is required to run at 60 frames per second for smooth control, which leaves only $1 \over 60$ of a second for computation of the prediction. Dataset consisting of 18,000 data points is created by controlling the robot with random commands for a period of five minutes.
+
+\section{Time-Delay Neural Network Experiments}
+Following experiments examine role of sliding window size and number of hidden units on network's performance. Network with one hidden layer with 128, 256 and 512 hidden units is tested with sliding windows of various sizes to determine their impact on performance and computation time. Learning and momentum rates are informally chosen to the best performing value for each dataset.
+
+\subsection{Precision of Predicting Goniometric Function}
+Networks are tested with learning and momentum rate equal 0.05 and 0.9 respectively. The results show steep decrease of error when increasing window size from two to three past time steps and mild decrease of error when increasing window size further. Presumably, three steps are enough to capture dynamics of a simple goniometric function. Number of hidden units has little effect.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting goniometric function with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=north east,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR128]{tdnn_gon_error.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tdnn_gon_error.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=ERROR512]{tdnn_gon_error.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Network Usage}
+Networks with 128, 256 and 512 units in single hidden layer are tested with learning and momentum rate equal 0.001 and 0.9 respectively. Sliding window size and number of hidden units show little or no effect on reducing total error. This behaviour could be caused by inherent unpredictability of the network traffic.
+
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting network traffic with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  ymax=65,
+	  axis lines = left,
+%	  xtick={1,2,...,20},
+%	  ytick={0,10,...,70},
+	  legend pos=south west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR128]{tdnn_net_error.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tdnn_net_error.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=ERROR512]{tdnn_net_error.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Position of Manipulator's Claw}
+Networks with 128, 256 and 512 units in single hidden layer are tested with learning and momentum rate equal 0.01 and 0.9 respectively. Regardless of number of units, networks find their error minimum with window of size two or three. Enlarging the  window further has negative impact and increases error. The larger the network, the more susceptible it is to this. This may suggest that the state of manipulator is sufficiently captured in two or three consecutive steps.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting manipulator's claw position with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  %ymax=65,
+	  axis lines = left,
+%	  xtick={1,2,...,20},
+	  ytick={0,10,...,120},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR128]{tdnn_man_error.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tdnn_man_error.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=ERROR512]{tdnn_man_error.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Computation Time}
+As expected, increasing window size is linearly increasing the computation time. Similarly, computation time is increased linearly by adding hidden units.
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting goniometric function with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME128]{tdnn_gon_time.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tdnn_gon_time.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=TIME512]{tdnn_gon_time.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting network traffic with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+%	  xtick={0,2,...,20},
+%	  ytick={0,0.1,...,0.2},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME128]{tdnn_net_time.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tdnn_net_time.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=TIME512]{tdnn_net_time.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting manipulator's claw position with TDNN and various sliding window sizes.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+%	  xtick={0,2,...,20},
+%	  ytick={0,0.1,...,0.2},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME128]{tdnn_man_time.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tdnn_man_time.dat};
+	\addlegendentry{256 hidden units}
+	\addplot table [x=WS, y=TIME512]{tdnn_man_time.dat};
+	\addlegendentry{512 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\section{Truncated Backpropagation Through Time Experiments}
+Following experiments examine role of unfolding depth and number of hidden units on network's precision and computation time. Learning and momentum rates are informally chosen to the best performing value for each dataset.
+
+\subsection{Precision of Predicting Goniometric Function}
+As unfolding depth increases, total errors of the networks are oscillating with period of roughly $2\pi$, the reason of which is unclear to me.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting goniometric function with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=south west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR64]{tbptt_gon_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{tbptt_gon_error.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{tbptt_gon_error.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Network Traffic}
+Total errors of the networks find their minimum with unfolding depth between two and six and then the trend is upward. Similar to TDNN, the effect of adding more hidden units is questionable.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting network traffic with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=south west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR32]{tbptt_net_error.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=ERROR64]{tbptt_net_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{tbptt_net_error.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Position of Manipulator's Claw}
+The number of hidden units is clearly decreasing total error with any unfolding depth. Total errors find their minimum to be roughly in the middle of the tested interval.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting manipulator's claw position with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,25,...,220},
+	  legend pos=north east,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR32]{tbptt_man_error.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=ERROR64]{tbptt_man_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{tbptt_man_error.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Computation Time}
+Increasing unfolding linearly increases the computation time. On the other had, computation time is increased quadratically by adding more hidden units.
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting goniometric function with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME64]{tbptt_gon_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{tbptt_gon_time.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{tbptt_gon_time.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting network traffic with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME32]{tbptt_net_time.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=TIME64]{tbptt_net_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{tbptt_net_time.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting manipulator's claw position with SRN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME32]{tbptt_man_time.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=TIME64]{tbptt_man_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{tbptt_man_time.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\section{Real-Time Recurrent Learning Experiments}
+The impact of hidden layer size of a SRN trained by RTRL on precision and computation time is examined. Networks with only 8 and 16 hidden units are tested due to high computation time exceeding limits of all scenarios. Learning rate is set to 0.1 and momentum rate to 0.9. 
+
+\subsection{Precision of Prediction}
+The error trend goes slightly downward with increasing number of units, but because there are so few of them, maximum achievable precision is limited.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of prediction in all three scenarios with SRN trained by RTRL with various number of hidden units.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Hidden units,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+ 	  xtick={8,16},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=N, y=ERRORG]{rtrl_error.dat};
+	\addlegendentry{Goniometric function}
+	\addplot table [x=N, y=ERRORN]{rtrl_error.dat};
+	\addlegendentry{Network usage}
+	\addplot table [x=N, y=ERRORM]{rtrl_error.dat};
+	\addlegendentry{Manipulator}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Computation Time}
+RTRL's $O(n^4)$ time complexity appears to be the limiting factor in online use. Even with 16 hidden units, the network approaches maximum allowed execution time of 360 seconds in manipulator scenario.
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of prediction in all three scenarios with SRN trained by RTRL with various number of hidden units.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Hidden units,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+ 	  xtick={8,16},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=N, y=TIMEG]{rtrl_time.dat};
+	\addlegendentry{Goniometric function}
+	\addplot table [x=N, y=TIMEN]{rtrl_time.dat};
+	\addlegendentry{Network usage}
+	\addplot table [x=N, y=TIMEM]{rtrl_time.dat};
+	\addlegendentry{Manipulator}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+\section{Clockwork Recurrent Network Experiments}
+Following experiments examine role of unfolding depth and number of hidden units in CW-RNN on its precision and computation time. Learning and momentum rates are informally chosen to the best performing value for each dataset. Hidden layer of tested network is divided into four equally big modules with periods 1, 2, 4 and 8.
+
+\subsection{Precision of Predicting Goniometric Function}
+As unfolding depth increases, total errors of the networks are oscillating with period of roughly $2\pi$, the reason of which is unclear to me.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting goniometric function with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=south west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR64]{cw_gon_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{cw_gon_error.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=ERROR256]{cw_gon_error.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Network Traffic}
+Total errors of the networks find their minimum with small unfolding depth value and then the trend is upward. Similar to TDNN, the effect of adding more hidden units is questionable.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting network traffic with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=south west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR32]{cw_net_error.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=ERROR64]{cw_net_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{cw_net_error.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Precision of Predicting Position of Manipulator's Claw}
+The number of hidden units is clearly decreasing total error with any unfolding depth. Total errors find their minimum to be roughly in the middle of the tested interval.
+
+\begin{figure}[H]
+\centering
+\caption{Total error of predicting manipulator's claw position with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  %ytick={0,25,...,220},
+	  legend pos=north east,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=ERROR32]{cw_man_error.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=ERROR64]{cw_man_error.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=ERROR128]{cw_man_error.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Computation Time}
+Increasing unfolding linearly increases the computation time. On the other had, computation time is increased quadratically by adding more hidden units. Interestingly, the computation time of CW-RNN is approximately half of that of SRN.
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting goniometric function with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME64]{cw_gon_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{cw_gon_time.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{cw_gon_time.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting network traffic with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME32]{cw_net_time.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=TIME64]{cw_net_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{cw_net_time.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Computation time of predicting manipulator's claw position with CW-RNN trained by TBPTT with various unfolding depth.}
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=WS, y=TIME32]{cw_man_time.dat};
+	\addlegendentry{32 hidden units}
+	\addplot table [x=WS, y=TIME64]{cw_man_time.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{cw_man_time.dat};
+	\addlegendentry{128 hidden units}
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+
 
 \chapter{Results}
 TODO

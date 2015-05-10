@@ -32,7 +32,9 @@ public:
 	float SquareSum() const;
 	
 	void Add(const MemoryBlock& operand);
+	void Add(float operand);
 	void Subtract(const MemoryBlock& operand);
+	void Subtract(float operand);
 	void Multiply(const MemoryBlock& operand);
 	void Multiply(float operand);
 	

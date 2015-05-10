@@ -30,5 +30,8 @@ void Backpropagation::Train(const MemoryBlock& target) {
 		m_network->layers[i]->UpdateWeights();
 	}
 	
-	error = m_network->layers.back()->delta.SquareSum();
+	error = 0;
+	for (int i = 0; i < target.size; i++) {
+		error += (target.data[i] - m_network->output.data[i]) * (target.data[i] - m_network->output.data[i]);
+	}
 }
