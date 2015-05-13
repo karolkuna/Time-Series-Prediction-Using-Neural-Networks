@@ -1,0 +1,28 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Computation time (s),
+	  ylabel=Total error,
+	  xmin = 0,
+	  %xmax=6,
+	  ymin = 0,
+	  axis lines = left,
+%	  xtick={1,2,...,20},
+%	  ytick={0,10,...,60},
+	  legend pos=north east,
+	  height=190,
+	  width=360]
+
+	\addplot table [x=TIME128, y=ERROR256]{results/tdnn_gon.dat};
+	\addlegendentry{TDNN}
+
+	\addplot table [x=TIME256, y=ERROR256]{results/tbptt_gon.dat};
+	\addlegendentry{TBPTT}
+	
+	\addplot table [x=TIME256, y=ERROR256]{results/cw_gon.dat};
+	\addlegendentry{CW-RNN}
+
+	\addplot table [x=TIMEG, y=ERRORG]{results/rtrl.dat};
+	\addlegendentry{RTRL}
+	\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Sliding window size,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+%	  xtick={0,2,...,20},
+%	  ytick={0,0.1,...,0.2},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+  	\addplot table [x=WS, y=TIME64]{results/tdnn_man.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=WS, y=TIME128]{results/tdnn_man.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=WS, y=TIME256]{results/tdnn_man.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}

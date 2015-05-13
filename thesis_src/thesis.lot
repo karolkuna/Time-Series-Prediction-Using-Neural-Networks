@@ -4,6 +4,9 @@
 \addvspace {4\p@ }
 \addvspace {4\p@ }
 \addvspace {4\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Learning and momentum rates of TDNN in the experiments.\relax }}{23}{table.caption.15}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Learning and momentum rates of SRN trained by BPTT in the experiments.\relax }}{23}{table.caption.16}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Learning and momentum rates of CW-RNN trained by BPTT in the experiments.\relax }}{24}{table.caption.17}
 \addvspace {4\p@ }
 \addvspace {4\p@ }
 \addvspace {4\p@ }

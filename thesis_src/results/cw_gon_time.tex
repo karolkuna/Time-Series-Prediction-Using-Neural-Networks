@@ -1,0 +1,20 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Time (s),
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={0,2,...,20},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=UD, y=TIME64]{results/cw_gon.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=UD, y=TIME128]{results/cw_gon.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=UD, y=TIME256]{results/cw_gon.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}

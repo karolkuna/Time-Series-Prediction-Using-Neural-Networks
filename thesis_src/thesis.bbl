@@ -1,7 +1,10 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{bepuphysics}
 Bepuphysics, May 2015.
+
+\bibitem{bepu-robotarm-demo}
+Bepuphysics demo robotic arm thingamajig, May 2015.
 
 \bibitem{dstat}
 Dstat: Versatile resource statistics tool, May 2015.
@@ -11,6 +14,28 @@ George Cybenko.
 \newblock Approximation by superpositions of a sigmoidal function.
 \newblock {\em Mathematics of Control, Signals, and Systems (MCSS)},
   2(4):303--314, 12 1989.
+
+\bibitem{Hochreiter01gradientflow}
+Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber.
+\newblock Gradient flow in recurrent nets: the difficulty of learning long-term
+  dependencies, 2001.
+
+\bibitem{minds-jacobs}
+Herbert Jaeger.
+\newblock A tutorial on training recurrent neural networks, covering bptt,
+  rtrl, ekf and the "echo state network" approach.
+\newblock {\em GMD Report}, 159, 2002.
+
+\bibitem{internal-model-control}
+Mitsuo Kawato.
+\newblock Internal models for motor control and trajectory planning.
+\newblock {\em Current Opinion in Neurobiology}, 9:718--727, 1999.
+
+\bibitem{cw-rnn}
+Jan Koutn{\'{\i}}k, Klaus Greff, Faustino~J. Gomez, and J{\"{u}}rgen
+  Schmidhuber.
+\newblock A clockwork {RNN}.
+\newblock {\em CoRR}, abs/1402.3511, 2014.
 
 \bibitem{rumelhart-hinton-williams}
 D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams.
@@ -24,6 +49,12 @@ Alexander Waibel, Toshiyuki Hanazawa, Geofrey Hinton, Kiyohiro Shikano, and
 \newblock Readings in speech recognition.
 \newblock chapter Phoneme Recognition Using Time-delay Neural Networks, pages
   393--404. Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1990.
+
+\bibitem{Williams90anefficient}
+Ronald~J. Williams and Jing Peng.
+\newblock An efficient gradient-based algorithm for on-line training of
+  recurrent network trajectories.
+\newblock {\em Neural Computation}, 2:490--501, 1990.
 
 \bibitem{williams-zipser}
 Ronald~J. Williams and David Zipser.

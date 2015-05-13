@@ -1,0 +1,21 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Unfolding depth,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+	  xtick={1,2,...,20},
+ 	  ytick={0,10,...,60},
+	  legend pos=south west,
+	  height=130,
+	  width=360]
+	\addplot table [x=UD, y=ERROR64]{results/tbptt_gon.dat};
+	\addlegendentry{64 hidden units}
+	\addplot table [x=UD, y=ERROR128]{results/tbptt_gon.dat};
+	\addlegendentry{128 hidden units}
+	\addplot table [x=UD, y=ERROR256]{results/tbptt_gon.dat};
+	\addlegendentry{256 hidden units}
+	\end{axis}
+\end{tikzpicture}

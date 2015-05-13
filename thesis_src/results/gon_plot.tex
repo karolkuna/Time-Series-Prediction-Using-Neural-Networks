@@ -1,0 +1,23 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Time (s),
+	  ylabel=Total error,
+	  axis lines = left,
+%	  xtick={1,2,...,20},
+%	  ytick={0,10,...,60},
+	  legend pos=south east,
+	  height=150,
+	  width=360]
+
+	\addplot table [x=T, y=TARGET]{results/gon_plot.dat};
+	\addlegendentry{Target}
+
+	\addplot table [x=T, y=TDNN]{results/gon_plot.dat};
+	\addlegendentry{TDNN}
+
+	\addplot table [x=T, y=RNN]{results/gon_plot.dat};
+	\addlegendentry{RNN}
+
+	\end{axis}
+\end{tikzpicture}

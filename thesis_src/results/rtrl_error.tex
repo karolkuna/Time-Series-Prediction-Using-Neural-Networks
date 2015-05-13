@@ -1,0 +1,20 @@
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	  xlabel=Hidden units,
+	  ylabel=Total error,
+	  xmin = 0,
+	  ymin = 0,
+	  axis lines = left,
+ 	  xtick={8,16,32},
+	  legend pos=north west,
+	  height=180,
+	  width=360]
+	\addplot table [x=N, y=ERRORG]{results/rtrl.dat};
+	\addlegendentry{Goniometric function}
+	\addplot table [x=N, y=ERRORN]{results/rtrl.dat};
+	\addlegendentry{Network usage}
+	\addplot table [x=N, y=ERRORM]{results/rtrl.dat};
+	\addlegendentry{Manipulator}
+	\end{axis}
+\end{tikzpicture}
