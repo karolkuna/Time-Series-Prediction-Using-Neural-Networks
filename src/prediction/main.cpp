@@ -46,33 +46,31 @@ void runAllTests() {
 	memoryBlockTests();
 	std::cout << "All tests passed\n";
 }
- 
-int main(int argc, const char * argv[]) {	
-	runAllTests();
-	
+
+void runAllExperiments() {
+	ExperimentTDNNWindowSize(GONIOMETRIC, 20, {64}, 0.05, 0.9);
 	ExperimentTDNNWindowSize(GONIOMETRIC, 20, {128}, 0.05, 0.9);
 	ExperimentTDNNWindowSize(GONIOMETRIC, 20, {256}, 0.05, 0.9);
-	ExperimentTDNNWindowSize(GONIOMETRIC, 20, {512}, 0.05, 0.9);
 	
+	ExperimentTDNNWindowSize(NETWORK, 30, {64}, 0.001, 0.9);
 	ExperimentTDNNWindowSize(NETWORK, 30, {128}, 0.001, 0.9);
 	ExperimentTDNNWindowSize(NETWORK, 30, {256}, 0.001, 0.9);
-	ExperimentTDNNWindowSize(NETWORK, 30, {512}, 0.001, 0.9);
 	
+	ExperimentTDNNWindowSize(MANIPULATOR, 20, {64}, 0.01, 0.9);
 	ExperimentTDNNWindowSize(MANIPULATOR, 20, {128}, 0.01, 0.9);
 	ExperimentTDNNWindowSize(MANIPULATOR, 20, {256}, 0.01, 0.9);
-	ExperimentTDNNWindowSize(MANIPULATOR, 20, {512}, 0.01, 0.9);
-
-	ExperimentTBPPTDepth(GONIOMETRIC, 20, 64, 0.01, 0.9);
-	ExperimentTBPPTDepth(GONIOMETRIC, 20, 128, 0.01, 0.9);
-	ExperimentTBPPTDepth(GONIOMETRIC, 20, 256, 0.01, 0.9);
-
-	ExperimentTBPPTDepth(NETWORK, 20, 32, 0.001, 0.9);
+	
+	ExperimentTBPPTDepth(GONIOMETRIC, 20, 64, 0.01, 0.99);
+	ExperimentTBPPTDepth(GONIOMETRIC, 20, 128, 0.01, 0.99);
+	ExperimentTBPPTDepth(GONIOMETRIC, 20, 256, 0.01, 0.99);
+	
 	ExperimentTBPPTDepth(NETWORK, 20, 64, 0.001, 0.9);
 	ExperimentTBPPTDepth(NETWORK, 20, 128, 0.001, 0.9);
+	ExperimentTBPPTDepth(NETWORK, 20, 256, 0.001, 0.9);
 	
-	ExperimentTBPPTDepth(MANIPULATOR, 20, 32, 0.01, 0.9);
 	ExperimentTBPPTDepth(MANIPULATOR, 20, 64, 0.01, 0.9);
 	ExperimentTBPPTDepth(MANIPULATOR, 20, 128, 0.01, 0.9);
+	ExperimentTBPPTDepth(MANIPULATOR, 20, 256, 0.01, 0.9);
 	
 	ExperimentRTRLUnits(GONIOMETRIC, 8, 0.1, 0.9);
 	ExperimentRTRLUnits(GONIOMETRIC, 16, 0.1, 0.9);
@@ -86,17 +84,22 @@ int main(int argc, const char * argv[]) {
 	ExperimentRTRLUnits(MANIPULATOR, 16, 0.1, 0.9);
 	ExperimentRTRLUnits(MANIPULATOR, 32, 0.1, 0.9);
 	
-	ExperimentCWDepth(GONIOMETRIC, 20, 16, {1,2,4,8}, 0.01, 0.9);
-	ExperimentCWDepth(GONIOMETRIC, 20, 32, {1,2,4,8}, 0.01, 0.9);
-	ExperimentCWDepth(GONIOMETRIC, 20, 64, {1,2,4,8}, 0.01, 0.9);
-
-	ExperimentCWDepth(NETWORK, 20, 8, {1,2,4,8}, 0.001, 0.9);
+	ExperimentCWDepth(GONIOMETRIC, 20, 16, {1,2,4,8}, 0.01, 0.99);
+	ExperimentCWDepth(GONIOMETRIC, 20, 32, {1,2,4,8}, 0.01, 0.99);
+	ExperimentCWDepth(GONIOMETRIC, 20, 64, {1,2,4,8}, 0.01, 0.99);
+	
 	ExperimentCWDepth(NETWORK, 20, 16, {1,2,4,8}, 0.001, 0.9);
 	ExperimentCWDepth(NETWORK, 20, 32, {1,2,4,8}, 0.001, 0.9);
+	ExperimentCWDepth(NETWORK, 20, 64, {1,2,4,8}, 0.001, 0.9);
 	
-	ExperimentCWDepth(MANIPULATOR, 20, 8, {1,2,4,8}, 0.01, 0.9);
 	ExperimentCWDepth(MANIPULATOR, 20, 16, {1,2,4,8}, 0.01, 0.9);
 	ExperimentCWDepth(MANIPULATOR, 20, 32, {1,2,4,8}, 0.01, 0.9);
+	ExperimentCWDepth(MANIPULATOR, 20, 64, {1,2,4,8}, 0.01, 0.9);
+}
+
+int main(int argc, const char * argv[]) {	
+	runAllTests();
+	runAllExperiments();
 
     return 0;
 }

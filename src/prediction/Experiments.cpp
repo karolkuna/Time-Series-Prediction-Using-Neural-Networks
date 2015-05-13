@@ -135,7 +135,7 @@ void ExperimentTBPPTDepth(experiment_dataset dataset, int maxDepth, int hiddenUn
 			DstatParser dstat("/Users/karolkuna/Desktop/data/dstat.data");
 			
 			if (dataset == GONIOMETRIC) {
-				inputSize = 0;
+				inputSize = 1;
 				targetSize = 1;
 				steps = 1000;
 			} else if (dataset == NETWORK) {
@@ -163,6 +163,7 @@ void ExperimentTBPPTDepth(experiment_dataset dataset, int maxDepth, int hiddenUn
 			
 			for (int t = 0; t < steps; t++) {
 				if (dataset == GONIOMETRIC) {
+					target.CopyTo(input);
 					target.data[0] = 0.5f * (1 + sinf(t) * cosf(2*t));
 				} else if (dataset == NETWORK) {
 					dstat.output.CopyTo(input, 0, 0, dstat.output.size);
@@ -213,7 +214,7 @@ void ExperimentRTRLUnits(experiment_dataset dataset, int hiddenUnits, float lear
 		DstatParser dstat("/Users/karolkuna/Desktop/data/dstat.data");
 			
 		if (dataset == GONIOMETRIC) {
-			inputSize = 0;
+			inputSize = 1;
 			targetSize = 1;
 			steps = 1000;
 		} else if (dataset == NETWORK) {
@@ -241,6 +242,7 @@ void ExperimentRTRLUnits(experiment_dataset dataset, int hiddenUnits, float lear
 			
 		for (int t = 0; t < steps; t++) {
 			if (dataset == GONIOMETRIC) {
+				target.CopyTo(input);
 				target.data[0] = 0.5f * (1 + sinf(t) * cosf(2*t));
 			} else if (dataset == NETWORK) {
 				dstat.output.CopyTo(input, 0, 0, dstat.output.size);
@@ -292,7 +294,7 @@ void ExperimentCWDepth(experiment_dataset dataset, int maxDepth, int hiddenUnits
 			DstatParser dstat("/Users/karolkuna/Desktop/data/dstat.data");
 			
 			if (dataset == GONIOMETRIC) {
-				inputSize = 0;
+				inputSize = 1;
 				targetSize = 1;
 				steps = 1000;
 			} else if (dataset == NETWORK) {
@@ -320,6 +322,7 @@ void ExperimentCWDepth(experiment_dataset dataset, int maxDepth, int hiddenUnits
 			
 			for (int t = 0; t < steps; t++) {
 				if (dataset == GONIOMETRIC) {
+					target.CopyTo(input);
 					target.data[0] = 0.5f * (1 + sinf(t) * cosf(2*t));
 				} else if (dataset == NETWORK) {
 					dstat.output.CopyTo(input, 0, 0, dstat.output.size);
