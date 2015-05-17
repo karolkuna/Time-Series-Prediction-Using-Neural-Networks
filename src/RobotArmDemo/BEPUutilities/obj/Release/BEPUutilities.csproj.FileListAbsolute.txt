@@ -1,0 +1,5 @@
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUutilities\bin\Release\BEPUutilities.xml
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUutilities\bin\Release\BEPUutilities.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUutilities\bin\Release\BEPUutilities.pdb
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUutilities\obj\Release\BEPUutilities.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUutilities\obj\Release\BEPUutilities.pdb

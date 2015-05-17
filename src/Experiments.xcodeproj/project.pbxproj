@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		807B315A1B09155900658AAA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31591B09155900658AAA /* main.cpp */; };
+		807B31881B0915F300658AAA /* Experiments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31861B0915F300658AAA /* Experiments.cpp */; };
+		807B31CA1B0918CC00658AAA /* Backpropagation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31B21B0918CC00658AAA /* Backpropagation.cpp */; };
+		807B31CB1B0918CC00658AAA /* CWRecurrentNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31B41B0918CC00658AAA /* CWRecurrentNetwork.cpp */; };
+		807B31CC1B0918CC00658AAA /* DataSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31B61B0918CC00658AAA /* DataSet.cpp */; };
+		807B31CD1B0918CC00658AAA /* DstatParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31B81B0918CC00658AAA /* DstatParser.cpp */; };
+		807B31CE1B0918CC00658AAA /* FeedforwardNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31BA1B0918CC00658AAA /* FeedforwardNetwork.cpp */; };
+		807B31CF1B0918CC00658AAA /* MemoryBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31BD1B0918CC00658AAA /* MemoryBlock.cpp */; };
+		807B31D01B0918CC00658AAA /* MemoryBlockView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31BF1B0918CC00658AAA /* MemoryBlockView.cpp */; };
+		807B31D11B0918CC00658AAA /* NeuralLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31C11B0918CC00658AAA /* NeuralLayer.cpp */; };
+		807B31D21B0918CC00658AAA /* RTRL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31C41B0918CC00658AAA /* RTRL.cpp */; };
+		807B31D31B0918CC00658AAA /* SimpleRecurrentNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31C61B0918CC00658AAA /* SimpleRecurrentNetwork.cpp */; };
+		807B31D41B0918CC00658AAA /* TBPTT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 807B31C81B0918CC00658AAA /* TBPTT.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		807B31541B09155900658AAA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		807B31561B09155900658AAA /* Experiments */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Experiments; sourceTree = BUILT_PRODUCTS_DIR; };
+		807B31591B09155900658AAA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		807B31861B0915F300658AAA /* Experiments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Experiments.cpp; sourceTree = "<group>"; };
+		807B31871B0915F300658AAA /* Experiments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Experiments.h; sourceTree = "<group>"; };
+		807B31B11B0918CC00658AAA /* ActivationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivationFunctions.h; path = NeuralPredictionLibrary/ActivationFunctions.h; sourceTree = "<group>"; };
+		807B31B21B0918CC00658AAA /* Backpropagation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Backpropagation.cpp; path = NeuralPredictionLibrary/Backpropagation.cpp; sourceTree = "<group>"; };
+		807B31B31B0918CC00658AAA /* Backpropagation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Backpropagation.h; path = NeuralPredictionLibrary/Backpropagation.h; sourceTree = "<group>"; };
+		807B31B41B0918CC00658AAA /* CWRecurrentNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWRecurrentNetwork.cpp; path = NeuralPredictionLibrary/CWRecurrentNetwork.cpp; sourceTree = "<group>"; };
+		807B31B51B0918CC00658AAA /* CWRecurrentNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWRecurrentNetwork.h; path = NeuralPredictionLibrary/CWRecurrentNetwork.h; sourceTree = "<group>"; };
+		807B31B61B0918CC00658AAA /* DataSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataSet.cpp; path = NeuralPredictionLibrary/DataSet.cpp; sourceTree = "<group>"; };
+		807B31B71B0918CC00658AAA /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSet.h; path = NeuralPredictionLibrary/DataSet.h; sourceTree = "<group>"; };
+		807B31B81B0918CC00658AAA /* DstatParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DstatParser.cpp; path = NeuralPredictionLibrary/DstatParser.cpp; sourceTree = "<group>"; };
+		807B31B91B0918CC00658AAA /* DstatParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DstatParser.h; path = NeuralPredictionLibrary/DstatParser.h; sourceTree = "<group>"; };
+		807B31BA1B0918CC00658AAA /* FeedforwardNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FeedforwardNetwork.cpp; path = NeuralPredictionLibrary/FeedforwardNetwork.cpp; sourceTree = "<group>"; };
+		807B31BB1B0918CC00658AAA /* FeedforwardNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedforwardNetwork.h; path = NeuralPredictionLibrary/FeedforwardNetwork.h; sourceTree = "<group>"; };
+		807B31BC1B0918CC00658AAA /* LearningAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LearningAlgorithm.h; path = NeuralPredictionLibrary/LearningAlgorithm.h; sourceTree = "<group>"; };
+		807B31BD1B0918CC00658AAA /* MemoryBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBlock.cpp; path = NeuralPredictionLibrary/MemoryBlock.cpp; sourceTree = "<group>"; };
+		807B31BE1B0918CC00658AAA /* MemoryBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryBlock.h; path = NeuralPredictionLibrary/MemoryBlock.h; sourceTree = "<group>"; };
+		807B31BF1B0918CC00658AAA /* MemoryBlockView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryBlockView.cpp; path = NeuralPredictionLibrary/MemoryBlockView.cpp; sourceTree = "<group>"; };
+		807B31C01B0918CC00658AAA /* MemoryBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryBlockView.h; path = NeuralPredictionLibrary/MemoryBlockView.h; sourceTree = "<group>"; };
+		807B31C11B0918CC00658AAA /* NeuralLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NeuralLayer.cpp; path = NeuralPredictionLibrary/NeuralLayer.cpp; sourceTree = "<group>"; };
+		807B31C21B0918CC00658AAA /* NeuralLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NeuralLayer.h; path = NeuralPredictionLibrary/NeuralLayer.h; sourceTree = "<group>"; };
+		807B31C31B0918CC00658AAA /* NeuralNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NeuralNetwork.h; path = NeuralPredictionLibrary/NeuralNetwork.h; sourceTree = "<group>"; };
+		807B31C41B0918CC00658AAA /* RTRL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RTRL.cpp; path = NeuralPredictionLibrary/RTRL.cpp; sourceTree = "<group>"; };
+		807B31C51B0918CC00658AAA /* RTRL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTRL.h; path = NeuralPredictionLibrary/RTRL.h; sourceTree = "<group>"; };
+		807B31C61B0918CC00658AAA /* SimpleRecurrentNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleRecurrentNetwork.cpp; path = NeuralPredictionLibrary/SimpleRecurrentNetwork.cpp; sourceTree = "<group>"; };
+		807B31C71B0918CC00658AAA /* SimpleRecurrentNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleRecurrentNetwork.h; path = NeuralPredictionLibrary/SimpleRecurrentNetwork.h; sourceTree = "<group>"; };
+		807B31C81B0918CC00658AAA /* TBPTT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TBPTT.cpp; path = NeuralPredictionLibrary/TBPTT.cpp; sourceTree = "<group>"; };
+		807B31C91B0918CC00658AAA /* TBPTT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBPTT.h; path = NeuralPredictionLibrary/TBPTT.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		807B31531B09155900658AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		807B314D1B09155900658AAA = {
+			isa = PBXGroup;
+			children = (
+				807B31601B09158600658AAA /* NeuralPredictionLibrary */,
+				807B31581B09155900658AAA /* Experiments */,
+				807B31571B09155900658AAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		807B31571B09155900658AAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				807B31561B09155900658AAA /* Experiments */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		807B31581B09155900658AAA /* Experiments */ = {
+			isa = PBXGroup;
+			children = (
+				807B31871B0915F300658AAA /* Experiments.h */,
+				807B31861B0915F300658AAA /* Experiments.cpp */,
+				807B31591B09155900658AAA /* main.cpp */,
+			);
+			path = Experiments;
+			sourceTree = "<group>";
+		};
+		807B31601B09158600658AAA /* NeuralPredictionLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				807B31D51B09193A00658AAA /* DataManipulation */,
+				807B31D61B09194500658AAA /* NeuralNetworks */,
+			);
+			name = NeuralPredictionLibrary;
+			sourceTree = "<group>";
+		};
+		807B31D51B09193A00658AAA /* DataManipulation */ = {
+			isa = PBXGroup;
+			children = (
+				807B31D71B09195500658AAA /* Headers */,
+				807B31BD1B0918CC00658AAA /* MemoryBlock.cpp */,
+				807B31BF1B0918CC00658AAA /* MemoryBlockView.cpp */,
+				807B31B61B0918CC00658AAA /* DataSet.cpp */,
+				807B31B81B0918CC00658AAA /* DstatParser.cpp */,
+			);
+			name = DataManipulation;
+			sourceTree = "<group>";
+		};
+		807B31D61B09194500658AAA /* NeuralNetworks */ = {
+			isa = PBXGroup;
+			children = (
+				807B31D81B09195B00658AAA /* Headers */,
+				807B31C11B0918CC00658AAA /* NeuralLayer.cpp */,
+				807B31BA1B0918CC00658AAA /* FeedforwardNetwork.cpp */,
+				807B31C61B0918CC00658AAA /* SimpleRecurrentNetwork.cpp */,
+				807B31B41B0918CC00658AAA /* CWRecurrentNetwork.cpp */,
+				807B31B21B0918CC00658AAA /* Backpropagation.cpp */,
+				807B31C81B0918CC00658AAA /* TBPTT.cpp */,
+				807B31C41B0918CC00658AAA /* RTRL.cpp */,
+			);
+			name = NeuralNetworks;
+			sourceTree = "<group>";
+		};
+		807B31D71B09195500658AAA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				807B31BE1B0918CC00658AAA /* MemoryBlock.h */,
+				807B31C01B0918CC00658AAA /* MemoryBlockView.h */,
+				807B31B71B0918CC00658AAA /* DataSet.h */,
+				807B31B91B0918CC00658AAA /* DstatParser.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		807B31D81B09195B00658AAA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				807B31B11B0918CC00658AAA /* ActivationFunctions.h */,
+				807B31C21B0918CC00658AAA /* NeuralLayer.h */,
+				807B31C31B0918CC00658AAA /* NeuralNetwork.h */,
+				807B31BB1B0918CC00658AAA /* FeedforwardNetwork.h */,
+				807B31C71B0918CC00658AAA /* SimpleRecurrentNetwork.h */,
+				807B31B51B0918CC00658AAA /* CWRecurrentNetwork.h */,
+				807B31BC1B0918CC00658AAA /* LearningAlgorithm.h */,
+				807B31B31B0918CC00658AAA /* Backpropagation.h */,
+				807B31C91B0918CC00658AAA /* TBPTT.h */,
+				807B31C51B0918CC00658AAA /* RTRL.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		807B31551B09155900658AAA /* Experiments */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 807B315D1B09155900658AAA /* Build configuration list for PBXNativeTarget "Experiments" */;
+			buildPhases = (
+				807B31521B09155900658AAA /* Sources */,
+				807B31531B09155900658AAA /* Frameworks */,
+				807B31541B09155900658AAA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Experiments;
+			productName = Experiments;
+			productReference = 807B31561B09155900658AAA /* Experiments */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		807B314E1B09155900658AAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Karol Kuna";
+				TargetAttributes = {
+					807B31551B09155900658AAA = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 807B31511B09155900658AAA /* Build configuration list for PBXProject "Experiments" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 807B314D1B09155900658AAA;
+			productRefGroup = 807B31571B09155900658AAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				807B31551B09155900658AAA /* Experiments */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		807B31521B09155900658AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807B31881B0915F300658AAA /* Experiments.cpp in Sources */,
+				807B31D31B0918CC00658AAA /* SimpleRecurrentNetwork.cpp in Sources */,
+				807B31CE1B0918CC00658AAA /* FeedforwardNetwork.cpp in Sources */,
+				807B31CB1B0918CC00658AAA /* CWRecurrentNetwork.cpp in Sources */,
+				807B31CC1B0918CC00658AAA /* DataSet.cpp in Sources */,
+				807B31D41B0918CC00658AAA /* TBPTT.cpp in Sources */,
+				807B31CF1B0918CC00658AAA /* MemoryBlock.cpp in Sources */,
+				807B31D01B0918CC00658AAA /* MemoryBlockView.cpp in Sources */,
+				807B31D11B0918CC00658AAA /* NeuralLayer.cpp in Sources */,
+				807B31D21B0918CC00658AAA /* RTRL.cpp in Sources */,
+				807B31CA1B0918CC00658AAA /* Backpropagation.cpp in Sources */,
+				807B315A1B09155900658AAA /* main.cpp in Sources */,
+				807B31CD1B0918CC00658AAA /* DstatParser.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		807B315B1B09155900658AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		807B315C1B09155900658AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		807B315E1B09155900658AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		807B315F1B09155900658AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		807B31511B09155900658AAA /* Build configuration list for PBXProject "Experiments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				807B315B1B09155900658AAA /* Debug */,
+				807B315C1B09155900658AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		807B315D1B09155900658AAA /* Build configuration list for PBXNativeTarget "Experiments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				807B315E1B09155900658AAA /* Debug */,
+				807B315F1B09155900658AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 807B314E1B09155900658AAA /* Project object */;
+}

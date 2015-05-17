@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>NeuralPredictionLibrary</RootNamespace>
+    <ProjectName>ManagedNeuralPredictionLibrary</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;NEURALPREDICTIONLIBRARY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;NEURALPREDICTIONLIBRARY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <CompileAsManaged>true</CompileAsManaged>
+      <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\NeuralPredictionLibrary\ActivationFunctions.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\Backpropagation.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\CWRecurrentNetwork.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\DataSet.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\DstatParser.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\FeedforwardNetwork.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\LearningAlgorithm.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\MemoryBlock.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\MemoryBlockView.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\NeuralLayer.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\NeuralNetwork.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\RTRL.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\SimpleRecurrentNetwork.h" />
+    <ClInclude Include="..\..\NeuralPredictionLibrary\TBPTT.h" />
+    <ClInclude Include="ManagedNeuralPredictionLibrary.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\NeuralPredictionLibrary\Backpropagation.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\CWRecurrentNetwork.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\DataSet.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\DstatParser.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\FeedforwardNetwork.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\MemoryBlock.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\MemoryBlockView.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\NeuralLayer.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\RTRL.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\SimpleRecurrentNetwork.cpp" />
+    <ClCompile Include="..\..\NeuralPredictionLibrary\TBPTT.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ManagedNeuralPredictionLibrary.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,10 @@
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\ConversionHelper.xml
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\ConversionHelper.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\ConversionHelper.pdb
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\BEPUutilities.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\BEPUutilities.pdb
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\bin\x86\Release\BEPUutilities.xml
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\obj\x86\Release\ConversionHelper.csprojResolveAssemblyReference.cache
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\obj\x86\Release\ConversionHelper.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\ConversionHelper\obj\x86\Release\ConversionHelper.pdb

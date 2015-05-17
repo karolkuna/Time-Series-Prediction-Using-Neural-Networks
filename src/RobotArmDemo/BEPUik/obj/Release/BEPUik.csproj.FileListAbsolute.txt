@@ -1,0 +1,9 @@
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUik.XML
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUik.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUik.pdb
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUutilities.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUutilities.pdb
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\bin\Release\BEPUutilities.xml
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\obj\Release\BEPUik.csprojResolveAssemblyReference.cache
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\obj\Release\BEPUik.dll
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUik\obj\Release\BEPUik.pdb

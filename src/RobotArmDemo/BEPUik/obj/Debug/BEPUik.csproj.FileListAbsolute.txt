@@ -1,0 +1,9 @@
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUik.XML
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUik.dll
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUik.pdb
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUutilities.dll
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUutilities.pdb
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\bin\Debug\BEPUutilities.xml
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\obj\Debug\BEPUik.csprojResolveAssemblyReference.cache
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\obj\Debug\BEPUik.dll
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUik\obj\Debug\BEPUik.pdb

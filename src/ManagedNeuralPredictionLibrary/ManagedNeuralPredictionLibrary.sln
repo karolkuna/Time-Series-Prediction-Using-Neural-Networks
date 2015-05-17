@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralPredictionLibrary", "NeuralPredictionLibrary\NeuralPredictionLibrary.vcxproj", "{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}.Debug|Win32.Build.0 = Debug|Win32
+		{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}.Release|Win32.ActiveCfg = Release|Win32
+		{0D5EB9D7-B19E-45B5-A0D5-84021ADCFF45}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2 @@
+C:\Users\Karol\Desktop 2\bepuphysics_7e93575c5678\BEPUphysicsDemos\BEPUphysicsDemosContent\obj\x86\Debug\BEPUphysicsDemosContent.contentprojResolveAssemblyReference.cache
+C:\Users\Karol\Dropbox\Documents\Xcode\prediction\RobotArmDemo\BEPUphysicsDemos\BEPUphysicsDemosContent\obj\x86\Debug\BEPUphysicsDemosContent.contentprojResolveAssemblyReference.cache
