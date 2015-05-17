@@ -57,12 +57,12 @@
   
   \MainMatter
     \chapter{Introduction} %what is prediction and anomaly detection, why   
-Each year more and more data is collected from high velocity data streams. Machine learning algorithms are used to analyse and create models of the data. Patterns found in the data structure are then exploited to make predictions about the future which can be used to guide decision making. In this thesis, I compare various artifical neural network (ANN) architectures and learning algorithms for online prediction of time series.
+Each year more and more data is collected from high velocity data streams. Machine learning algorithms are used to analyse and create models of the data. Patterns found in the data structure are then exploited to make predictions about the future which can be used to guide decision making. In this thesis, I compare various artificial neural network (ANN) architectures and learning algorithms for online prediction of time series.
 
 \par %neural networks, modelling data?
-One of the most popular machine learning algorithms are ANNs which are capable of approximating unknown functions and thus are good candidates for use in prediction. Inspired by biological neural networks, ANNs consist of artificial neurons wired together to form a network.
+One of the most popular machine learning models are ANNs which are capable of approximating unknown functions and processes and thus are good candidates for use in prediction. Inspired by biological neural networks, ANNs consist of artificial neurons wired together to form a network.
 \par %which networks are compared
-Common architectures, such as time delay neural networks (TDNNs) and simple recurrent networks (SRNs) trained by Backpropagation Through Time (BPTT) and Real-Time Recurrent Learning (RTRL), as well as latest Clockwork RNN (CW-RNN) are evaluated in this thesis. Algorithms are compared in terms of prediction accuracy as well as computation time and the trade-off between them.
+Common neural network architectures, such as time delay neural networks (TDNNs) and simple recurrent networks (SRNs) trained by Truncated Backpropagation Through Time (TBPTT) and Real-Time Recurrent Learning (RTRL), as well as latest Clockwork RNN (CW-RNN) trained by TBPTT are evaluated in this thesis. Algorithms are compared in terms of prediction accuracy as well as computation time and the trade-off between them.
 \par %what are time series
 Time series are sequences of data points in time, usually created by measuring output of some process in discrete time intervals. The goal of prediction is to successfully estimate output of the process in next time step or several steps. It is assumed that the process is at least partially observable and to some extent, future values can be determined by observing past values. Prediction then reduces to problem of process approximation.
 \par %describe the value of online prediction
@@ -88,7 +88,7 @@ Data sequence is created by measuring output of a process at discrete, regular t
 In every time step, process receives input, updates its internal state and produces output. Internal state of the process is usually hidden and can be observed only partially from output of the process. %any assumptions?
 
 \section{Prediction}
-The goal of prediction is to approximate the process as closely as possible and hence minimise forecast error, i.e. difference between actual and forecasted value. \par
+The goal of prediction is to approximate the process as closely as possible and hence minimise forecast error, i.e. difference between actual and forecasted value \cite{timeseries}.\par
 Naive approaches include methods like averaging past data points, returning previous data point or linear extrapolation. While these methods may suffice for some very simple time series, more sophisticated methods are required to cope with real-world time series. Sophisticated methods use historical data to estimate future value by finding a model of the process that empirically fits past data. \par
 The problem of prediction can be alternatively viewed as problem of function approximation.
 	$$\left(State_{t+1}, Output_{t+1}\right) = Process(State_t, Input_t)$$
@@ -104,7 +104,7 @@ Some applications require estimating output of the process more than one step in
 An alternative method for predicting multiple steps of the future is using one step prediction to estimate future process output, adding it to history as if it was actually measured together with the appropriate future input, and repeating this until prediction horizon is reached.
 
 \chapter{Artificial Neural Networks}
-Inspired by biological neural networks, ANNs are groups of elementary processing units called artificial neurons connected together to form a directed graph. Nodes of the graph represent biological neurons and connections between them represent synapses. Unlike in biological neural networks, connections between artificial neurons aren't usually added or removed after the network was created. Instead, connections are weighted and the weights are adapted by learning algorithm. \par
+Inspired by biological neural networks, ANNs are groups of elementary processing units called artificial neurons connected together to form a directed graph \cite{haykin2009neural}. Nodes of the graph represent biological neurons and connections between them represent synapses. Unlike in biological neural networks, connections between artificial neurons aren't usually added or removed after the network was created. Instead, connections are weighted and the weights are adapted by learning algorithm. \par
 
 Input signal propagates through the network in the direction of connections until it reaches output of the network. In supervised learning, learning algorithm adapts the weights in order to minimise the difference between output of the network and desired output provided by teacher.
 
@@ -133,7 +133,7 @@ Multilayer perceptron (MLP) is a class of feedforward networks consisting of thr
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=265px]{mlp.png}
-		\caption{On the left, MLP consisting of input layer with two units, two hidden layers with four and three units respectively, and output layer with two untis. Schematic diagram of the MLP's layers on the right.}
+		\caption{On the left, MLP consisting of input layer with two units, two hidden layers with four and three units respectively, and output layer with two units. Schematic diagram of the MLP's layers on the right.}
 	\end{figure}
 MLP consists of three types of layers: input layer, one or more hidden layers and output layer. Input layer is the first layer of network and it receives no connections from other units, but instead holds network's input vector as activation of its units. Input layer is fully connected to first hidden layer. Hidden layer $i$ is then fully connected to hidden layer $i + 1$. Last hidden layer is fully connected to output layer. Activation of output units is considered to be output of the network. \par
 The output of the network is calculated in a process called forward propagation in three steps :
@@ -146,13 +146,16 @@ The output of the network is calculated in a process called forward propagation 
 MLPs are often used to approximate unknown functions from their inputs to outputs. MLP's capability of approximating any continuous function with support in the unit hypercube with only single hidden layer and sigmoid activation function was first proved by George Cybenko \cite{universal-approx-theorem}.
 
 \subsection{Backpropagation}
+\label{bp}
 Backpropagation, or backward propagation of errors, is the most used supervised learning algorithm for adapting connection weights of feedforward ANNs. Weights of the network are tuned so as to minimise square error
 $$E = {1 \over 2} \sum\limits_{i=1}^{N}(target_i - output_i)^2$$
 where $target$ denotes desired output provided by teacher and $output$ is network's prediction of the output for the corresponding input, both of size $N$. \par
 Considering error $E$ as a function of network's weights $w$, backpropagation can be seen as optimisation problem and standard gradient descent method can be applied. Local minimum is approached by changing weights along the direction of negative error gradient 
 $$-{{\partial E} \over {\partial w}}$$
-proportionally to $\alpha$, which is constant positive value called learning rate.
-$$new \; w_{ij} = w_{ij} - \alpha {{\partial E} \over {\partial w_{ij}}}$$
+by weight change $\Delta w_{ij}$ proportionally to $\alpha$, which is constant positive value called learning rate. Fraction of previous weight change called momentum rate $\beta$ can be added to the current weight change, which often speeds up learning process \cite{sutskever}.
+$$new \; \Delta w_{ij} = \beta \Delta w_{ij} - \alpha {{\partial E} \over {\partial w_{ij}}}$$
+$$new \; w_{ij} = w_{ij} + \Delta w_{ij} $$
+
 
 The central part of the algorithm is finding the error gradient. Let there be an MLP with $L$ layers in topological order, first being input and last being output layer. Layer $k$ has $U_k$ units and holds a weight matrix $w_{ij}^k$ representing weights of connections from unit $i$ in layer $k - 1$ to unit $j$ in layer $k$. Input layer has no incoming connections. The computation can be then divided into three steps:
 
@@ -166,7 +169,8 @@ The central part of the algorithm is finding the error gradient. Let there be an
   $$\Delta^h_i = \sum\limits_{j=1}^{U_{h + 1}} \Delta_{j}^{h+1}w_{ij}^{h+1} {{\partial{act\left(p^h_i\right)}} \over {\partial p^h_i}}$$
   
   \item \textbf{Weights update}. Change weights in layer $k$ according to
-  $$new \; w_{ij}^k = w_{ij}^k + \alpha \Delta_i^{k+1} a_{j}^{k}$$
+  $$new \; \Delta w_{ij}^k = \beta \Delta w_{ij}^k + \alpha \Delta_i^{k+1} a_{j}^{k}$$
+  $$new \; w_{ij}^k = w_{ij}^k +  \Delta w_{ij}^k$$
 
 \end{enumerate}
 
@@ -184,7 +188,7 @@ To generalise TDNN to processes that also receive input, prediction of process o
 	\]
 	
 \section{Recurrent Neural Networks}
-Recurrent neural networks (RNNs) are a subclass of ANNs which allow units to form a cyclic graph. This allows the network to store an internal state and consequently process sequences of inputs and thus perform temporal tasks. \par
+Recurrent neural networks (RNNs) are a subclass of ANNs which allow units to form a cyclic graph \cite{Williams90anefficient}. This allows the network to store an internal state and consequently process sequences of inputs and thus perform temporal tasks. \par
 Since RNNs accumulate previous activity in the activation of units that form directed cycles, there is no need to feed the network with history of previous inputs and outputs like in TDNN. Rather than approximating a function, RNNs try to model a process. Therefore, prediction of future process output can be described as
 $$Output_{t+1} \approx Prediction_{RNN}\left(NetworkState, Input_t,Output_t\right)$$
 where $NetworkState$ is activity of units that form directed cycles.
@@ -234,10 +238,8 @@ Once the SRN has been unfolded into a feedforward network, backpropagation can b
   \item \textbf{Weights update} in the original SRN. For every unit $j$ in hidden or output layer $l$ of the original network that receives connections from units $i$ in layer $k$, update the weight according to
   %finish this
   $$new \; w_{ij}^l = w_{ij}^l + \alpha \sum\limits_{\tau=0}^{t} \Delta_i^{k}\left(\tau\right) a_{j}^{l}\left(\tau\right)$$
-where $w_{ij}^l$ is weight matrix of connections from unit $i$ to unit $j$ in layer $l$, $\Delta_i^{k}(\tau)$ is error term of unit $i$ in layer $k$ of unfolded network copy in time step $\tau$, $a_{j}^{l}(\tau)$ is activation of unit $j$ in layer $l$ of unfolded network copy in time $\tau$ and $\alpha$ is learning rate.
+where $w_{ij}^l$ is weight matrix of connections from unit $i$ to unit $j$ in layer $l$, $\Delta_i^{k}(\tau)$ is error term of unit $i$ in layer $k$ of unfolded network copy in time step $\tau$, $a_{j}^{l}(\tau)$ is activation of unit $j$ in layer $l$ of unfolded network copy in time $\tau$ and $\alpha$ is learning rate. One can also add momentum rate analogously to backpropagation described in section \ref{bp}.
 \end{enumerate}
-
-%close this section by something general about BPTT
 
 \subsection{Truncated Backpropagation Through Time}
 
@@ -266,7 +268,9 @@ $$\delta_{ki} =
     \end{cases}$$
 This creates dynamical system with variables $v^k_{ij}$ for all hidden and output units. Since the initial state of the network is independent from its weights, initial value can be set $v^k_{ij}(0) = 0$. Network's weights are then updated along the accumulated trajectory
 $$new \; w_{ij} =  w_{ij} - \alpha \sum\limits_{k \in U_{out}} \left[ \left(a_k(t) - target_k(t) \right) v_{ij}^k \right]$$
-RTRL algorithm is computationally expensive \cite{minds-jacobs}, because calculating $v^k_{ij}(t+1)$ requires $O(u^4)$ operations, where $u$ is number of hidden and output units. This limits its usage to very small networks.
+One can also add momentum rate analogously to backpropagation described in section \ref{bp}. \par
+
+RTRL algorithm is computationally expensive \cite{minds-jacobs}, because calculating $v^k_{ij}(t+1)$ requires $O(n^4)$ operations, where $n$ is number of hidden and output units. This limits its usage to very small networks.
 
 \section{Clockwork Recurrent Network}
 %add citations
@@ -286,11 +290,11 @@ To adapt network weights, BPTT learning algorithm can be used. The algorithm wor
 Since a CW-RNN\footnote{CW-RNN with at least two modules running at different clock rates.} with the same number of units as a SRN has fewer connections and activations of hidden units are computed less frequently, CW-RNN should run faster than SRN with the same number of either weights or units.
       
 \chapter{Implementation}
-\section{Neural Prediction Tool}
-As a part of this thesis, Neural Prediction Tool (NPT) is built for experimenting with various neural network models in online time series prediction tasks. NPT supports all tested neural network architectures as well as learning algorithms. In addition to that, the tool allows easy manipulation with data points and data datasets.
-\subsection{Data Sets}
-	Data point in NPT is represented using a \textbf{MemoryBlock} object, which encapsulates an array of floating point numbers and provides convenience methods and arithmetic vector operations.\par
-	\textbf{DataSet} class enables offline training of the networks by reading data points from a file, where each data point is on a separate line and its values are separated by a space. \par
+\section{Neural Prediction Library}
+As a part of this thesis, Neural Prediction Library (NPL) is built for experimenting with various neural network models in online time series prediction tasks. NPL supports all tested neural network architectures as well as learning algorithms. In addition to that, the tool allows easy manipulation with data points and datasets. NPL is written in C++ programming language and is structured into classes dealing with data manipulation and neural networks.
+\subsection{Data Manipulation}
+	Data point in NPL is represented using a \textbf{MemoryBlock} object, which encapsulates an array of floating point numbers and provides convenience methods and arithmetic vector operations.\par
+	\textbf{DataSet} class enables offline training of the networks by reading data points from a file, where each data point is on a separate line and its values are separated by spaces. \par
 	\textbf{DstatParser} class allows reading raw output produced by Dstat tool and converting it to data point format suitable for prediction.
 \subsection{Neural Networks}
 All implemented neural networks provide the same interface described by abstract class \textbf{NeuralNetwork} consisting of forward propagation of input and retrieval of output. \par
@@ -304,7 +308,7 @@ Neural networks are composed of layers implemented by \textbf{NeuralLayer} class
 \textbf{Backpropagation, TBPTT, RTRL} classes are descendants of LearningAlgorithm implementing respectively named algorithms. Backpropagation class is used for training a FeedforwardNetwork, RTRL for training a SimpleRecurrentNetwork. TBPTT supports training both SimpleRecurrentNetwork and CWRecurrentNetwork.
 
 \section{Network Monitor}
-Network monitor is an application built on top of NPT that works with assistance of UNIX system resources monitoring tool Dstat \cite{dstat}. Dstat provides real-time measurements of system resources and displays them in a format of table that grows by one row each second. Columns of this table represent various measured variables and can be specified with command line options. This interval between measurements can be modified with command line options as well. \par
+Network monitor is an application built on top of NPL that works with assistance of UNIX system resources monitoring tool Dstat \cite{dstat}. Dstat provides real-time measurements of system resources and displays them in a format of table that grows by one row each second. Columns of this table represent various measured variables and can be specified with command line options. This interval between measurements can be modified with command line options as well. \par
 
 \begin{figure}[H]
 	\centering
@@ -312,7 +316,8 @@ Network monitor is an application built on top of NPT that works with assistance
 	\caption{Sample output from Dstat.}
 \end{figure}
 
-Output of Dstat is redirected from standard UNIX output to the network monitoring program. Raw Dstat output is automatically parsed and preprocessed to serve as input for a neural network of choice. As a proof of concept, the network is constantly predicting incoming and outgoing network traffic and training to improve its precision. Should the difference between prediction and actual value exceed predefined threshold, this incident is logged to a file as an anomaly.
+Output of Dstat is redirected to the network monitoring program. Raw Dstat output is automatically parsed and preprocessed to serve as input for a neural network of choice. As a proof of concept, the network is constantly predicting incoming and outgoing network traffic and training to improve its precision. Should the difference between prediction and actual value exceed predefined threshold, this incident is logged to a file as an anomaly. Please refer to the $README.txt$ file for instructions on how to launch and use the network monitor.\par
+
 
 \section{Robotic Arm Simulator}
 Robotic arm simulator application is implemented in BEPUPhysics 3D physics library \cite{bepuphysics}. Manipulator with three degrees of freedom from BEPU robotic arm demo \cite{bepu-robotarm-demo} is constructed in 3D world. Three controlled joints are situated in base, "shoulder" and "elbow" of the arm and rotate in one axis.\par
@@ -323,11 +328,11 @@ Robotic arm simulator application is implemented in BEPUPhysics 3D physics libra
 		\caption{Robotic arm in BEPUPhysics 3D physics simulator.}
 	\end{figure}
 
-Simulator renders the scene, calculates physics and supplies information about current rotation of joints as well as position of claw to a neural network of choice, which provides prediction of claw position in next time step. As a proof of concept, line showing direction from current position of claw to the predicted position is drawn.\par
-The prediction network creates a forward model of the process, in this case a robotic arm, which can find its use in control system, such as Internal Model Control \cite{internal-model-control}.
+Simulator renders the scene, calculates physics and supplies information about current rotation of joints as well as position of claw to a neural network of choice, which provides prediction of claw position in next time step. The prediction network thus creates a forward model of the process, in this case a robotic arm, which can find its use in control system, such as Internal Model Control \cite{internal-model-control}. \par
+NPL is linked and integrated with the robotic arm simulator. As a proof of concept, line showing direction from current position of claw to the predicted position is drawn. For instructions on how to launch and use the robotic simulator, please refer to the $README.txt$ file.
 
 \chapter{Experiments}
-In the following experiments, I attempt to find the best performing network and its hyperparameters for prediction in three different scenarios with restricted computation time.\par
+In the following experiments, I attempt to find the best performing network and its hyper parameters for prediction in three different scenarios with restricted computation time.\par
 
 Networks are tested on the same prepared datasets to ensure equal testing conditions. Units of all networks use logistic activation function. Weights of connections in all networks are initialised randomly with uniform distribution on interval [-0.25, 0.25]. Since the initial setting of network influences its overall performance, all experiments described below are run ten times and only the average of them is presented as the result.\par
 
@@ -376,7 +381,7 @@ In time step $t$, a TDNN with sliding window of size $w$ receives input consisti
 \subsection{Robotic Arm}
 Third testing scenario is predicting position of robotic arm's claw in BEPUPhysics 3D physics library. Manipulator with three controlled joints is constructed. At each simulation step, network receives rotations of all three joints and their respective control signals. The goal is to predict next X, Y and Z position of the claw in next time step. The data points are squashed into interval [0,1] by the simulator so they don't require preprocessing.\par
 This task is heavily time constrained. The 3D simulator is required to run at 60 frames per second for smooth control, which leaves only $1 \over 60$ of a second for computing the prediction. Dataset consisting of 18,000 data points is created by controlling the robot with random commands for a period of five minutes. \par
-In time step $t$, a TDNN with sliding window of size $w$ receives input consisting of X, Y and Z position of the claw, three angles of joints and their three control signals in time steps $\tau$ from $t-w+1$ to $t$ and is tasked to predict claw's X, Y and Z position in time step $t+1$. Similarly, RNNs are tasked to predict the same X, Y and Z position , but they only receive the three joint angles and their three control signals in time step $t$.
+In time step $t$, a TDNN with sliding window of size $w$ receives input consisting of X, Y and Z position of the claw, three angles of joints and their three control signals in time steps $\tau$ from $t-w+1$ to $t$ and is tasked to predict claw's X, Y and Z position in time step $t+1$. Similarly, RNNs are tasked to predict the same X, Y and Z position, but they only receive the three joint angles and their three control signals in time step $t$.
 
 \section{Tested Methods}
 
@@ -447,7 +452,7 @@ In both SRN and CW-RNN, increasing unfolding depth decreases total prediction er
 	\begin{figure}[H]
 		\caption{Total error of predicting goniometric function with SRN trained by TBPTT with various unfolding depth.}
 		\include{results/tbptt_gon_error}
-
+		
 		\caption{Total error of predicting goniometric function with CW-RNN trained by TBPTT with various unfolding depth.}
 		\include{results/cw_gon_error}
 	\end{figure}
@@ -464,8 +469,8 @@ In the following figure, all four methods are compared at how decreasing total e
 	\end{figure}
 
 \section{Network Usage Results}
-Number of hidden units, sliding window size and unfolding depth show little or no effect on reducing total error. This behaviour could be caused by inherent unpredictability of the network traffic or inability of the methods to find the correct model.\par
-The best performing method was TDNN with 256 hidden units and sliding window of 18 past steps, but not by any significant margin.
+Number of hidden units, sliding window size and unfolding depth show little effect on reducing total error. This behaviour could be caused by inherent unpredictability of the network traffic or inability of the methods to find the correct model.\par
+The best performing method was RTRL with 16 hidden units closely followed by TDNN.
 
 	\begin{figure}[H]
 		\caption{Total error of predicting network traffic with TDNN and various sliding window sizes.}
@@ -476,7 +481,15 @@ The best performing method was TDNN with 256 hidden units and sliding window of 
 
 		\caption{Total error of predicting network traffic with CW-RNN trained by TBPTT with various unfolding depth.}
 		\include{results/cw_net_error}
-	\end{figure}	
+	\end{figure}
+
+\subsection{Computation Time Tradeoff}
+No tested model exceeded the maximum allowed computation time of one hour. Small networks trained by RTRL perform well and maintain viable computation time. TDNN achieved the second lowest precision while using the least computation time. Networks trained by TBPTT achieve better results with smaller unfolding depth.\par
+In the following figure, SRN with 8, 16 and 32 hidden units trained by RTRL is compared to other models with 256 units.
+	\begin{figure}[H]
+		\caption{Tradeoff between time and error in network usage scenario.}
+		\include{results/net_tradeoff}
+	\end{figure}
 	
 \section{Robotic Arm Results}
 \subsection{Role of TDNN's Sliding Window Size}
@@ -484,18 +497,18 @@ Regardless of number of hidden units, TDNNs find their error minimum with window
 
 	\begin{figure}[H]
 		\caption{Total error of predicting manipulator's claw position with TDNN and various sliding window sizes.}
-		\include{results/tdnn_man_error}
+		\include{results/tdnn_man_error}		
 	\end{figure}
 	
 \subsection{Role of TBPTT Unfolding Depth}
-As unfolding depth increases, both SRN and CW-RNN show similar pattern of first sharply decreasing the total error, finding their minimum, and then gradually rising error. Networks with more hidden units perform better in this scenario. \par
-
-By a small margin, the best performing method is SRN with 256 hidden units trained by TBPTT with unfolding length of 3 followed by CW-RNN with 256 hidden units and unfolding length of 5. 
+As unfolding depth increases, both SRN and CW-RNN show similar pattern of first sharply decreasing the total error, finding their minimum, and then error gradually rises. Networks with more hidden units perform better in this scenario.
 
 	\begin{figure}[H]
 		\caption{Total error of predicting manipulator's claw position with SRN trained by TBPTT with various unfolding depth.}
 		\include{results/tbptt_man_error}
-
+	\end{figure}
+	
+	\begin{figure}[H]	
 		\caption{Total error of predicting manipulator's claw position with CW-RNN trained by TBPTT with various unfolding depth.}
 		\include{results/cw_man_error}
 	\end{figure}
@@ -512,14 +525,22 @@ In the following figure, TDNN with 256 hidden units and varying sliding window s
 	\end{figure}
 
 \chapter{Conclusion}
-This thesis compared several neural network approaches for online prediction of time series. The examined methods include TDNN, SRN trained by TBPTT and RTRL as well as CW-RNN trained by TBPTT. Role of network size and other hyperparameters w.r.t. prediction accuracy and computation time is evaluated in one synthetic and two real-world datasets. \par
-TDNNs have shown to be the least computationally expensive method while providing reasonably good results with appropriately sized sliding window. TBPTT shows consistently the best or close to best results, albeit with higher computation time. CW-RNN slightly lags behind SRN in precision, but requires less than half of computation time with the same number of units and unfolding depth. RTRL proved to be too impractical to be included in real-world applications due to its huge computational complexity. All methods struggled with predicting computer network usage, most likely due to its inherent unpredictability.\par
-As a part of the work, a tool for experimenting with various network architectures and learning algorithms was built and incorporated into two applications. The first is a network monitoring program that detects and logs unexpected events in network traffic. The second application integrates with a robotic simulator to predict position of an arm which may find its use in control systems in the future.
+This thesis compared several neural network approaches for online prediction of time series. The examined methods include TDNN, SRN trained by TBPTT and RTRL as well as CW-RNN trained by TBPTT. Role of network size and other parameters w.r.t. prediction accuracy and computation time is evaluated in one synthetic and two real-world datasets. \par
+TDNNs have shown to be the least computationally expensive method while providing reasonably good results with appropriately sized sliding window. TBPTT shows consistently good results, albeit with higher computation time. CW-RNN slightly lags behind SRN in precision, but requires less than half of computation time with the same number of units and unfolding depth. RTRL proved to be too impractical to be included in real-world applications where smaller networks aren't sufficient due to its huge computational complexity. Methods struggled the most with predicting computer network usage, most likely due to its inherent unpredictability.\par
+As a part of the work, a tool for experimenting with various network architectures and learning algorithms was built and incorporated into two applications. The first is a network monitoring program that detects and logs unexpected events in network traffic. The second application integrates with a robotic simulator to predict position of an arm which may later find its use in control systems.\par
+While this thesis examines several methods of predicting time series using neural networks, there are many opportunities to extend it with comparison of other machine learning approaches in the future.
 
 
     \appendix
     \chapter{Appendix}
-    Source code of all tested models and experiments can be found at https://github.com/karolkuna/Time-Series-Prediction-Using-Neural-Networks
+    Source code of all tested models and experiments can be found at https://github.com/karolkuna/Time-Series-Prediction-Using-Neural-Networks\par
+    \section{List of attachments}
+    \begin{itemize}
+    	\item NPL source code with all presented experiments
+	\item Network monitor source code
+	\item BEPUPhysics solution with incorporated NPL showing prediction of robot's claw
+	\item Instructions how to launch and use the mentioned programs
+    \end{itemize}
     
     % Bibliography goes here
 	\bibliographystyle{plain}

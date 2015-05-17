@@ -9,20 +9,20 @@
 	  axis lines = left,
 %	  xtick={1,2,...,20},
 %	  ytick={0,10,...,60},
-	  legend pos=north east,
+	  legend pos=south east,
 	  height=190,
 	  width=360]
 
-	\addplot table [x=TIME128, y=ERROR128]{results/tdnn_gon.dat};
+	\addplot table [x=TIME128, y=ERROR128]{results/tdnn_net.dat};
 	\addlegendentry{TDNN}
 
-	\addplot table [x=TIME256, y=ERROR256]{results/tbptt_gon.dat};
+	\addplot table [x=TIME128, y=ERROR128]{results/tbptt_net.dat};
 	\addlegendentry{TBPTT}
 	
-	\addplot table [x=TIME256, y=ERROR256]{results/cw_gon.dat};
+	\addplot table [x=TIME128, y=ERROR128]{results/cw_net.dat};
 	\addlegendentry{CW-RNN}
 
-	\addplot table [x=TIMEG, y=ERRORG]{results/rtrl.dat};
+	\addplot table [x=TIMEN, y=ERRORN]{results/rtrl.dat};
 	\addlegendentry{RTRL}
 	\end{axis}
 \end{tikzpicture}

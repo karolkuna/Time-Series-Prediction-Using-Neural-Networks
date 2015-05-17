@@ -1,13 +1,16 @@
 \begin{thebibliography}{10}
 
 \bibitem{bepuphysics}
-Bepuphysics, May 2015.
+Bepuphysics.
+\newblock \url{http://www.bepuphysics.com}, May 2015.
 
 \bibitem{bepu-robotarm-demo}
-Bepuphysics demo robotic arm thingamajig, May 2015.
+Bepuphysics demo robotic arm thingamajig.
+\newblock \url{https://bepuphysics.codeplex.com}, May 2015.
 
 \bibitem{dstat}
-Dstat: Versatile resource statistics tool, May 2015.
+Dstat: Versatile resource statistics tool.
+\newblock \url{http://dag.wiee.rs/home-made/dstat/}, May 2015.
 
 \bibitem{universal-approx-theorem}
 George Cybenko.
@@ -15,8 +18,18 @@ George Cybenko.
 \newblock {\em Mathematics of Control, Signals, and Systems (MCSS)},
   2(4):303--314, 12 1989.
 
+\bibitem{timeseries}
+R.~J. Frank, N.~Davey, and S.~P. Hunt.
+\newblock Time series prediction and neural networks.
+\newblock {\em J. Intell. Robotics Syst.}, 31(1-3):91--103, May 2001.
+
+\bibitem{haykin2009neural}
+Simon~S. Haykin.
+\newblock {\em Neural networks and learning machines}.
+\newblock Pearson, Upper Saddle River, N.J, 2009.
+
 \bibitem{Hochreiter01gradientflow}
-Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber.
+Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and J{\"u}rgen Schmidhuber.
 \newblock Gradient flow in recurrent nets: the difficulty of learning long-term
   dependencies, 2001.
 
@@ -42,6 +55,11 @@ D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams.
 \newblock Neurocomputing: Foundations of research.
 \newblock chapter Learning Internal Representations by Error Propagation, pages
   673--695. MIT Press, Cambridge, MA, USA, 1988.
+
+\bibitem{sutskever}
+Ilya Sutskever.
+\newblock {\em Training Recurrent Neural Networks}.
+\newblock PhD thesis, University of Toronto, 2012.
 
 \bibitem{phoneme-recognition-tdnn}
 Alexander Waibel, Toshiyuki Hanazawa, Geofrey Hinton, Kiyohiro Shikano, and

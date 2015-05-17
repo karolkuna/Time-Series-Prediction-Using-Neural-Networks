@@ -1,9 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.24)  13 MAY 2015 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.24)  18 MAY 2015 00:49
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**thesis.tex
+**thesis
 (./thesis.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
@@ -1185,9 +1184,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 (./results/tdnn_gon_error.aux) (./results/tbptt_gon_error.aux)
 (./results/cw_gon_error.aux) (./results/gon_tradeoff.aux)
 (./results/tdnn_net_error.aux) (./results/tbptt_net_error.aux)
-(./results/cw_net_error.aux) (./results/tdnn_man_error.aux)
-(./results/tbptt_man_error.aux) (./results/cw_man_error.aux)
-(./results/man_tradeoff.aux))
+(./results/cw_net_error.aux) (./results/net_tradeoff.aux)
+(./results/tdnn_man_error.aux) (./results/tbptt_man_error.aux)
+(./results/cw_man_error.aux) (./results/man_tradeoff.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -1339,7 +1338,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
  [8
 
 ] (./thesis.lof
-Underfull \vbox (badness 2229) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9
 
@@ -1350,12 +1349,6 @@ Underfull \vbox (badness 2229) has occurred while \output is active []
 
 [10]
 Chapter 1.
-
-Overfull \hbox (17.7865pt too wide) in paragraph at lines 65--66
-[]\T1/ppl/m/n/12 Common ar-chi-tec-tures, such as time de-lay neu-ral net-works
- (TDNNs)
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1370,7 +1363,7 @@ uter re-sources
 
 [2]
 Chapter 2.
-<process.png, id=362, 174.79256pt x 26.41096pt>
+<process.png, id=376, 174.79256pt x 26.41096pt>
 File: process.png Graphic file (type png)
  <use process.png>
 Package pdftex.def Info: process.png used on input line 85.
@@ -1391,12 +1384,6 @@ ess more than
 
 [4]
 Chapter 3.
-
-Overfull \hbox (4.58649pt too wide) in paragraph at lines 107--107
-\T1/ppl/m/n/12 stead, con-nec-tions are weighted and the weights are adapted by
- learn-
- []
-
 [5
 
 ]
@@ -1405,13 +1392,13 @@ Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 127.
 
-<mlp.png, id=382, 255.354pt x 243.5499pt>
+<mlp.png, id=400, 255.354pt x 243.5499pt>
 File: mlp.png Graphic file (type png)
  <use mlp.png>
 Package pdftex.def Info: mlp.png used on input line 135.
 (pdftex.def)             Requested size: 265.99472pt x 253.70586pt.
  [6]
-Overfull \hbox (3.23073pt too wide) in paragraph at lines 149--150
+Overfull \hbox (3.23073pt too wide) in paragraph at lines 150--151
 \T1/ppl/m/n/12 Backpropagation, or back-ward prop-a-ga-tion of er-rors, is the 
 most used
  []
@@ -1420,41 +1407,41 @@ most used
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./mlp.png>]
-Overfull \hbox (9.93741pt too wide) in paragraph at lines 160--161
+Overfull \hbox (9.93741pt too wide) in paragraph at lines 163--164
 \T1/ppl/m/n/12 topo-log-i-cal or-der, com-pute for ev-ery unit $\OML/zplm/m/it/
 12 i$ \T1/ppl/m/n/12 its po-ten-tial (weighted
  []
 
 [8]
-Overfull \hbox (0.59012pt too wide) in paragraph at lines 176--176
+Overfull \hbox (0.59012pt too wide) in paragraph at lines 180--180
 \T1/ppl/m/n/12 past, they are in-suf-fi-cient for pro-cess-ing tem-po-ral se-qu
 ences. To over-
  []
 
 [9]
-Overfull \hbox (1.99352pt too wide) in paragraph at lines 188--189
+Overfull \hbox (1.99352pt too wide) in paragraph at lines 192--193
 []\T1/ppl/m/n/12 Since RNNs ac-cu-mu-late pre-vi-ous ac-tiv-ity in the ac-ti-va
 -tion of units
  []
 
-<elman-rnn.png, id=413, 328.5876pt x 179.9523pt>
+<elman-rnn.png, id=434, 328.5876pt x 179.9523pt>
 File: elman-rnn.png Graphic file (type png)
  <use elman-rnn.png>
-Package pdftex.def Info: elman-rnn.png used on input line 197.
+Package pdftex.def Info: elman-rnn.png used on input line 201.
 (pdftex.def)             Requested size: 342.28pt x 187.46448pt.
  [10]
-<bptt2.png, id=424, 353.6412pt x 230.5413pt>
+<bptt2.png, id=446, 353.6412pt x 230.5413pt>
 File: bptt2.png Graphic file (type png)
  <use bptt2.png>
-Package pdftex.def Info: bptt2.png used on input line 216.
+Package pdftex.def Info: bptt2.png used on input line 220.
 (pdftex.def)             Requested size: 368.3776pt x 240.15833pt.
 
-Overfull \hbox (7.0276pt too wide) in paragraph at lines 216--217
+Overfull \hbox (7.0276pt too wide) in paragraph at lines 220--221
  [][] 
  []
 
 [11 <./elman-rnn.png>] [12 <./bptt2.png>] [13]
-Overfull \hbox (11.7293pt too wide) detected at line 260
+Overfull \hbox (11.7293pt too wide) detected at line 262
 \OML/zplm/m/it/12 v[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t \OT1/zplm/m/n/12 + \
 OT1/ppl/m/n/12 1\OT1/zplm/m/n/12 ) = [] = \OML/zplm/m/it/12 act[]\OT1/zplm/m/n/
 12 (\OML/zplm/m/it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t\OT1/zplm/m/n/12 
@@ -1462,111 +1449,114 @@ OT1/ppl/m/n/12 1\OT1/zplm/m/n/12 ) = [] = \OML/zplm/m/it/12 act[]\OT1/zplm/m/n/
  []
 
 
-Overfull \hbox (2.55754pt too wide) in paragraph at lines 266--268
+Overfull \hbox (2.55754pt too wide) in paragraph at lines 268--270
 \T1/ppl/m/n/12 from its weights, ini-tial value can be set $\OML/zplm/m/it/12 v
 []\OT1/zplm/m/n/12 (\OT1/ppl/m/n/12 0\OT1/zplm/m/n/12 ) = \OT1/ppl/m/n/12 0$\T1
 /ppl/m/n/12 . Net-work's weights
  []
 
-[14] <cw-rnn.png, id=458, 379.6584pt x 143.3355pt>
+[14]
+Overfull \hbox (0.78253pt too wide) in paragraph at lines 277--278
+\T1/ppl/m/n/12 layer split into $\OML/zplm/m/it/12 M$ \T1/ppl/m/n/12 mod-ules r
+un-ning at dif-fer-ent clocks [[]]. Each mod-
+ []
+
+<cw-rnn.png, id=481, 379.6584pt x 143.3355pt>
 File: cw-rnn.png Graphic file (type png)
  <use cw-rnn.png>
-Package pdftex.def Info: cw-rnn.png used on input line 279.
+Package pdftex.def Info: cw-rnn.png used on input line 283.
 (pdftex.def)             Requested size: 395.47894pt x 149.30815pt.
 
-Overfull \hbox (34.12895pt too wide) in paragraph at lines 279--280
+Overfull \hbox (34.12895pt too wide) in paragraph at lines 283--284
  [][] 
  []
 
 
-Overfull \hbox (0.43327pt too wide) in paragraph at lines 286--287
+Overfull \hbox (0.43327pt too wide) in paragraph at lines 290--291
 \T1/ppl/m/n/12 fre-quently, CW-RNN should run faster than SRN with the same num
 -
  []
 
-
-Overfull \vbox (9.79663pt too high) has occurred while \output is active []
-
-
 [15] [16 <./cw-rnn.png>]
 Chapter 4.
 
-Overfull \hbox (1.26155pt too wide) in paragraph at lines 292--292
-\T1/ppl/m/n/12 Data point in NPT is rep-re-sented us-ing a \T1/ppl/b/n/12 Mem-o
+Overfull \hbox (1.23769pt too wide) in paragraph at lines 296--296
+\T1/ppl/m/n/12 Data point in NPL is rep-re-sented us-ing a \T1/ppl/b/n/12 Mem-o
 -ry-Block \T1/ppl/m/n/12 ob-ject, which
- []
-
-
-Overfull \hbox (3.14687pt too wide) in paragraph at lines 300--300
-[]\T1/ppl/b/n/12 SimpleRecurrentNetwork \T1/ppl/m/n/12 de-rives from CWRe-cur-r
-ent-Net-work to
  []
 
 [17
 
 ]
-Overfull \hbox (35.1625pt too wide) in paragraph at lines 304--305
+Overfull \hbox (3.14687pt too wide) in paragraph at lines 304--304
+[]\T1/ppl/b/n/12 SimpleRecurrentNetwork \T1/ppl/m/n/12 de-rives from CWRe-cur-r
+ent-Net-work to
+ []
+
+
+Overfull \hbox (35.1625pt too wide) in paragraph at lines 308--309
 []\T1/ppl/b/n/12 Backpropagation, TBPTT, RTRL \T1/ppl/m/n/12 classes are de-sce
 n-dants of LearningAl-
  []
 
-<dstat_sample.png, id=480, 590.205pt x 87.32625pt>
+<dstat_sample.png, id=503, 590.205pt x 87.32625pt>
 File: dstat_sample.png Graphic file (type png)
  <use dstat_sample.png>
-Package pdftex.def Info: dstat_sample.png used on input line 311.
+Package pdftex.def Info: dstat_sample.png used on input line 315.
 (pdftex.def)             Requested size: 361.35132pt x 53.46614pt.
 
-Overfull \hbox (16.44182pt too wide) in paragraph at lines 315--316
-\T1/ppl/m/n/12 net-work mon-i-tor-ing pro-gram. Raw Dstat out-put is au-to-mat-
-i-cally parsed
- []
-
-[18 <./dstat_sample.png>] <roboticarm.png, id=489, 956.82469pt x 521.69907pt>
+[18 <./dstat_sample.png>] <roboticarm.png, id=512, 956.82469pt x 521.69907pt>
 File: roboticarm.png Graphic file (type png)
 
 <use roboticarm.png>
-Package pdftex.def Info: roboticarm.png used on input line 322.
+Package pdftex.def Info: roboticarm.png used on input line 327.
 (pdftex.def)             Requested size: 361.35132pt x 197.02179pt.
- [19 <./roboticarm.png>]
+
+Overfull \hbox (2.04195pt too wide) in paragraph at lines 332--333
+\T1/ppl/m/n/12 launch and use the robotic sim-u-la-tor, please re-fer to the $\
+OML/zplm/m/it/12 README\OT1/ppl/m/n/12 .\OML/zplm/m/it/12 txt$
+ []
+
+[19 <./roboticarm.png>] [20]
 Chapter 5.
 
-Overfull \hbox (4.13075pt too wide) in paragraph at lines 332--332
+Overfull \hbox (4.13075pt too wide) in paragraph at lines 337--337
 []\T1/ppl/m/n/12 Networks are tested on the same pre-pared datasets to en-sure 
 equal
  []
 
 
-Overfull \hbox (0.14543pt too wide) in paragraph at lines 332--332
+Overfull \hbox (0.14543pt too wide) in paragraph at lines 337--337
 \T1/ppl/m/n/12 set-ting of net-work in-flu-ences its over-all per-for-mance, al
 l ex-per-i-ments
  []
 
-[20
+[21
 
 ]
-Overfull \hbox (9.54027pt too wide) in paragraph at lines 364--365
+Overfull \hbox (9.54027pt too wide) in paragraph at lines 369--370
 [][] 
  []
 
 
-Overfull \hbox (4.29811pt too wide) in paragraph at lines 366--366
+Overfull \hbox (4.29811pt too wide) in paragraph at lines 371--371
 \T1/ppl/m/n/12 ac-ti-va-tion func-tion's range [0,1], there-fore no pre-pro-ces
 s-ing is needed.
  []
 
 
-Overfull \hbox (4.45483pt too wide) in paragraph at lines 372--372
+Overfull \hbox (4.45483pt too wide) in paragraph at lines 377--377
 []\T1/ppl/m/n/12 Dstat mea-sures 26 vari-ables of the mon-i-tored sys-tem, two 
 of which
  []
 
-[21]
-Overfull \hbox (1.08153pt too wide) in paragraph at lines 378--378
+[22]
+Overfull \hbox (1.08153pt too wide) in paragraph at lines 383--383
 []\T1/ppl/m/n/12 This task is heav-ily time con-strained. The 3D sim-u-la-tor i
 s re-quired
  []
 
-[22] [23] [24]
+[23] [24] [25]
 Chapter 6.
 \openout2 = `results/tdnn_gon_error.aux'.
 
@@ -1575,7 +1565,7 @@ PGFPlots: reading {results/tdnn_gon.dat}
 PGFPlots: reading {results/tdnn_gon.dat}
 PGFPlots: reading {results/tdnn_gon.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--440
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--445
  [][] 
  []
 
@@ -1586,7 +1576,7 @@ PGFPlots: reading {results/tbptt_gon.dat}
 PGFPlots: reading {results/tbptt_gon.dat}
 PGFPlots: reading {results/tbptt_gon.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--449
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--454
  [][] 
  []
 
@@ -1597,19 +1587,19 @@ PGFPlots: reading {results/cw_gon.dat}
 PGFPlots: reading {results/cw_gon.dat}
 PGFPlots: reading {results/cw_gon.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--452
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--457
  [][] 
  []
 
 
 Underfull \vbox (badness 4242) has occurred while \output is active []
 
- [25
+ [26
 
 
 
 ]
-[26
+[27
 
 
 
@@ -1623,14 +1613,19 @@ PGFPlots: reading {results/tbptt_gon.dat}
 PGFPlots: reading {results/cw_gon.dat}
 PGFPlots: reading {results/rtrl.dat}
 )
+Overfull \hbox (11.49751pt too wide) in paragraph at lines 473--474
+[]\T1/ppl/m/n/12 The best per-form-ing method was RTRL with 16 hid-den units cl
+osely
+ []
+
 \openout2 = `results/tdnn_net_error.aux'.
 
- (./results/tdnn_net_error.tex
+(./results/tdnn_net_error.tex
 PGFPlots: reading {results/tdnn_net.dat}
 PGFPlots: reading {results/tdnn_net.dat}
 PGFPlots: reading {results/tdnn_net.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 22--472
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 22--477
  [][] 
  []
 
@@ -1641,7 +1636,7 @@ PGFPlots: reading {results/tbptt_net.dat}
 PGFPlots: reading {results/tbptt_net.dat}
 PGFPlots: reading {results/tbptt_net.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--475
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--480
  [][] 
  []
 
@@ -1652,47 +1647,69 @@ PGFPlots: reading {results/cw_net.dat}
 PGFPlots: reading {results/cw_net.dat}
 PGFPlots: reading {results/cw_net.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--478
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--483
  [][] 
  []
 
 
-Underfull \vbox (badness 1721) has occurred while \output is active []
+Underfull \vbox (badness 7486) has occurred while \output is active []
 
- [27
-
-
-]
-Overfull \vbox (133.99399pt too high) has occurred while \output is active []
-
-
-[28
-
-
-
-
+ [28
 
 
 ]
+Overfull \vbox (33.98712pt too high) has occurred while \output is active []
+
+
+[29
+
+
+
+
+
+
+]
+Overfull \hbox (0.26578pt too wide) in paragraph at lines 487--487
+\T1/ppl/m/n/12 of one hour. Small net-works trained by RTRL per-form well and m
+ain-
+ []
+
+\openout2 = `results/net_tradeoff.aux'.
+
+(./results/net_tradeoff.tex
+PGFPlots: reading {results/tdnn_net.dat}
+PGFPlots: reading {results/tbptt_net.dat}
+PGFPlots: reading {results/cw_net.dat}
+PGFPlots: reading {results/rtrl.dat}
+)
+Overfull \hbox (2.15019pt too wide) in paragraph at lines 488--492
+[]\T1/ppl/m/n/12 In the fol-low-ing fig-ure, SRN with 8, 16 and 32 hid-den unit
+s trained
+ []
+
 \openout2 = `results/tdnn_man_error.aux'.
 
- (./results/tdnn_man_error.tex
+(./results/tdnn_man_error.tex
 PGFPlots: reading {results/tdnn_man.dat}
 PGFPlots: reading {results/tdnn_man.dat}
 PGFPlots: reading {results/tdnn_man.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 22--487
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 22--500
  [][] 
  []
 
+[30
+
+
+]
 \openout2 = `results/tbptt_man_error.aux'.
 
-(./results/tbptt_man_error.tex
+ (./results/tbptt_man_error.tex
 PGFPlots: reading {results/tbptt_man.dat}
 PGFPlots: reading {results/tbptt_man.dat}
 PGFPlots: reading {results/tbptt_man.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--497
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--508
  [][] 
  []
 
@@ -1703,14 +1720,11 @@ PGFPlots: reading {results/cw_man.dat}
 PGFPlots: reading {results/cw_man.dat}
 PGFPlots: reading {results/cw_man.dat}
 )
-Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--500
+Overfull \hbox (7.11847pt too wide) in paragraph at lines 21--513
  [][] 
  []
 
-[29
-
-
-] [30
+[31
 
 
 
@@ -1723,68 +1737,96 @@ PGFPlots: reading {results/tdnn_man.dat}
 PGFPlots: reading {results/tbptt_man.dat}
 PGFPlots: reading {results/cw_man.dat}
 PGFPlots: reading {results/rtrl.dat}
-) [31
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32
+
+
+]
+[33
 
 
 ]
 Chapter 7.
-[32
+[34
 
 ]
 Appendix A.
 
-Overfull \hbox (13.38127pt too wide) in paragraph at lines 522--523
+Overfull \hbox (13.38127pt too wide) in paragraph at lines 536--536
 \T1/ppl/m/n/12 https://github.com/karolkuna/Time-Series-Prediction-Using-Neural
 -
  []
 
-(./thesis.bbl [33
+LaTeX Font Info:    Try loading font information for TS1+ppl on input line 539.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+) (./thesis.bbl
+[35
 
 ]
-Underfull \hbox (badness 1789) in paragraph at lines 35--39
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 5.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2013/06/09 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 12.35999pt on input line 5.
+
+Underfull \hbox (badness 4765) in paragraph at lines 8--10
+[]\T1/ppl/m/n/12 Bepuphysics demo robotic arm thinga-ma-jig.  []$\T1/zi4/m/n/12
+ https : / /
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 48--52
 []\T1/ppl/m/n/12 Jan Kout-ník, Klaus Gr-eff, Faustino J. Gomez, and Jür-gen
  []
 
-[34
+[36
 
-]) [35]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 529.
+]) [37]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 550.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 550.
  (./thesis.aux (./results/tdnn_gon_error.aux)
 (./results/tbptt_gon_error.aux) (./results/cw_gon_error.aux)
 (./results/gon_tradeoff.aux) (./results/tdnn_net_error.aux)
 (./results/tbptt_net_error.aux) (./results/cw_net_error.aux)
-(./results/tdnn_man_error.aux) (./results/tbptt_man_error.aux)
-(./results/cw_man_error.aux) (./results/man_tradeoff.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
+(./results/net_tradeoff.aux) (./results/tdnn_man_error.aux)
+(./results/tbptt_man_error.aux) (./results/cw_man_error.aux)
+(./results/man_tradeoff.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 550.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 550.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 17416EBCC36819E86665789648071714;3117.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 529.
+(rerunfilecheck)             Checksum: EC8A1D7896EF5F3BA3836D26F57BB01F;3276.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 550.
  ) 
 Here is how much of TeX's memory you used:
- 29108 strings out of 493117
- 673503 string characters out of 6135432
- 942442 words of memory out of 5000000
- 31716 multiletter control sequences out of 15000+600000
- 41962 words of font info for 77 fonts, out of 8000000 for 9000
+ 29192 strings out of 493117
+ 674910 string characters out of 6135432
+ 943012 words of memory out of 5000000
+ 31773 multiletter control sequences out of 15000+600000
+ 42574 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,19n,105p,728b,2288s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc} <./fi-logo60
-0.514pk></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/te
-xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (45 pages, 649055 bytes).
+ 73i,20n,105p,724b,2288s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{
+/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc} <./fi-logo600.5
+14pk></usr/local/texlive/2014/texmf-dist/fonts/type1/public/inconsolata/Inconso
+lata-zi4r.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathpazo/fplmr.
+pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on thesis.pdf (47 pages, 668043 bytes).
 PDF statistics:
- 690 PDF objects out of 1000 (max. 8388607)
- 557 compressed objects within 6 object streams
- 143 named destinations out of 1000 (max. 500000)
- 428 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 734 PDF objects out of 1000 (max. 8388607)
+ 598 compressed objects within 6 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 444 words of extra memory for PDF output out of 10000 (max. 10000000)
 

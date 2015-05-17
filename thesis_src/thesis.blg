@@ -8,6 +8,7 @@ A level-1 auxiliary file: results/gon_tradeoff.aux
 A level-1 auxiliary file: results/tdnn_net_error.aux
 A level-1 auxiliary file: results/tbptt_net_error.aux
 A level-1 auxiliary file: results/cw_net_error.aux
+A level-1 auxiliary file: results/net_tradeoff.aux
 A level-1 auxiliary file: results/tdnn_man_error.aux
 A level-1 auxiliary file: results/tbptt_man_error.aux
 A level-1 auxiliary file: results/cw_man_error.aux
@@ -15,55 +16,55 @@ A level-1 auxiliary file: results/man_tradeoff.aux
 The style file: plain.bst
 Database file #1: bibliography.bib
 Warning--entry type for "bepu-robotarm-demo" isn't style-file defined
---line 58 of file bibliography.bib
+--line 90 of file bibliography.bib
 Warning--entry type for "bepuphysics" isn't style-file defined
---line 68 of file bibliography.bib
+--line 100 of file bibliography.bib
 Warning--entry type for "dstat" isn't style-file defined
---line 94 of file bibliography.bib
+--line 126 of file bibliography.bib
 Warning--to sort, need author or key in dstat
 Warning--to sort, need author or key in bepuphysics
 Warning--to sort, need author or key in bepu-robotarm-demo
 Warning--empty booktitle in rumelhart-hinton-williams
 Warning--empty booktitle in phoneme-recognition-tdnn
-You've used 12 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            575 strings with 6086 characters,
-and the built_in function-call counts, 3609 in all, are:
-= -- 352
-> -- 142
+            599 strings with 6582 characters,
+and the built_in function-call counts, 4415 in all, are:
+= -- 438
+> -- 174
 < -- 4
-+ -- 62
-- -- 46
-* -- 244
-:= -- 564
-add.period$ -- 31
-call.type$ -- 12
-change.case$ -- 59
++ -- 75
+- -- 56
+* -- 294
+:= -- 712
+add.period$ -- 43
+call.type$ -- 15
+change.case$ -- 71
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 140
-empty$ -- 314
-format.name$ -- 46
-if$ -- 776
+cite$ -- 20
+duplicate$ -- 172
+empty$ -- 376
+format.name$ -- 56
+if$ -- 941
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 8
-newline$ -- 56
-num.names$ -- 18
-pop$ -- 76
+int.to.str$ -- 15
+missing$ -- 11
+newline$ -- 74
+num.names$ -- 24
+pop$ -- 87
 preamble$ -- 1
-purify$ -- 47
+purify$ -- 58
 quote$ -- 0
-skip$ -- 113
+skip$ -- 129
 stack$ -- 0
-substring$ -- 220
-swap$ -- 30
+substring$ -- 257
+swap$ -- 33
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 58
 warning$ -- 5
-while$ -- 30
-width$ -- 14
-write$ -- 118
+while$ -- 38
+width$ -- 17
+write$ -- 157
 (There were 8 warnings)
